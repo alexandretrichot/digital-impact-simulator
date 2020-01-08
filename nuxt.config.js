@@ -1,9 +1,15 @@
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+	router: {
+		base: '/carbon_simulator/'
+	}
+} : {}
 
 export default {
 	mode: 'spa',
 	server: {
 		host: "0.0.0.0"
 	},
+	...routerBase,
 	head: {
 		title: process.env.npm_package_name || '',
 		meta: [

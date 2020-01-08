@@ -9,25 +9,29 @@ export default {
 </script>
 <template>
   <div class="container">
-    <h1>Simulateur d'impact carbone numérique</h1>
     <CarbonSimulator />
   </div>
 </template>
 <style>
 * {
-  font-family: sans-serif;
+  font-family: monospace, sans-serif;
   box-sizing: border-box;
 }
 
 body {
-  background: black;
-  color: white;
+  background: white;
+  color: black;
   margin: 0;
 }
 
 .container {
-  padding: 12px;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 800px;
+  padding: 12px;
 }
+
+p {
+	font-size: 20px;
+}
+
 </style>

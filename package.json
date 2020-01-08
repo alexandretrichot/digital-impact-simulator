@@ -1,19 +1,23 @@
 {
-  "name": "carbon_simulator",
-  "version": "1.0.0",
-  "description": "A simulator for calculate your carbon footprint",
-  "author": "alexandretrichot",
-  "private": true,
-  "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
-  },
-  "dependencies": {
-    "node-sass": "^4.13.0",
-    "nuxt": "^2.0.0",
-    "sass-loader": "^8.0.0"
-  },
-  "devDependencies": {}
+	"name": "carbon_simulator",
+	"version": "1.0.0",
+	"description": "A simulator for calculate your carbon footprint",
+	"author": "alexandretrichot",
+	"private": true,
+	"scripts": {
+		"dev": "nuxt",
+		"build": "nuxt build",
+		"start": "nuxt start",
+		"generate": "nuxt generate",
+		"generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
+		"deploy:gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup"
+	},
+	"dependencies": {
+		"node-sass": "^4.13.0",
+		"nuxt": "^2.0.0",
+		"sass-loader": "^8.0.0"
+	},
+	"devDependencies": {
+		"push-dir": "^0.4.1"
+	}
 }
