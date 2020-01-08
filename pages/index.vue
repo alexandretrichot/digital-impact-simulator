@@ -1,26 +1,41 @@
 <script>
 import CarbonSimulator from "~/components/CarbonSimulator";
+import { version } from "~/package.json";
 
 export default {
+  data() {
+    return {
+      version
+    };
+  },
   components: {
     CarbonSimulator
   }
 };
 </script>
 <template>
-  <div class="container">
-    <CarbonSimulator />
+  <div class="wrapper">
+    <div class="container">
+      <CarbonSimulator />
+    </div>
+    <footer>
+      <div>
+        © Copyright
+        <a href="https://github.com/alexandretrichot">@alexandretrichot</a>
+      </div>
+      <div>Version : {{ version }}</div>
+    </footer>
   </div>
 </template>
-<style>
+<style lang="scss">
 * {
-  font-family: monospace, sans-serif;
+  font-family: sans-serif;
   box-sizing: border-box;
 }
 
 body {
-  background: white;
-  color: black;
+  background: black;
+  color: white;
   margin: 0;
 }
 
@@ -31,7 +46,21 @@ body {
 }
 
 p {
-	font-size: 20px;
+  font-size: 20px;
 }
 
+footer {
+  background: white;
+  color: black;
+  padding: 12px;
+  font-weight: bold;
+
+  div {
+    text-align: center;
+
+    a {
+      color: black;
+    }
+  }
+}
 </style>

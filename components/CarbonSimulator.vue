@@ -1,5 +1,6 @@
 <script>
 import HourInput from "~/components/HourInput";
+
 export default {
   name: "CarbonSimulator",
   components: {
@@ -7,25 +8,56 @@ export default {
   },
   data() {
     return {
-		//user
-		googleRequests: 4,
-		emailsSended: 6,
-		emailsReceived: 12,
-		youtubeTime: 2.25,
-		netflixTime: 4,
+      //user
+      googleRequests: 4,
+      emailsSended: 6,
+      emailsReceived: 12,
+      emailsSleep: 400,
+      youtubeTime: 2.25,
+      netflixTime: 4,
+      snapCount: 10,
+      instaCount: 5,
 
-		//data
-		gramPerGoogle: 7,
-		googleRequestPerSecond: 38000,
-		gramPerEmail: 27,
-		emailPerSecond: 3391203,
-		gramPerPhotos: 30,
-		snapsPerDay: 40509.26,
-
-	};
+      //data
+      gramPerGoogle: 7,
+      googleRequestPerSecond: 38000,
+      gramPerEmail: 27,
+      gramPerEmailSleepDay: 10 / 365,
+      emailPerSecond: 3391203,
+	  gramPerPhoto: 30,
+	  gramPerStreamHour: 43000,
+      snapsPerDay: 40509.26,
+      instaPostsPerDay: 100000000,
+      instaLikesPerDay: 4200000000
+    };
   },
   computed: {
-	  
+    totalGoogle() {
+      return this.googleRequests * this.gramPerGoogle;
+    },
+    totalEmail() {
+      return (
+        this.emailsSended * this.gramPerEmail +
+        this.emailsReceived * this.gramPerEmail * 0.8 +
+        this.emailsSleep * this.gramPerEmailSleepDay
+      );
+    },
+    totalSocial() {
+      return (
+        this.instaCount * this.gramPerPhoto + this.snapCount * this.gramPerPhoto
+      );
+    },
+    totalStream() {
+      return (
+        this.netflixTime * this.gramPerStreamHour +
+        this.youtubeTime * this.gramPerStreamHour
+      );
+    },
+    result() {
+      return (
+        this.totalGoogle + this.totalEmail + this.totalSocial + this.totalStream
+      );
+    }
   }
 };
 </script>
@@ -33,37 +65,113 @@ export default {
   <div class="main">
     <h1>Simulateur d'impact carbone numérique</h1>
     <p>Remplissez les cases en fonction de votre usage du numérique pour déterminer votre impact sur l'environnement.</p>
+
+    <!-- Web -->
     <div class="card">
       <h2>Recherches sur le web</h2>
-	  <p>Une recherche google emet en moyenne {{ gramPerGoogle }} grammes de CO<sub>2</sub>.</p>
-	  <p>Chaques secondes, google doit répondre à <b>{{ googleRequestPerSecond }}</b> requêtes. Soit <b>{{ (googleRequestPerSecond * 60) }}</b> par minutes et plus de <b>{{ (googleRequestPerSecond * 60 * 60 / 1000000).toFixed(0) }} millions</b> par heures.</p>
-	  <p>Cela a pour effet de dégager <b>{{ (gramPerGoogle * googleRequestPerSecond * 60 * 60 / 1000000) }} tonnes</b> de CO<sub>2</sub> chaque heure en permanence.</p>
-	  <h3>Nombres de recherches google par jour.</h3>
-	  <input type="number" min="0" placeholder="emails/jour" v-model="googleRequests" />
+      <p>
+        Une recherche google emet en moyenne {{ gramPerGoogle }} grammes de CO
+        <sub>2</sub>.
+      </p>
+      <p>
+        Chaques secondes, google doit répondre à
+        <b>{{ googleRequestPerSecond }}</b> requêtes. Soit
+        <b>{{ (googleRequestPerSecond * 60) }}</b> par minutes et plus de
+        <b>{{ (googleRequestPerSecond * 60 * 60 / 1000000).toFixed(0) }} millions</b> par heures.
+      </p>
+      <p>
+        Cela a pour effet de dégager
+        <b>{{ (gramPerGoogle * googleRequestPerSecond * 60 * 60 / 1000000) }} tonnes</b> de CO
+        <sub>2</sub> chaque heure en permanence.
+      </p>
+      <h3>Nombres de recherches google par jour.</h3>
+      <input type="number" min="0" placeholder="emails/jour" v-model="googleRequests" />
+
+      <h3>
+        <span class="num">{{ totalGoogle }} grammes/jour</span> de CO
+        <sub>2</sub> avec les recherches Google
+      </h3>
     </div>
-	<div class="card">
-      <h2>Communications</h2>
-	  <h3>L'email</h3>
-	  <p>L'envoi d'un email emet en moyenne 27 grammes de CO<sub>2</sub>.</p>
 
-	  <p>Chaques secondes, <b>{{ emailPerSecond }}</b> sont envoyés. Soit plus de <b>{{ (emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} milliards</b> par heures.</p>
-	  <p>Cela a pour effet de dégager plus de <b>{{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} kilotonnes</b> de CO<sub>2</sub> par heure. ({{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000) }} tonnes)</p>
+    <!-- Email -->
+    <div class="card">
+      <h2>L'email</h2>
+      <p>
+        L'envoi d'un email emet en moyenne 27 grammes de CO
+        <sub>2</sub>.
+      </p>
 
-	  <h3>Nombre d'emails envoyés par jour</h3>
-	  <input type="number" min="0" placeholder="emails/jour" v-model="emailsSended" />
-	  <h3>Nombre d'emails reçus par jour</h3>
-	  <input type="number" min="0" placeholder="emails/jour" v-model="emailsReceived" />
+      <p>
+        Chaques secondes,
+        <b>{{ emailPerSecond }}</b> emails sont envoyés. Soit plus de
+        <b>{{ (emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} milliards</b> par heures.
+      </p>
+      <p>
+        Cela a pour effet de dégager plus de
+        <b>{{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} kilotonnes</b> de CO
+        <sub>2</sub>
+        par heure. ({{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000).toFixed(2) }} tonnes)
+      </p>
 
-	  <h3>Snapchat / Instagram</h3>
+      <h3>Nombre d'emails envoyés par jour</h3>
+      <input type="number" min="0" placeholder="emails/jour" v-model="emailsSended" />
+      <h3>Nombre d'emails reçus par jour</h3>
+      <input type="number" min="0" placeholder="emails/jour" v-model="emailsReceived" />
+      <h3>Nombre d'emails stockés dans la boite de reception et autres dossiers</h3>
+      <input type="number" min="0" placeholder="emails/jour" v-model="emailsSleep" />
+
+      <h3>
+        <span class="num">{{ totalEmail.toFixed(2) }} grammes/jour</span> de CO
+        <sub>2</sub> à cause des emails.
+      </h3>
     </div>
-	<div class="card">
-      <h2>Les vidéos</h2>
-	  <h3>YouTube</h3>
-	  <h3>Temps passé sur YouTube par jour</h3>
+
+    <!-- Social -->
+    <div class="card">
+      <h2>Snapchat / Instagram</h2>
+
+      <p>
+        Sur Instagram,
+        <b>{{ (instaPostsPerDay / 1000000).toFixed(2) }} millions</b> de photos et de vidéos sont publiés par jours. En parallèle,
+        <b>{{ (instaLikesPerDay / 1000000000).toFixed(2) }} milliards</b> de likes sont comptabilisés quotidiennement.
+      </p>
+
+      <h3>Nombre de photos envoyés par jour sur Instagram</h3>
+      <input type="number" min="0" placeholder="emails/jour" v-model="instaCount" />
+      <h3>Nombre de photos envoyés par jour sur Snapchat</h3>
+      <input type="number" min="0" placeholder="emails/jour" v-model="snapCount" />
+
+      <h3>
+        <span class="num">{{ totalSocial.toFixed(0) }} grammes/jour</span> de CO
+        <sub>2</sub> à cause des emails.
+      </h3>
+    </div>
+
+    <!-- Streaming -->
+    <div class="card">
+      <h2>Le streaming</h2>
+      <h3>YouTube</h3>
+      <h3>Temps passé sur YouTube par jour</h3>
       <HourInput v-model="youtubeTime" />
-	  <h3>Netflix</h3>
-	  <h3>Temps passé sur Netflix par jour</h3>
+      <h3>Netflix</h3>
+      <h3>Temps passé sur Netflix par jour</h3>
       <HourInput v-model="netflixTime" />
+      <h3>
+        <span class="num">{{ totalStream.toFixed(0) }} grammes/jour</span> de CO
+        <sub>2</sub> à cause des emails.
+      </h3>
+    </div>
+    <div class="result">
+      <h2>Total de CO<sub>2</sub> regeté</h2>
+      <p>
+        <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
+      </p>
+	  <p>
+        <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
+      </p>
+	  <p>
+        <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
+      </p>
     </div>
   </div>
 </template>
@@ -83,13 +191,25 @@ export default {
   }
 }
 
+.num {
+  display: inline-block;
+  padding: 6px;
+  border-radius: 6px;
+  background: #ffef24;
+  color: black;
+  font-weight: bold;
+}
+
 .card {
   display: block;
-  background: white;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  background: #111111;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
   border-radius: 12px;
   overflow: hidden;
   padding: 12px;
   margin: 12px;
+}
+
+.result {
 }
 </style>
