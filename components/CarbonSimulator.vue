@@ -143,7 +143,7 @@ export default {
 
       <h3>
         <span class="num">{{ totalSocial.toFixed(0) }} grammes/jour</span> de CO
-        <sub>2</sub> à cause des emails.
+        <sub>2</sub> dù à l'envoi de photos sur les réseaux.
       </h3>
     </div>
 
@@ -158,7 +158,7 @@ export default {
       <HourInput v-model="netflixTime" />
       <h3>
         <span class="num">{{ totalStream.toFixed(0) }} grammes/jour</span> de CO
-        <sub>2</sub> à cause des emails.
+        <sub>2</sub> regeté par le visionnage de vidéos en ligne.
       </h3>
     </div>
     <div class="result">
