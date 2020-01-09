@@ -23,10 +23,10 @@ export default {
     },
     updateMn: function(value) {
       this.$emit("input", value / 60 + this.h);
-	},
-	round(x, dec){
-		return Number.parseFloat(x).toFixed(dec);
-	}
+    },
+    round(x, dec) {
+      return Number.parseFloat(x).toFixed(dec);
+    }
   }
 };
 </script>
@@ -40,18 +40,36 @@ export default {
       :value="round(h, 0)"
       v-on:input="updateH(Number($event.target.value))"
     />
-    H
+    <div class="sepa">H</div>
     <input
       type="number"
       placeholder="Minutes"
       :value="round(mn, 0)"
-	  step="10"
+      step="10"
       v-on:input="updateMn(Number($event.target.value))"
     />
   </div>
 </template>
 <style lang="scss" scoped>
 .input {
-	
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+
+  input[type="number"] {
+    display: block;
+    padding: 6px;
+    box-sizing: border-box;
+    font-size: 18px;
+    background: #333;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    width: 60px;
+  }
+
+  .sepa {
+    margin: 0 6px;
+  }
 }
 </style>

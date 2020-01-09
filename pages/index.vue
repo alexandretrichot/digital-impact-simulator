@@ -31,6 +31,7 @@ export default {
 * {
   font-family: sans-serif;
   box-sizing: border-box;
+  outline: none;
 }
 
 body {

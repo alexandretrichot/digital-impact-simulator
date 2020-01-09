@@ -24,8 +24,8 @@ export default {
       gramPerEmail: 27,
       gramPerEmailSleepDay: 10 / 365,
       emailPerSecond: 3391203,
-	  gramPerPhoto: 30,
-	  gramPerStreamHour: 43000,
+      gramPerPhoto: 30,
+      gramPerStreamHour: 43000,
       snapsPerDay: 40509.26,
       instaPostsPerDay: 100000000,
       instaLikesPerDay: 4200000000
@@ -162,14 +162,17 @@ export default {
       </h3>
     </div>
     <div class="result">
-      <h2>Total de CO<sub>2</sub> regeté</h2>
+      <h2>
+        Total de CO
+        <sub>2</sub> regeté
+      </h2>
       <p>
         <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
       </p>
-	  <p>
+      <p>
         <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
       </p>
-	  <p>
+      <p>
         <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
       </p>
     </div>
@@ -210,6 +213,18 @@ export default {
   margin: 12px;
 }
 
-.result {
+input[type="text"],
+input[type="number"] {
+  width: calc(100% - 24px);
+  display: block;
+  padding: 6px;
+  margin: 12px;
+  box-sizing: border-box;
+  font-size: 18px;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
 }
 </style>
