@@ -63,123 +63,136 @@ export default {
 </script>
 <template>
   <div class="main">
-    <h1>Simulateur d'impact carbone numérique</h1>
-    <p>Remplissez les cases en fonction de votre usage du numérique pour déterminer votre impact sur l'environnement.</p>
+    <div class="simulator">
+      <h1>Simulateur d'impact carbone</h1>
+      <p>Remplissez les cases en fonction de votre usage du numérique pour déterminer votre impact sur l'environnement.</p>
 
-    <!-- Web -->
-    <div class="card">
-      <h2>Recherches sur le web</h2>
-      <p>
-        Une recherche google emet en moyenne {{ gramPerGoogle }} grammes de CO
-        <sub>2</sub>.
-      </p>
-      <p>
-        Chaques secondes, google doit répondre à
-        <b>{{ googleRequestPerSecond }}</b> requêtes. Soit
-        <b>{{ (googleRequestPerSecond * 60) }}</b> par minutes et plus de
-        <b>{{ (googleRequestPerSecond * 60 * 60 / 1000000).toFixed(0) }} millions</b> par heures.
-      </p>
-      <p>
-        Cela a pour effet de dégager
-        <b>{{ (gramPerGoogle * googleRequestPerSecond * 60 * 60 / 1000000) }} tonnes</b> de CO
-        <sub>2</sub> chaque heure en permanence.
-      </p>
-      <h3>Nombres de recherches google par jour.</h3>
-      <input type="number" min="0" placeholder="emails/jour" v-model="googleRequests" />
+      <!-- Web -->
+      <div class="card">
+        <h2>Recherches sur le web</h2>
+        <p>
+          Une recherche google emet en moyenne {{ gramPerGoogle }} grammes de CO<sub>2</sub>.
+        </p>
+        <p>
+          Chaques secondes, google doit répondre à
+          <b>{{ googleRequestPerSecond }}</b> requêtes. Soit
+          <b>{{ (googleRequestPerSecond * 60) }}</b> par minutes et plus de
+          <b>{{ (googleRequestPerSecond * 60 * 60 / 1000000).toFixed(0) }} millions</b> par heures.
+        </p>
+        <p>
+          Cela a pour effet de dégager
+          <b>{{ (gramPerGoogle * googleRequestPerSecond * 60 * 60 / 1000000) }} tonnes</b> de CO<sub>2</sub> chaque heure en permanence.
+        </p>
+        <h3>Nombres de recherches google par jour.</h3>
+        <input type="number" min="0" placeholder="recherches/jour" v-model="googleRequests" />
 
-      <h3>
-        <span class="num">{{ totalGoogle }} grammes/jour</span> de CO
-        <sub>2</sub> avec les recherches Google
-      </h3>
+        <h3>
+          <span class="num">{{ totalGoogle }} grammes/jour</span> de CO<sub>2</sub> rejetés avec les recherches Google.
+        </h3>
+      </div>
+
+      <!-- Email -->
+      <div class="card">
+        <h2>L'email</h2>
+        <p>
+          L'envoi d'un email émet en moyenne {{ gramPerEmail }} grammes de CO<sub>2</sub>.
+        </p>
+
+        <p>
+          Chaques secondes,
+          <b>{{ emailPerSecond }}</b> emails sont envoyés. Soit plus de
+          <b>{{ (emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} milliards</b> par heures.
+        </p>
+        <p>
+          Cela a pour effet de dégager plus de
+          <b>{{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} kilotonnes</b> de CO<sub>2</sub>
+          par heure. ({{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000).toFixed(2) }} tonnes)
+        </p>
+
+        <h3>Nombre d'emails envoyés par jour</h3>
+        <input type="number" min="0" placeholder="envoyés/jour" v-model="emailsSended" />
+        <h3>Nombre d'emails reçus par jour</h3>
+        <input type="number" min="0" placeholder="reçus/jour" v-model="emailsReceived" />
+        <h3>Nombre d'emails stockés dans la boîte de reception et autres dossiers</h3>
+        <input type="number" min="0" placeholder="emails dans les boîtes" v-model="emailsSleep" />
+
+        <h3>
+          <span class="num">{{ totalEmail.toFixed(2) }} grammes/jour</span> de CO<sub>2</sub> à cause des emails.
+        </h3>
+      </div>
+
+      <!-- Social -->
+      <div class="card">
+        <h2>Snapchat / Instagram</h2>
+
+        <p>
+          Sur Instagram,
+          <b>{{ (instaPostsPerDay / 1000000).toFixed(2) }} millions</b> de photos et de vidéos sont publiées par jours. En parallèle,
+          <b>{{ (instaLikesPerDay / 1000000000).toFixed(2) }} milliards</b> de likes sont comptabilisés quotidiennement.
+        </p>
+
+        <h3>Nombre de photos envoyées par jour sur Instagram</h3>
+        <input type="number" min="0" placeholder="photos/jour" v-model="instaCount" />
+        <h3>Nombre de photos envoyées par jour sur Snapchat</h3>
+        <input type="number" min="0" placeholder="photos/jour" v-model="snapCount" />
+
+        <h3>
+          <span class="num">{{ totalSocial.toFixed(0) }} grammes/jour</span> de CO<sub>2</sub> dù à l'envoi de photos sur les réseaux sociaux.
+        </h3>
+      </div>
+
+      <!-- Streaming -->
+      <div class="card">
+        <h2>Le streaming</h2>
+        <h3>YouTube</h3>
+        <h3>Temps passé sur YouTube par jour</h3>
+        <HourInput v-model="youtubeTime" />
+        <h3>Netflix</h3>
+        <h3>Temps passé sur Netflix par jour</h3>
+        <HourInput v-model="netflixTime" />
+        <h3>
+          <span class="num">{{ totalStream.toFixed(0) }} grammes/jour</span> de CO<sub>2</sub> regeté par le visionnage de vidéos en ligne.
+        </h3>
+      </div>
     </div>
-
-    <!-- Email -->
-    <div class="card">
-      <h2>L'email</h2>
-      <p>
-        L'envoi d'un email emet en moyenne 27 grammes de CO
-        <sub>2</sub>.
-      </p>
-
-      <p>
-        Chaques secondes,
-        <b>{{ emailPerSecond }}</b> emails sont envoyés. Soit plus de
-        <b>{{ (emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} milliards</b> par heures.
-      </p>
-      <p>
-        Cela a pour effet de dégager plus de
-        <b>{{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000000).toFixed(0) }} kilotonnes</b> de CO
-        <sub>2</sub>
-        par heure. ({{ (gramPerEmail * emailPerSecond * 60 * 60 / 1000000).toFixed(2) }} tonnes)
-      </p>
-
-      <h3>Nombre d'emails envoyés par jour</h3>
-      <input type="number" min="0" placeholder="emails/jour" v-model="emailsSended" />
-      <h3>Nombre d'emails reçus par jour</h3>
-      <input type="number" min="0" placeholder="emails/jour" v-model="emailsReceived" />
-      <h3>Nombre d'emails stockés dans la boite de reception et autres dossiers</h3>
-      <input type="number" min="0" placeholder="emails/jour" v-model="emailsSleep" />
-
-      <h3>
-        <span class="num">{{ totalEmail.toFixed(2) }} grammes/jour</span> de CO
-        <sub>2</sub> à cause des emails.
-      </h3>
-    </div>
-
-    <!-- Social -->
-    <div class="card">
-      <h2>Snapchat / Instagram</h2>
-
-      <p>
-        Sur Instagram,
-        <b>{{ (instaPostsPerDay / 1000000).toFixed(2) }} millions</b> de photos et de vidéos sont publiés par jours. En parallèle,
-        <b>{{ (instaLikesPerDay / 1000000000).toFixed(2) }} milliards</b> de likes sont comptabilisés quotidiennement.
-      </p>
-
-      <h3>Nombre de photos envoyés par jour sur Instagram</h3>
-      <input type="number" min="0" placeholder="emails/jour" v-model="instaCount" />
-      <h3>Nombre de photos envoyés par jour sur Snapchat</h3>
-      <input type="number" min="0" placeholder="emails/jour" v-model="snapCount" />
-
-      <h3>
-        <span class="num">{{ totalSocial.toFixed(0) }} grammes/jour</span> de CO
-        <sub>2</sub> dù à l'envoi de photos sur les réseaux.
-      </h3>
-    </div>
-
-    <!-- Streaming -->
-    <div class="card">
-      <h2>Le streaming</h2>
-      <h3>YouTube</h3>
-      <h3>Temps passé sur YouTube par jour</h3>
-      <HourInput v-model="youtubeTime" />
-      <h3>Netflix</h3>
-      <h3>Temps passé sur Netflix par jour</h3>
-      <HourInput v-model="netflixTime" />
-      <h3>
-        <span class="num">{{ totalStream.toFixed(0) }} grammes/jour</span> de CO
-        <sub>2</sub> regeté par le visionnage de vidéos en ligne.
-      </h3>
-    </div>
-    <div class="result">
+    <div class="result card">
       <h2>
-        Total de CO
-        <sub>2</sub> regeté
+        Total de CO<sub>2</sub> rejeté
       </h2>
       <p>
-        <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
-      </p>
-      <p>
-        <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
-      </p>
-      <p>
-        <span class="num">{{ result.toFixed(2) }} grammes/jour</span>
+        <span class="num">{{ (result / 1000).toFixed(2) }} Kg/jour</span>
       </p>
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
 .main {
+  display: flex;
+
+  .simulator {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .result {
+    width: 300px;
+	max-height: calc(100vh - 84px);
+	overflow: hidden;
+    position: fixed;
+    top: 60px;
+    right: 0;
+  }
+
+  @media screen and (max-width: 760px) {
+    display: block;
+
+	.result {
+		position: relative;
+		width: auto;
+		max-height: auto;
+	}
+  }
+
   h1,
   h2,
   h3,
@@ -188,9 +201,6 @@ export default {
   input,
   .input {
     margin: 12px;
-  }
-
-  input {
   }
 }
 
@@ -205,8 +215,8 @@ export default {
 
 .card {
   display: block;
-  background: #111111;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
+  background: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   overflow: hidden;
   padding: 12px;
