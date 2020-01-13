@@ -1,20 +1,77 @@
 <script>
-export default {};
+import SearchEngine from "~/components/SearchEngine";
+
+export default {
+  components: {
+    SearchEngine
+  },
+  data() {
+    return {
+      engines: [
+        {
+          id: 0,
+          name: "Google",
+          url: "https://google.com/"
+        },
+        {
+          id: 1,
+          name: "Bing",
+          url: "https://bing.com/"
+        },
+        {
+          id: 2,
+          name: "Ecosia",
+          url: "https://ecosia.org/"
+        },
+        {
+          id: 3,
+          name: "Lilo",
+          url: "https://www.lilo.org/"
+        },
+        {
+          id: 4,
+          name: "Qwant",
+          url: "https://www.qwant.com/"
+        },
+        {
+          id: 5,
+          name: "Yahoo",
+          url: "https://fr.yahoo.com/"
+        },
+        {
+          id: 6,
+          name: "Orange",
+          url: "https://www.orange.fr/"
+        },
+        {
+          id: 7,
+          name: "Startpage",
+          url: "https://www.startpage.com/"
+        },
+        {
+          id: 8,
+          name: "DuckDuckGo",
+          url: "https://duckduckgo.com/"
+        }
+      ]
+    };
+  }
+};
 </script>
 <template>
   <div class="container">
     <div class="searches">
-      
+      <h2>Comparez les moteurs de recherche.</h2>
+      <SearchEngine v-for="engine of engines" :key="engine.id" :engine="engine" />
     </div>
   </div>
 </template>
 <style lang="scss" scoped>
 .container {
-	padding: 12px;
+  padding: 12px;
 }
 .searches {
   max-width: 800px;
   margin: 0 auto;
-  background: green;
 }
 </style>
