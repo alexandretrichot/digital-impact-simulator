@@ -46,6 +46,16 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4,
+p,
+input,
+.input {
+  margin: 12px;
+}
+
 p {
   font-size: 18px;
 }
@@ -74,7 +84,7 @@ header {
     height: 100%;
     .link {
       height: 100%;
-	  display: block;
+      display: block;
       padding: 12px;
       img {
         display: block;

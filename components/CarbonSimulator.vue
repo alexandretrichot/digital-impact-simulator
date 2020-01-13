@@ -192,16 +192,6 @@ export default {
 		max-height: auto;
 	}
   }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  p,
-  input,
-  .input {
-    margin: 12px;
-  }
 }
 
 .num {

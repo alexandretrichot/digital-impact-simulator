@@ -5,17 +5,9 @@ export default {};
   <div class="container">
     <h1>Le numérique et l'environnement. Séance 3</h1>
     <div class="box">
-      <nuxt-link class="card" to="/simulator">
-        <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
-        <h2>Simulateur</h2>
-      </nuxt-link>
-      <nuxt-link class="card" to="/simulator">
-        <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
-        <h2>Simulateur</h2>
-      </nuxt-link>
-      <nuxt-link class="card" to="/simulator">
-        <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
-        <h2>Simulateur</h2>
+      <nuxt-link class="card" to="/searchEngines">
+        <img src="~/assets/svg/search-solid.svg" alt="Recherches Logo" />
+        <h2>Recherches</h2>
       </nuxt-link>
       <nuxt-link class="card" to="/simulator">
         <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
