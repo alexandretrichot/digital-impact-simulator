@@ -1,66 +1,64 @@
 <script>
-import CarbonSimulator from "~/components/CarbonSimulator";
-import { version } from "~/package.json";
-
-export default {
-  data() {
-    return {
-      version
-    };
-  },
-  components: {
-    CarbonSimulator
-  }
-};
+export default {};
 </script>
 <template>
-  <div class="wrapper">
-    <div class="container">
-      <CarbonSimulator />
+  <div class="container">
+    <h1>Le numérique et l'environnement. Séance 3</h1>
+    <div class="box">
+      <nuxt-link class="card" to="/simulator">
+        <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
+        <h2>Simulateur</h2>
+      </nuxt-link>
+      <nuxt-link class="card" to="/simulator">
+        <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
+        <h2>Simulateur</h2>
+      </nuxt-link>
+      <nuxt-link class="card" to="/simulator">
+        <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
+        <h2>Simulateur</h2>
+      </nuxt-link>
+      <nuxt-link class="card" to="/simulator">
+        <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
+        <h2>Simulateur</h2>
+      </nuxt-link>
     </div>
-    <footer>
-      <div>
-        © Copyright
-        <a href="https://github.com/alexandretrichot">@alexandretrichot</a>
-      </div>
-      <div>Version : {{ version }}</div>
-    </footer>
   </div>
 </template>
-<style lang="scss">
-* {
-  font-family: sans-serif;
-  box-sizing: border-box;
-  outline: none;
-}
-
-body {
-  background: black;
-  color: white;
-  margin: 0;
-}
-
+<style lang="scss" scoped>
 .container {
-  margin: 0 auto;
-  max-width: 800px;
   padding: 12px;
-}
-
-p {
-  font-size: 20px;
-}
-
-footer {
-  background: white;
-  color: black;
-  padding: 12px;
-  font-weight: bold;
-
-  div {
+  h1 {
     text-align: center;
+  }
+  .box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 
-    a {
-      color: black;
+    .card {
+      flex-shrink: 0;
+      height: 200px;
+      width: 180px;
+      background: black;
+      overflow: hidden;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 12px;
+      color: white;
+      text-decoration: none;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+      img {
+        height: 100px;
+      }
+
+      h2 {
+        display: block;
+      }
     }
   }
 }
