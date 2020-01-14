@@ -57,6 +57,7 @@ export default {
   font-weight: bold;
 
   input[type="number"] {
+    margin: 0;
     display: block;
     padding: 6px;
     box-sizing: border-box;

@@ -39,7 +39,6 @@ export default {
   },
   computed: {
     total() {
-      console.log("total");
       let score = this.engagements
         .map(engagement => engagement.score)
         .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
@@ -49,7 +48,6 @@ export default {
       return this.engagements.length > 0
         ? this.engagements
             .map(engagement => {
-              console.log(engagement);
               return engagement.used;
             })
             .reduce((a, b) => a && b)
