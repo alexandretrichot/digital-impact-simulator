@@ -13,6 +13,10 @@ export default {};
         <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
         <h2>Simulateur</h2>
       </nuxt-link>
+	  <nuxt-link class="card" to="/engage">
+        <img src="~/assets/svg/handshake-regular.svg" alt="Engagements Logo" />
+        <h2>Engagements</h2>
+      </nuxt-link>
     </div>
   </div>
 </template>

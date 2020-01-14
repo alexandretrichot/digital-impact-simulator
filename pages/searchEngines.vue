@@ -62,6 +62,11 @@ export default {
   <div class="container">
     <div class="searches">
       <h2>Comparez les moteurs de recherche.</h2>
+      <p>
+        Un des outils numériques le plus utile de notre quotidien est le moteur de recherche. Au dela de Google, il en existe un certain nombre.
+        <br />Mais tous ne se valent pas !
+      </p>
+      <p>Essayez de naviguer et de chercher des informations sur chacun d'entre eux afin de trouver celui qui vous parrait être le meilleur de tous.</p>
       <SearchEngine v-for="engine of engines" :key="engine.id" :engine="engine" />
     </div>
   </div>
