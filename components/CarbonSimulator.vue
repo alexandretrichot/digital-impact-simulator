@@ -143,7 +143,10 @@ export default {
 
       <!-- Streaming -->
       <div class="card">
-        <h2>Le streaming</h2>
+		<h2>Le streaming</h2>
+		<p>Chaque années, YouTube et les plateformes de vidéos eu lignes génèrent 65 millions de tonnes de CO<sub>2</sub>.</p>
+		<p>Les services de VOD comme Netflix ou Amazon prime en génèrent quand à eux 102 millions.</p>
+		<p>Combinés, ils génèrent plus de 170 millions de tonnes de CO<sub>2</sub> sur une année.</p>
         <h3>YouTube</h3>
         <h3>Temps passé sur YouTube par jour</h3>
         <HourInput v-model="youtubeTime" />
