@@ -13,12 +13,19 @@ export default {
       share: false
     };
   },
-  computed: {
-    score() {
+  watch: {
+    picked() {
+      this.majData();
+    },
+    share() {
+      this.majData();
+    }
+  },
+  methods: {
+    majData() {
       this.engagement.used = !isNaN(this.picked);
       this.engagement.score =
         (isNaN(this.picked) ? 0 : this.picked) + (this.share ? 1 : 0);
-      return this.engagement.score;
     }
   }
 };
@@ -73,10 +80,10 @@ export default {
 @media print {
   .print {
     &.card {
-		margin: 0;
-		padding: 3pt;
-	}
-	
+      margin: 0;
+      padding: 3pt;
+    }
+
     h3 {
       font-size: 10pt;
       margin: 0;
