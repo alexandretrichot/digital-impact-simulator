@@ -17,7 +17,7 @@ export default {
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin: 12px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
@@ -37,6 +37,7 @@ export default {
 
 /* Create a custom checkbox */
 .checkmark {
+  border-radius: 5px;
   position: absolute;
   top: 0;
   left: 0;

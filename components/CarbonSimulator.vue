@@ -203,16 +203,6 @@ export default {
   font-weight: bold;
 }
 
-.card {
-  display: block;
-  background: white;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 12px;
-  margin: 12px;
-}
-
 input[type="text"],
 input[type="number"] {
   width: calc(100% - 24px);

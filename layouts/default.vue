@@ -34,6 +34,16 @@ export default {
   </div>
 </template>
 <style lang="scss">
+.card {
+  display: block;
+  background: white;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 12px;
+  margin: 12px;
+}
+
 * {
   font-family: sans-serif;
   box-sizing: border-box;
@@ -51,6 +61,7 @@ h2,
 h3,
 h4,
 p,
+a,
 input,
 .input {
   margin: 12px;
@@ -87,6 +98,7 @@ header {
       height: 100%;
       display: block;
       padding: 12px;
+      margin: 0;
       img {
         display: block;
         height: 100%;

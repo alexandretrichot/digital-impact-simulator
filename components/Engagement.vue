@@ -24,8 +24,8 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <p>{{ engagement.text }}</p>
+  <div class="card">
+    <h3>{{ engagement.text }}</h3>
     <label class="container">
       Je le fais déjà
       <input
@@ -70,12 +70,17 @@ export default {
   </div>
 </template>
 <style lang="scss" scoped>
+
+h3 {
+	font-size: 24px;
+}
+
 /* The container */
 .container {
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin: 12px;
   cursor: pointer;
   font-size: 22px;
   -webkit-user-select: none;
