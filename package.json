@@ -1,6 +1,6 @@
 {
-	"name": "carbon_simulator",
-	"version": "0.2.0",
+	"name": "mne-numeric-activity",
+	"version": "0.2.1",
 	"description": "A simulator for calculate your carbon footprint",
 	"author": "alexandretrichot",
 	"private": true,

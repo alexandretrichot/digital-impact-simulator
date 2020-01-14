@@ -1,6 +1,6 @@
 const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
 	router: {
-		base: '/carbon_simulator/'
+		base: '/mne-numeric-activity/'
 	}
 } : {}
 
