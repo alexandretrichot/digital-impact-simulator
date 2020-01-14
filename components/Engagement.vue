@@ -114,7 +114,7 @@ h3 {
 
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: black;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
