@@ -1,8 +1,12 @@
 <script>
+import Checkbox from "~/components/Checkbox";
 
 export default {
   name: "Engagement",
   props: ["engagement", "index"],
+  components: {
+    Checkbox
+  },
   data() {
     return {
       picked: undefined,
@@ -62,7 +66,7 @@ export default {
       />
       <span class="checkmark"></span>
     </label>
-    <input type="checkbox" v-model="share" />Je vais en parler autour de moi
+    <Checkbox v-model="share">Je vais en parler autour de moi</Checkbox>
   </div>
 </template>
 <style lang="scss" scoped>

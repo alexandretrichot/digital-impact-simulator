@@ -1,12 +1,7 @@
 <script>
 export default {
   name: "Checkbox",
-  props: ["value"],
-  methods: {
-	  onon(a){
-		  console.log(a);
-	  }
-  }
+  props: ["value"]
 };
 </script>
 <template>
