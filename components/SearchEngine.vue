@@ -20,8 +20,8 @@ export default {
 };
 </script>
 <template>
-  <div>
-    <h3>{{engine.name}}</h3>
+  <div class="card">
+	<img class="logo" :src="engine.logo" :alt="engine.name + ' logo'" />
     <a :href="engine.url" target="_blank">Voir le moteur</a>
     <Checkbox v-model="pub">{{ engine.name }} affiche de la publicité.</Checkbox>
 	<Checkbox v-model="articles">{{ engine.name }} propose des articles à lire.</Checkbox>
@@ -32,4 +32,9 @@ export default {
   </div>
 </template>
 <style lang="scss" scoped>
+.logo {
+	display: block;
+	height: 60px;
+	margin: 12px;
+}
 </style>
