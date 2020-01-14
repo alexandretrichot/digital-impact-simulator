@@ -11,7 +11,7 @@ export default {
 </script>
 <template>
   <div class="root">
-    <header>
+    <header class="noprint">
       <div class="logo">
         <img src="~/assets/png/banner-black.png" alt="MNE Logo" />
       </div>
@@ -24,7 +24,7 @@ export default {
     <div class="frame">
       <nuxt />
     </div>
-    <footer>
+    <footer class="noprint">
       <div>
         © Copyright
         <a href="https://github.com/alexandretrichot">@alexandretrichot</a>
@@ -34,6 +34,12 @@ export default {
   </div>
 </template>
 <style lang="scss">
+@media print {
+	.noprint {
+		display: none;
+	}
+}
+
 .card {
   display: block;
   background: white;
@@ -42,6 +48,10 @@ export default {
   overflow: hidden;
   padding: 12px;
   margin: 12px;
+
+  @media print {
+	  box-shadow: none;
+  }
 }
 
 * {

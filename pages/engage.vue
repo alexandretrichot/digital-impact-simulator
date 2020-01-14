@@ -62,7 +62,7 @@ export default {
   <div class="container">
     <div class="engage">
       <h2>Mes engagements.</h2>
-      <p>Voici une liste d'engagements que vous pouvez choisir de tenir ou non. Le but serait que vous puissiez déterminer ce que vous pouvez faire dès à présent pour ameliorer votre impact du numérique.</p>
+      <p class="noprint">Voici une liste d'engagements que vous pouvez choisir de tenir ou non. Le but serait que vous puissiez déterminer ce que vous pouvez faire dès à présent pour ameliorer votre impact du numérique.</p>
       <Engagement
         v-for="(engagement, index) of engagements"
         :key="index"

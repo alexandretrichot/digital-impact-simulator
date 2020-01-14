@@ -24,9 +24,9 @@ export default {
 };
 </script>
 <template>
-  <div class="card">
+  <div class="card print">
     <h3>{{ engagement.text }}</h3>
-    <label class="container">
+    <label class="container" :class="{noprint: picked != 3}">
       Je le fais déjà
       <input
         type="radio"
@@ -34,9 +34,9 @@ export default {
         value="3"
         v-model.number="picked"
       />
-      <span class="checkmark"></span>
+      <span class="checkmark noprint"></span>
     </label>
-    <label class="container">
+    <label class="container" :class="{noprint: picked != 2}">
       Je le ferai dès maintenant
       <input
         type="radio"
@@ -44,9 +44,9 @@ export default {
         value="2"
         v-model.number="picked"
       />
-      <span class="checkmark"></span>
+      <span class="checkmark noprint"></span>
     </label>
-    <label class="container">
+    <label class="container" :class="{noprint: picked != 1}">
       Je vais y réfléchir
       <input
         type="radio"
@@ -54,9 +54,9 @@ export default {
         value="1"
         v-model.number="picked"
       />
-      <span class="checkmark"></span>
+      <span class="checkmark noprint"></span>
     </label>
-    <label class="container">
+    <label class="container" :class="{noprint: picked != 0}">
       Je ne le ferai pas
       <input
         type="radio"
@@ -64,15 +64,42 @@ export default {
         value="0"
         v-model.number="picked"
       />
-      <span class="checkmark"></span>
+      <span class="checkmark noprint"></span>
     </label>
-    <Checkbox v-model="share">Je vais en parler autour de moi</Checkbox>
+    <Checkbox v-model="share" :class="{noprint: !share}">Je vais en parler autour de moi</Checkbox>
   </div>
 </template>
 <style lang="scss" scoped>
+@media print {
+  .print {
+    &.card {
+		margin: 0;
+		padding: 3pt;
+	}
+	
+    h3 {
+      font-size: 10pt;
+      margin: 0;
+    }
+
+    .card {
+      margin: 0;
+    }
+
+    .container {
+      display: block;
+      font-size: 8pt;
+      margin: 0;
+
+      &.noprint {
+        display: none;
+      }
+    }
+  }
+}
 
 h3 {
-	font-size: 24px;
+  font-size: 24px;
 }
 
 /* The container */
