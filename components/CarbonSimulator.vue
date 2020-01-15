@@ -28,7 +28,9 @@ export default {
       gramPerStreamHour: 43000,
       snapsPerDay: 40509.26,
       instaPostsPerDay: 100000000,
-      instaLikesPerDay: 4200000000
+	  instaLikesPerDay: 4200000000,
+	  
+	  gramPerKm: 118.5,
     };
   },
   computed: {
@@ -165,6 +167,8 @@ export default {
       <p>
         <span class="num">{{ (result / 1000).toFixed(2) }} Kg/jour</span>
       </p>
+	  <p>C'est l'équivalent de {{ (result / gramPerKm).toFixed(0) }} Km en voiture</p>
+	  <p>Donc {{ (result / gramPerKm / 85.3).toFixed(0) }} fois Bar-le-Duc/Nancy</p>
     </div>
   </div>
 </template>
