@@ -11,6 +11,9 @@ export default {
 	},
 	...routerBase,
 	head: {
+		htmlAttrs: {
+			lang: 'fr',
+		},
 		title: 'Les impacts du numérique sur l\'environnement',
 		meta: [
 			{ charset: 'utf-8' },
