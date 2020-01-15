@@ -21,4 +21,6 @@ $ npm run generate
 # to heberge to github
 $ npm run generate:gh-pages
 $ npm run deploy:gh-pages
+#or
+$ npm run update
 ```
