@@ -1,7 +1,7 @@
 {
 	"name": "mne-numeric-activity",
 	"version": "0.2.1",
-	"description": "A simulator for calculate your carbon footprint",
+	"description": "Les impacts du numérique sur l'environnement. Animation pour les classes de 4ème. Séance 3",
 	"author": "alexandretrichot",
 	"private": true,
 	"scripts": {
