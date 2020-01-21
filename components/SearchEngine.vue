@@ -39,7 +39,7 @@ export default {
       this.engine.score =
         (this.pub ? -1 : 0) +
         (this.articles ? -1 : 0) +
-        (this.data ? -2 : 0) +
+        (this.data ? 2 : 0) +
         (this.eco ? (this.choice ? 4 : 3) : 0) +
         (this.power ? 1 : 0);
     }
@@ -58,7 +58,7 @@ export default {
     <a :href="engine.url" target="_blank">Voir le moteur</a>
     <Checkbox v-model="pub">{{ engine.name }} affiche de la publicité.</Checkbox>
     <Checkbox v-model="articles">{{ engine.name }} propose des articles à lire.</Checkbox>
-    <Checkbox v-model="data">{{ engine.name }} sauvegarde des données sur ses utilisateurs.</Checkbox>
+    <Checkbox v-model="data">{{ engine.name }} ne sauvegarde pas de données sur ses utilisateurs.</Checkbox>
     <Checkbox
       v-model="eco"
     >{{ engine.name }} mène des actions pour l'environnement ou reverse des fonds à des associations.</Checkbox>
