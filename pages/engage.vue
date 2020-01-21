@@ -25,7 +25,7 @@ export default {
 		"Utiliser des appareils moins gourmands en energie (smartphone plutôt qu'ordinateur).",
 		"Réparer mes appareils plutôt que de les changer.",
 		"Proteger son téléphone pour le garder plus longtemps.",
-		"Revendre ou recycler les appareils ne fonctionnants plus dormant dans vos tiroirs"
+		"Revendre ou recycler les appareils ne fonctionnant plus dormant dans vos tiroirs"
       ],
       engagements: []
     };
