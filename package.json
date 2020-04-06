@@ -14,8 +14,8 @@
 		"update": "npm run generate:gh-pages && npm run deploy:gh-pages"
 	},
 	"dependencies": {
-		"node-sass": "^4.13.0",
-		"nuxt": "^2.0.0",
+		"node-sass": "^4.13.1",
+		"nuxt": "^2.12.2",
 		"sass-loader": "^8.0.2"
 	},
 	"devDependencies": {
