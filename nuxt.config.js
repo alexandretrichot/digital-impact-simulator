@@ -1,8 +1,18 @@
-const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
-	router: {
-		base: '/mne-numeric-activity/'
-	}
-} : {}
+let routerBase = {};
+
+if (process.env.DEPLOY_ENV === 'GH_PAGES') {
+	routerBase = {
+		router: {
+			base: '/mne-numeric-activity/'
+		}
+	};
+} else if (process.env.DEPLOY_ENV === 'MNE') {
+	routerBase = {
+		router: {
+			base: '/numeric-activity/'
+		}
+	};
+}
 
 export default {
 	mode: 'spa',

@@ -1,6 +1,6 @@
 {
 	"name": "mne-numeric-activity",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"description": "Les impacts du numérique sur l'environnement. Animation pour les classes de 4ème. Séance 3",
 	"author": "alexandretrichot",
 	"private": true,
@@ -10,6 +10,7 @@
 		"start": "nuxt start",
 		"generate": "nuxt generate",
 		"generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate",
+		"generate:mne": "DEPLOY_ENV=MNE nuxt generate",
 		"deploy:gh-pages": "push-dir --dir=dist --branch=gh-pages --cleanup",
 		"update": "npm run generate:gh-pages && npm run deploy:gh-pages"
 	},
