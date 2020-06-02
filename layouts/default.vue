@@ -12,9 +12,9 @@ export default {
 <template>
   <div class="root">
     <header class="noprint">
-      <div class="logo">
-        <img src="~/assets/png/banner-black.png" alt="MNE Logo" />
-      </div>
+      <a class="logo" href="https://meusenature.fr/" target="_blank">
+        <img src="~/assets/png/banner.svg" alt="MNE Logo" />
+      </a>
       <nav>
         <nuxt-link class="link" to="/">
           <img src="~/assets/svg/home-solid.svg" alt="Home icon" />
@@ -35,9 +35,9 @@ export default {
 </template>
 <style lang="scss">
 @media print {
-	.noprint {
-		display: none;
-	}
+  .noprint {
+    display: none;
+  }
 }
 
 .card {
@@ -50,7 +50,7 @@ export default {
   margin: 12px;
 
   @media print {
-	  box-shadow: none;
+    box-shadow: none;
   }
 }
 
@@ -88,11 +88,12 @@ header {
   right: 0;
   left: 0;
   height: 60px;
-  background: black;
+  background: #fbfbfb;
   display: flex;
   justify-content: space-between;
 
   .logo {
+    display: block;
     height: 100%;
     padding: 6px;
 
