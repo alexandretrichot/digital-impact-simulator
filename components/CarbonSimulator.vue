@@ -9,14 +9,14 @@ export default {
   data() {
     return {
       //user
-      googleRequests: 4,
-      emailsSended: 6,
-      emailsReceived: 12,
-      emailsSleep: 400,
-      youtubeTime: 2.25,
-      netflixTime: 4,
-      snapCount: 10,
-      instaCount: 5,
+      googleRequests: 0,
+      emailsSended: 0,
+      emailsReceived: 0,
+      emailsSleep: 0,
+      youtubeTime: 0,
+      netflixTime: 0,
+      snapCount: 0,
+      instaCount: 0,
 
       //data
       gramPerGoogle: 7,
