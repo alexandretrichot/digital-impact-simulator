@@ -21,16 +21,24 @@ export default {
 			{ hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
 		],
 		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+			{ href: "https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap", rel: "stylesheet" }
 		]
 	},
 	loading: { color: '#fff' },
 	css: [
+		'~/assets/scss/main.scss'
 	],
 	plugins: [
 	],
 	buildModules: [
+		'@nuxtjs/style-resources'
 	],
+	styleResources: {
+		scss: [
+			'./assets/scss/vars.scss'
+		]
+	},
 	modules: [
 	],
 	build: {

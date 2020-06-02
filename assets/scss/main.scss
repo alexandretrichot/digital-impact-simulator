@@ -1,0 +1,62 @@
+@import './card';
+@import './header';
+
+/* PRINT */
+
+@media print {
+	.noprint {
+		display: none;
+	}
+}
+
+* {
+	font-family: "Nunito", sans-serif;
+	box-sizing: border-box;
+	outline: none;
+}
+
+body {
+	background: $bgColor;
+	color: $textColor;
+	margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+input,
+.input {
+	margin: 12px;
+}
+
+a {
+	color: $accentColor;
+}
+
+p {
+	font-size: 18px;
+}
+
+.frame {
+	margin-top: 60px;
+	min-height: calc(100vh - 120px);
+	background-color: $bgColor;
+}
+
+footer {
+	padding: 12px;
+	font-weight: bold;
+	height: 60px;
+
+	div {
+		text-align: center;
+
+		a {
+			color: inherit;
+			margin: 0;
+		}
+	}
+}

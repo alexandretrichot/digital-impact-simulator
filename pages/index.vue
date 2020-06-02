@@ -13,7 +13,7 @@ export default {};
         <img src="~/assets/svg/calculator-solid.svg" alt="Simulator Logo" />
         <h2>Simulateur</h2>
       </nuxt-link>
-	  <nuxt-link class="card" to="/engage">
+      <nuxt-link class="card" to="/engage">
         <img src="~/assets/svg/handshake-regular.svg" alt="Engagements Logo" />
         <h2>Engagements</h2>
       </nuxt-link>
@@ -23,9 +23,11 @@ export default {};
 <style lang="scss" scoped>
 .container {
   padding: 12px;
+
   h1 {
     text-align: center;
   }
+
   .box {
     display: flex;
     justify-content: center;
@@ -35,7 +37,7 @@ export default {};
       flex-shrink: 0;
       height: 200px;
       width: 180px;
-      background: black;
+      background: $bgColor;
       overflow: hidden;
       padding: 12px;
       display: flex;
@@ -43,10 +45,16 @@ export default {};
       justify-content: center;
       align-items: center;
       margin: 12px;
-      color: white;
+      color: $textColor;
       text-decoration: none;
       border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	  box-shadow: $lightShadow;
+
+	  transition: box-shadow .2s;
+	  
+	  &:hover {
+		  box-shadow: $shadow;
+	  }
 
       img {
         height: 100px;
