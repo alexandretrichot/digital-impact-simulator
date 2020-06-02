@@ -3,7 +3,8 @@ export default {};
 </script>
 <template>
   <div class="container">
-    <h1>Le numérique et l'environnement. Séance 3</h1>
+    <h1>L'impact du numérique sur l'environnement.</h1>
+	<p>Meuse Nature Environnement intervient dans les classes de collège afin de sensibiliser aux différents impacts du numérique sur l'environnement.</p>
     <div class="box">
       <nuxt-link class="card" to="/searchEngines">
         <img src="~/assets/svg/search-solid.svg" alt="Recherches Logo" />
@@ -24,7 +25,7 @@ export default {};
 .container {
   padding: 12px;
 
-  h1 {
+  h1, p {
     text-align: center;
   }
 
