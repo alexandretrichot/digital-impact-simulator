@@ -1,0 +1,25 @@
+.simulator {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+
+  #intro {
+    min-height: 100vh;
+  }
+
+  section {
+
+    .flex {
+      display: flex;
+
+      .pane {
+        width: 60%;
+      }
+
+      .anim {
+        width: 40%;
+
+      }
+    }
+  }
+}
