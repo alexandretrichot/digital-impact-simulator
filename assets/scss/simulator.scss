@@ -1,0 +1,55 @@
+.simulator {
+  max-width: 1200px;
+  margin: auto;
+
+  #intro {
+    min-height: 100vh;
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  section {
+    padding: 2rem 2rem;
+    box-sizing: border-box;
+
+    h2 {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 2rem;
+    }
+
+    .flex {
+      display: flex;
+
+      .pane {
+        width: 60%;
+      }
+
+      .anim {
+        width: 40%;
+      }
+    }
+
+    .carbon-sum {
+      position: relative;
+
+      .cloud {
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 150px;
+        filter: drop-shadow($classicShadow);
+      }
+
+      .result {
+        z-index: 2;
+        font-weight: bold;
+
+        span {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
