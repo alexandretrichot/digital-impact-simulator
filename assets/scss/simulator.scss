@@ -85,6 +85,8 @@
         .value {
           font-size: 2rem;
           color: white;
+
+          font-family: digital;
         }
       }
 
@@ -92,14 +94,10 @@
         display: flex;
 
         .btn {
-          display: block;
           width: 100%;
 
-          &:not(:first-child) {
-            margin-left: 1rem;
-          }
-
           .unit {
+            
           }
         }
       }

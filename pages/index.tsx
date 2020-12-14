@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'next/router';
 
 import Lottie from "lottie-react";
 
@@ -9,12 +10,18 @@ import GamesSection from '../components/simulator/Games';
 import StreamingSection from '../components/simulator/Streaming';
 
 type Props = {
-
+  router: any
 }
 
-export default class Home extends React.Component<Props> {
-  state = {
+type State = {
+  user?: {
+    name: string,
+    id: string
+  }
+}
 
+class Home extends React.Component<Props> {
+  state: State = {
   }
 
   render() {
@@ -26,6 +33,8 @@ export default class Home extends React.Component<Props> {
         </div>
         <p style={{ maxWidth: "500px" }}>Vous êtes-vous déjà demandés si votre consomation d’internet avait un impact sur l’environnement ? Et si vous vous êtes posé la question, avez-vous une idée de ce que cela représente ?</p>
         <p>On vous propose d'y jeter un oeil !</p>
+        <a className="btn" href="#search">Faire le test !</a>
+        <div>{this.props.router.query.session}</div>
       </header>
       <SearchesSection searchCount={43} onUpdate={console.log} />
       <EmailsSection />
@@ -45,3 +54,5 @@ export default class Home extends React.Component<Props> {
     </div>
   }
 }
+
+export default withRouter(Home);

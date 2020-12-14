@@ -1,9 +1,6 @@
 import React from 'react';
 
 type Props = {
-  color: string,
-  bg: string,
-  shadow: string,
   onClick: (ev: any) => void
 }
 
@@ -12,7 +9,7 @@ export default class Button extends React.Component<Props> {
   private interval: any;
 
   render() {
-    return <button className="btn" onMouseDown={this.mouseDownHandler.bind(this)} onMouseUp={this.mouseUpHandler.bind(this)} onMouseOut={this.mouseUpHandler.bind(this)} style={{ background: this.props.bg, color: this.props.color, boxShadow: '0px 3px 0px ' + this.props.shadow }}>{this.props.children}</button>;
+    return <button className="btn big" onMouseDown={this.mouseDownHandler.bind(this)} onMouseUp={this.mouseUpHandler.bind(this)} onMouseOut={this.mouseUpHandler.bind(this)}>{this.props.children}</button>;
   }
 
   mouseDownHandler(ev: any) {
