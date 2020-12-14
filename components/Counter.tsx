@@ -30,8 +30,8 @@ export default class Counter extends React.Component<Props> {
         <div className="value">{this.props.value}</div>
       </div>
       <div className="buttons">
-        <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={() => this.updateHandler(this.props.step)}>+{this.props.step}<span className="unit">{this.props.unit}</span></Button>
-        <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={() => this.updateHandler(-this.props.step)}>-{this.props.step}<span className="unit">{this.props.unit}</span></Button>
+        <Button onClick={() => this.updateHandler(this.props.step)}>+{this.props.step}<span className="unit">{this.props.unit}</span></Button>
+        <Button onClick={() => this.updateHandler(-this.props.step)}>-{this.props.step}<span className="unit">{this.props.unit}</span></Button>
       </div>
     </div>;
   }
