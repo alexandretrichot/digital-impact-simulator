@@ -27,7 +27,7 @@ export default class Home extends React.Component<Props> {
         <p style={{ maxWidth: "500px" }}>Vous êtes-vous déjà demandés si votre consomation d’internet avait un impact sur l’environnement ? Et si vous vous êtes posé la question, avez-vous une idée de ce que cela représente ?</p>
         <p>On vous propose d'y jeter un oeil !</p>
       </header>
-      <SearchesSection onUpdate={() => { }} />
+      <SearchesSection searchCount={43} onUpdate={console.log} />
       <EmailsSection />
       <SocialsSection />
       <GamesSection />

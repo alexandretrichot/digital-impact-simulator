@@ -1,12 +1,14 @@
 import React from 'react';
 import Lottie from "lottie-react";
 
-import Button from '../Button';
+import values from '../../values';
+
+import Counter from '../Counter';
 import CarbonSum from '../CarbonSum';
 
 type Props = {
-
-  onUpdate: () => void,
+  searchCount: number,
+  onUpdate: (value: number) => void,
 }
 
 export default class Searches extends React.Component<Props> {
@@ -25,9 +27,9 @@ export default class Searches extends React.Component<Props> {
 
           <p>recherches</p>
 
+
+          <Counter title="Recherches par jours" description={'Ceci est votre nombre de recherches sur un moteur de recherches comme Google, Bing, Yahoo, etc. Si vous utilisez des moteurs de recherches "éco-responsables" vous pouvez mettre 0'} step={1} value={this.props.searchCount} onUpdate={value => this.props.onUpdate(value)} />
           <CarbonSum value={3254} />
-          {/* <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button> */}
         </div>
       </div>
     </section>;
