@@ -13,6 +13,9 @@ export default class Streaming extends React.Component<Props> {
       <h2>Nos soirées Netfilx</h2>
 
       <div className="flex">
+        <div className="anim">
+          <Lottie animationData={require('../assets/animations/streaming.json')} />
+        </div>
         <div className="pane">
           <p>Chaque années, YouTube et les plateformes de vidéos eu lignes génèrent <b>65 millions</b> de tonnes de CO<sub>2</sub>.</p>
           <p>Les services de VOD comme Netflix ou Amazon prime en génèrent quand à eux <b>102 millions</b>.</p>
@@ -27,9 +30,6 @@ export default class Streaming extends React.Component<Props> {
           <div className="result">345</div>
           <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
           <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
-        </div>
-        <div className="anim">
-          <Lottie animationData={require('../assets/animations/streaming.json')} />
         </div>
       </div>
     </section>;
