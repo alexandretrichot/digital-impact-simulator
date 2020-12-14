@@ -1,8 +1,6 @@
 import React from 'react';
 import Lottie from "lottie-react";
 
-import Button from '../Button';
-
 type Props = {
 
 }
@@ -23,13 +21,9 @@ export default class Streaming extends React.Component<Props> {
 
           <div>temps passé sur ytb</div>
           <div className="result">345</div>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
-
+          
           <div>temps passé sur netflix</div>
           <div className="result">345</div>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
         </div>
       </div>
     </section>;

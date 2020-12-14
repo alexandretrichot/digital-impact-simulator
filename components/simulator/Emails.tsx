@@ -1,8 +1,6 @@
 import React from 'react';
 import Lottie from "lottie-react";
 
-import Button from '../Button';
-
 type Props = {
 
 }
@@ -20,18 +18,12 @@ export default class Emails extends React.Component<Props> {
 
           <div>emails envoyés</div>
           <div className="result">345</div>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
-
+          
           <div>emails reçus par jour</div>
           <div className="result">345</div>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
-
+          
           <div>total d'emails stockés dans la boîte de reception et autres dossiers</div>
           <div className="result">345</div>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
         </div>
         <div className="anim">
           <Lottie animationData={require('../../assets/animations/mail.json')} />

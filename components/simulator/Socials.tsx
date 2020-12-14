@@ -1,8 +1,6 @@
 import React from 'react';
 import Lottie from "lottie-react";
 
-import Button from '../Button';
-
 type Props = {
 
 }
@@ -21,13 +19,9 @@ export default class Socials extends React.Component<Props> {
 
           <div>Nombre de photos envoyées par jour sur Instagram</div>
           <div className="result">345</div>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
-
+          
           <div>Nombre de photos envoyées par jour sur Snapchat</div>
           <div className="result">345</div>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >-2</Button>
-          <Button color="white" bg="#FFDD2D" shadow="#E6B300" onClick={console.log} >+2</Button>
         </div>
       </div>
     </section>;
