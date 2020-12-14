@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "vercel-build": "node vercel-build.js"
+    "vercel-build": "npm run build && node vercel-build.js"
   },
   "dependencies": {
     "@zeit/next-sass": "^1.0.1",
