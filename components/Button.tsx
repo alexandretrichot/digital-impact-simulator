@@ -16,7 +16,7 @@ export default class Button extends React.Component<Props> {
     this.props.onClick(ev);
 
     this.timeout = setTimeout(() => {
-      this.interval = setInterval(() => this.props.onClick(ev), 50);
+      this.interval = setInterval(() => this.props.onClick(ev), 20);
     }, 300);
   }
 

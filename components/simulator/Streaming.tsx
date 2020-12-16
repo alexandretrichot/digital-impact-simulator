@@ -1,8 +1,14 @@
 import React from 'react';
 import Lottie from "lottie-react";
+import values from '../../values';
+import CarbonSum from '../CarbonSum';
+import Counter from '../Counter';
 
 type Props = {
-
+  youtubeMinutes: number,
+  netflixMinutes: number,
+  onUpdateYoutube: (value: number) => void,
+  onUpdateNetflix: (value: number) => void,
 }
 
 export default class Streaming extends React.Component<Props> {
@@ -19,11 +25,10 @@ export default class Streaming extends React.Component<Props> {
           <p>Les services de VOD comme Netflix ou Amazon prime en génèrent quand à eux <b>102 millions</b>.</p>
           <p>Combinés, ils dégagent plus de <b>170 millions</b> de tonnes de CO<sub>2</sub> sur une année.</p>
 
-          <div>temps passé sur ytb</div>
-          <div className="result">345</div>
+          <Counter title="Minutes passé sur Youtube par jours" description={''} value={this.props.youtubeMinutes} onUpdate={value => this.props.onUpdateYoutube(value)} step={10} />
+          <Counter title="Minutes passé sur Netflix par jours" description={''} value={this.props.netflixMinutes} onUpdate={value => this.props.onUpdateNetflix(value)} step={10}/>
           
-          <div>temps passé sur netflix</div>
-          <div className="result">345</div>
+          <CarbonSum value={this.props.youtubeMinutes * values.gramPerStreamMinute + this.props.netflixMinutes * values.gramPerStreamMinute} />
         </div>
       </div>
     </section>;

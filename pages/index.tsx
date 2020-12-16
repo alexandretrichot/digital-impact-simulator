@@ -16,12 +16,40 @@ type Props = {
 type State = {
   user?: {
     name: string,
-    id: string
+    id: string,
+  },
+  values: {
+    searches: number,
+    emailsSent: number,
+    emailsReceived: number,
+    emailsStored: number,
+    instagramPics: number,
+    snapchatPics: number,
+    gamesMinutes: number,
+    youtubeMinutes: number,
+    netflixMinutes: number
   }
 }
 
 class Home extends React.Component<Props> {
   state: State = {
+    values: {
+      searches: 0,
+      emailsSent: 0,
+      emailsReceived: 0,
+      emailsStored: 0,
+      instagramPics: 0,
+      snapchatPics: 0,
+      gamesMinutes: 0,
+      youtubeMinutes: 0,
+      netflixMinutes: 0
+    }
+  }
+
+  setValues(values: any) {
+    this.setState({ ...this.state, values: values });
+
+    setTimeout(() => console.log(JSON.stringify(this.state.values, undefined, 2)));
   }
 
   render() {
@@ -36,11 +64,20 @@ class Home extends React.Component<Props> {
         <a className="btn" href="#search">Faire le test !</a>
         <div>{this.props.router.query.session}</div>
       </header>
-      <SearchesSection searchCount={43} onUpdate={console.log} />
-      <EmailsSection />
-      <SocialsSection />
-      <GamesSection />
-      <StreamingSection />
+      <SearchesSection
+        searches={this.state.values.searches} onUpdateSearches={value => this.setValues({ ...this.state.values, searches: value })} />
+      <EmailsSection
+        emailsSent={this.state.values.emailsSent} onUpdateSent={value => this.setValues({ ...this.state.values, emailsSent: value })}
+        emailsReceived={this.state.values.emailsReceived} onUpdateReceived={value => this.setValues({ ...this.state.values, emailsReceived: value })}
+        emailsStored={this.state.values.emailsStored} onUpdateStored={value => this.setValues({ ...this.state.values, emailsStored: value })} />
+      <SocialsSection
+        instagramPics={this.state.values.instagramPics} onUpdateInstagram={value => this.setValues({ ...this.state.values, instagramPics: value })}
+        snapchatPics={this.state.values.snapchatPics} onUpdateSnapchat={value => this.setValues({ ...this.state.values, snapchatPics: value })} />
+      <GamesSection
+        gamesMinutes={this.state.values.gamesMinutes} onUpdateGame={value => this.setValues({ ...this.state.values, gamesMinutes: value })} />
+      <StreamingSection
+        youtubeMinutes={this.state.values.youtubeMinutes} onUpdateYoutube={value => this.setValues({ ...this.state.values, youtubeMinutes: value })}
+        netflixMinutes={this.state.values.netflixMinutes} onUpdateNetflix={value => this.setValues({ ...this.state.values, netflixMinutes: value })} />
       <footer>
         <div className="sponsors">
           <p>Avec la participation de :</p>

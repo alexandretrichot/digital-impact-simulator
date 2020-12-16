@@ -6,7 +6,7 @@ type Props = {
   title: string,
   description: string,
   value: number,
-  unit: string,
+  unit: number,
   step: number,
   onUpdate: (value: number) => void,
 
@@ -15,11 +15,13 @@ type Props = {
 export default class Counter extends React.Component<Props> {
   static defaultProps = {
     unit: '',
-
+    step: 1
   }
 
   updateHandler(value: number) {
-    this.props.onUpdate(this.props.value + value);
+    const a = this.props.value + value;
+    if(a < 0) return;
+    this.props.onUpdate(a);
   }
 
   render() {
@@ -30,8 +32,8 @@ export default class Counter extends React.Component<Props> {
         <div className="value">{this.props.value}</div>
       </div>
       <div className="buttons">
-        <Button onClick={() => this.updateHandler(this.props.step)}>+{this.props.step}<span className="unit">{this.props.unit}</span></Button>
         <Button onClick={() => this.updateHandler(-this.props.step)}>-{this.props.step}<span className="unit">{this.props.unit}</span></Button>
+        <Button onClick={() => this.updateHandler(this.props.step)}>+{this.props.step}<span className="unit">{this.props.unit}</span></Button>
       </div>
     </div>;
   }
