@@ -52,7 +52,7 @@ type SessionData = {
 export default function sessionDashboard() {
   const router = useRouter();
 
-  const { loading, error, data } = useQuery(GET_SESSION, { variables: { id: router.query.id }, pollInterval: 1000 });
+  const { loading, error, data } = useQuery(GET_SESSION, { variables: { id: router.query.id }, pollInterval: 10000 });
 
   if (loading) return 'Loading...';
   if (error) return `Error! ${error.message}`;
@@ -60,6 +60,7 @@ export default function sessionDashboard() {
   return <div id="dashboard">
     <header>
       <h1>Session : { data.getSession.id }</h1>
+      <div>Lien pour rejoindre la session : <code>{ `${location.host}/${data.getSession.id}` }</code></div>
       <div className="legendary">
         {Object.keys(types).map(i => <div key={i} className="item">
           <div className="color" style={{ backgroundColor: types[i].color }}></div>
