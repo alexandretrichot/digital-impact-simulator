@@ -7,6 +7,7 @@ type Session {
 }
 
 type User {
+  _id: ID!,
   name: String!
   stats: UserStats!
 }

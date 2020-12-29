@@ -9,11 +9,8 @@ export const resolvers = {
       await connectToDatabase();
 
       const foundSession = await Session.findById(args.id);
-
-      //console.log(foundSession);
-
       if (!foundSession) throw new Error('No session found');
-
+      
       return foundSession;
     }
   },

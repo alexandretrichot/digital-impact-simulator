@@ -1,24 +1,49 @@
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
-import { fetchSession } from '../../lib/fetchers';
+
+import { useQuery, gql } from '@apollo/client';
 
 import { types } from '../../values';
 import Graph from '../../components/Graph';
 
-const sessionData = {
+const GET_SESSION = gql`
+query GetSession($id: ID!) {
+  getSession(id: $id) {
+    id,
+    users {
+      _id
+      name
+      stats {
+        searches
+        emailsSent
+        emailsReceived
+        emailsStored
+        instagramPics
+        snapchatPics
+        gamesMinutes
+        youtubeMinutes
+        netflixMinutes
+      }
+    }
+  }
+}
+`;
+
+
+type SessionData = {
   users: [
     {
-      name: "Alexandre Trichot",
+      _id: string,
+      name: string,
       stats: {
-        searches: 20,
-        emailsSent: 10,
-        emailsReceived: 20,
-        emailsStored: 4000,
-        instagramPics: 10,
-        snapchatPics: 10,
-        gamesMinutes: 60,
-        youtubeMinutes: 10,
-        netflixMinutes: 0
+        searches: number,
+        emailsSent: number,
+        emailsReceived: number,
+        emailsStored: number,
+        instagramPics: number,
+        snapchatPics: number,
+        gamesMinutes: number,
+        youtubeMinutes: number,
+        netflixMinutes: number
       }
     },
   ]
@@ -27,14 +52,14 @@ const sessionData = {
 export default function sessionDashboard() {
   const router = useRouter();
 
-  const { data, error } = useSWR(router.query.id as string, fetchSession, { refreshInterval: 2000 });
+  const { loading, error, data } = useQuery(GET_SESSION, { variables: { id: router.query.id }, pollInterval: 1000 });
 
-  if (error) return <div>Impossible de trouver la session '{router.query.id}'</div>
-  if (!data) return <div>Chargement...</div>
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
 
   return <div id="dashboard">
     <header>
-      <h1>Session : {router.query.id ? router.query.id : ''}</h1>
+      <h1>Session : { data.getSession.id }</h1>
       <div className="legendary">
         {Object.keys(types).map(i => <div key={i} className="item">
           <div className="color" style={{ backgroundColor: types[i].color }}></div>
@@ -44,7 +69,7 @@ export default function sessionDashboard() {
     </header>
     <section className="users">
       <div className="list">
-        {sessionData.users.map(u => <div className="user">
+        {(data.getSession as SessionData).users.map(u => <div key={u._id} className="user">
           <div className="username">{u.name}</div>
           <Graph stats={u.stats} />
         </div>)}
