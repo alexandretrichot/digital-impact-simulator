@@ -27,14 +27,14 @@ const sessionData = {
 export default function sessionDashboard() {
   const router = useRouter();
 
-  /* const { data, error } = useSWR(router.query.id as string, fetchSession, { refreshInterval: 2000 });
+  const { data, error } = useSWR(router.query.id as string, fetchSession, { refreshInterval: 2000 });
 
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div> */
+  if (error) return <div>Impossible de trouver la session '{router.query.id}'</div>
+  if (!data) return <div>Chargement...</div>
 
   return <div id="dashboard">
     <header>
-      <h1>Session : {router.query.id ? router.query.id : 'null'}</h1>
+      <h1>Session : {router.query.id ? router.query.id : ''}</h1>
       <div className="legendary">
         {Object.keys(types).map(i => <div key={i} className="item">
           <div className="color" style={{ backgroundColor: types[i].color }}></div>
