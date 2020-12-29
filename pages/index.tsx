@@ -9,6 +9,9 @@ import SocialsSection from '../components/simulator/Socials';
 import GamesSection from '../components/simulator/Games';
 import StreamingSection from '../components/simulator/Streaming';
 
+import Footer from '../components/Footer';
+import Result from '../components/simulator/Result';
+
 type Props = {
   router: any
 }
@@ -32,6 +35,8 @@ type State = {
 }
 
 class Home extends React.Component<Props> {
+  timeout: any; 
+
   state: State = {
     values: {
       searches: 0,
@@ -46,10 +51,14 @@ class Home extends React.Component<Props> {
     }
   }
 
+  sendValues() {
+    
+  }
+
   setValues(values: any) {
     this.setState({ ...this.state, values: values });
 
-    setTimeout(() => console.log(JSON.stringify(this.state.values, undefined, 2)));
+    this.timeout = setTimeout(this.sendValues.bind(this), 500);
   }
 
   render() {
@@ -78,16 +87,10 @@ class Home extends React.Component<Props> {
       <StreamingSection
         youtubeMinutes={this.state.values.youtubeMinutes} onUpdateYoutube={value => this.setValues({ ...this.state.values, youtubeMinutes: value })}
         netflixMinutes={this.state.values.netflixMinutes} onUpdateNetflix={value => this.setValues({ ...this.state.values, netflixMinutes: value })} />
-      <footer>
-        <div className="sponsors">
-          <p>Avec la participation de :</p>
-          <div className="flex">
-            <img src={require('../assets/images/meuse.png')} alt="meuse logo" />
-            <img src={require('../assets/images/grand-est.jpg')} alt="grand est logo" />
-            <img src={require('../assets/images/dreal.jpg')} alt="dreal logo" />
-          </div>
-        </div>
-      </footer>
+
+      <Result />
+      
+      <Footer />
     </div>
   }
 }

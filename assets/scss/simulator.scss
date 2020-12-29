@@ -9,7 +9,7 @@
   }
 
   section {
-    padding: 2rem 2rem;
+    padding: 2rem;
     box-sizing: border-box;
 
     h2 {
@@ -103,4 +103,9 @@
       }
     }
   }
+
+  .simulator-result {
+    background-color: red;
+    
+  } 
 }

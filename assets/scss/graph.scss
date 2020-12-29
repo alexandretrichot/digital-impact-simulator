@@ -1,0 +1,18 @@
+.graph {
+  
+  .segments {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 1.2rem;
+    //background: black;
+    overflow: scroll;
+    border-radius: .3rem;
+    box-shadow: $classicShadow;
+
+    .segment {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+}

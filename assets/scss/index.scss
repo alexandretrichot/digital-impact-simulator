@@ -1,6 +1,8 @@
 @import "./vars";
 @import "./typo";
+@import "./graph.scss";
 @import "./simulator";
+@import "./dashboard";
 
 html {
   font-size: 22px;
@@ -40,6 +42,7 @@ body {
   outline: none;
   color: black;
   text-decoration: none;
+  user-select: none;
 
   background-color: #ffdd2d;
   box-shadow: -4px 8px 5px rgba(50, 50, 93, 0.25), 0 4px 0 #e5b300;
@@ -62,5 +65,25 @@ body {
 
   &:not(:last-child) {
     margin-right: 1rem;
+  }
+}
+
+footer {
+  .flex {
+    display: flex;
+    list-style: none;
+    height: 2rem;
+
+    img {
+      display: block;
+      flex-grow: 0;
+      flex-shrink: 0;
+      height: 100%;
+
+      &:not(:first-child) {
+        margin-left: 1rem;
+      }
+
+    }
   }
 }
