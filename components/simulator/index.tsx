@@ -30,13 +30,15 @@ type Stats = {
 export default function Simulator(props: PropsWithChildren<Props>) {
   return <div className="simulator">
     <header id="intro">
-      <h1>Simulateur d'impact carbone</h1>
+      <h1>Pollution Numérique</h1>
+      <h3>Simulateur d'impact</h3>
       <div style={{ float: 'right', width: '40%' }}>
         <Lottie animationData={require('../../assets/animations/booking.json')} />
       </div>
-      <p style={{ maxWidth: "500px" }}>Vous êtes-vous déjà demandés si votre consomation d’internet avait un impact sur l’environnement ? Et si vous vous êtes posé la question, avez-vous une idée de ce que cela représente ?</p>
+      <p style={{ maxWidth: "500px" }}>Vous êtes-vous déjà demandé si votre consommation d’internet avait un impact sur l’environnement ?</p>
+      <p>Le cas échéant, avez-vous une idée de ce que cela représente ?</p>
       <p>On vous propose d'y jeter un oeil !</p>
-      <a className="btn" href="#search">Faire le test !</a>
+      <a className="btn" href="#search">Faites le test !</a>
       {props.children}
     </header>
     <SearchesSection

@@ -7,10 +7,10 @@ import Graph from '../../components/Graph';
 
 const GET_SESSION = gql`
 query GetSession($id: ID!) {
-  getSession(id: $id) {
+  getSession(sessionId: $id) {
     id,
     users {
-      _id
+      id
       name
       stats {
         searches

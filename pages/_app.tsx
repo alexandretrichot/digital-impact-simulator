@@ -6,7 +6,9 @@ import Footer from '../components/Footer';
 
 const client = new ApolloClient({
   uri: '/api',
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    addTypename: false
+  })
 });
 
 

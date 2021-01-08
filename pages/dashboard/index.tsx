@@ -4,14 +4,14 @@ import { useRouter } from 'next/router';
 import { gql, useMutation, useQuery } from '@apollo/client';
 
 const CREATE_SESSION = gql`
-mutation CreateSession {
-  createSession
+mutation CreateSession($name: String!) {
+  createSession(name: $name)
 }
 `;
 
 const GET_SESSION = gql`
 query GetSession($id: ID!) {
-  getSession(id: $id) {
+  getSession(sessionId: $id) {
     id
   }
 }
@@ -33,7 +33,7 @@ export default function DashboardPortal() {
         <h2>Créer une session</h2>
         {loading ? <div>Chargement</div> : (
           data ? <a className="btn" href={`/dashboard/${data.createSession}`}>Rejoindre la session</a> :
-            <button onClick={() => createSession()} className="btn">Créer un session</button>
+            <button onClick={() => createSession({ variables: { name: prompt('Nom de la session') || "" } })} className="btn">Créer un session</button>
         )}
       </section>
       <section>

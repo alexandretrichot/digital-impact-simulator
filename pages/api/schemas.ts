@@ -7,7 +7,7 @@ type Session {
 }
 
 type User {
-  _id: ID!,
+  id: ID!
   name: String!
   stats: UserStats!
 }
@@ -25,7 +25,8 @@ type UserStats {
 }
 
 type Query {
-  getSession(id: ID!): Session!
+  getSession(sessionId: ID!): Session,
+  getUser(userId: ID!): User,
 }
 
 input UserInput {
@@ -46,8 +47,9 @@ input UserStatsInput {
 }
 
 type Mutation {
-  createSession(name: String): ID!
-  joinSession(sessionId: ID!): ID! #user id
-  updateUser(sessionId: ID!, userId: ID!, user: UserInput!): ID!,
+  createSession(name: String!): ID!
+  createUser(name: String!, sessionId: ID!): User! #user id
+  joinSession(sessionId: ID!, userId: ID!): ID! #user id
+  updateUser(userId: ID!, user: UserInput!): ID!,
 }
 `

@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "vercel-build": "npm run build && node vercel-build.js"
+    "start": "next start"
   },
   "dependencies": {
     "@apollo/client": "^3.3.6",

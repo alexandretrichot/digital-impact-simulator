@@ -1,10 +1,16 @@
-import mongoose from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
+import { User } from './User';
 
-mongoose.modelNames().forEach(m => mongoose.deleteModel(m));
+mongoose.modelNames().filter(m => m === 'Session').forEach(m => mongoose.deleteModel(m));
 
-const SessionSchema = new mongoose.Schema({
-  name: String,
-  users: [{ id: String, name: String, stats: Object }]
+export interface Session extends Document {
+  name: string,
+  users: Schema.Types.ObjectId[]
+}
+
+const SessionSchema: Schema = new Schema({
+  name: { type: String, required: true },
+  users: [{ type: Schema.Types.ObjectId, ref: 'User', required: true }]
 });
 
-export default mongoose.model('Session', SessionSchema);
+export default mongoose.model<Session>('Session', SessionSchema);
