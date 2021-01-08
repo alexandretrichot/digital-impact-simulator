@@ -1,0 +1,52 @@
+.simulator .counter {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  //max-width: 15rem;
+  width: 100%;
+  box-sizing: border-box;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 0 0 0 2px #444,
+    -1px 1px 0 2px #444, -2px 2px 0 2px #444, -3px 3px 0 2px #444,
+    -4px 4px 0 2px #444, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+  .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  .description {
+    //display: none;
+    font-size: .8rem;
+  }
+
+  .screen {
+    background-color: black;
+    border-radius: 0.3rem;
+    margin: 1rem 0;
+    padding: 0.5rem;
+
+    .value {
+      font-size: 2rem;
+      color: white;
+
+      font-family: digital;
+    }
+  }
+
+  .buttons {
+    display: flex;
+
+    .btn {
+      width: 100%;
+
+      .unit {
+        
+      }
+    }
+  }
+}

@@ -31,6 +31,29 @@ body {
   margin: 0;
 }
 
+#intro {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 2rem;
+  padding: 2rem;
+
+  @include mobile {
+    padding: 1rem;
+  }
+
+  .flex {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
 .btn {
   display: inline-block;
   border: none;
@@ -83,7 +106,6 @@ footer {
       &:not(:first-child) {
         margin-left: 1rem;
       }
-
     }
   }
 }

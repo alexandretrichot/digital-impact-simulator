@@ -9,6 +9,7 @@ import GamesSection from './Games';
 import StreamingSection from './Streaming';
 
 import Result from './Result';
+import Intro from '../Intro';
 
 type Props = {
   stats: Stats,
@@ -29,18 +30,7 @@ type Stats = {
 
 export default function Simulator(props: PropsWithChildren<Props>) {
   return <div className="simulator">
-    <header id="intro">
-      <h1>Pollution Numérique</h1>
-      <h3>Simulateur d'impact</h3>
-      <div style={{ float: 'right', width: '40%' }}>
-        <Lottie animationData={require('../../assets/animations/booking.json')} />
-      </div>
-      <p style={{ maxWidth: "500px" }}>Vous êtes-vous déjà demandé si votre consommation d’internet avait un impact sur l’environnement ?</p>
-      <p>Le cas échéant, avez-vous une idée de ce que cela représente ?</p>
-      <p>On vous propose d'y jeter un oeil !</p>
-      <a className="btn" href="#search">Faites le test !</a>
-      {props.children}
-    </header>
+    <Intro />
     <SearchesSection
       searches={props.stats.searches} onUpdateSearches={value => props.onUpdateStats({ ...props.stats, searches: value })} />
     <EmailsSection
