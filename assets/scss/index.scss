@@ -92,6 +92,10 @@ body {
 }
 
 footer {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+
   .flex {
     display: flex;
     list-style: none;

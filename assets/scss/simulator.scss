@@ -11,7 +11,7 @@
 
       header {
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: row;
         justify-content: space-between;
         align-items: center;
 
@@ -19,13 +19,28 @@
           flex-direction: column !important;
           align-items: flex-start;
         }
+
+        * {
+          flex: 1 1 auto;
+        }
+
+        .anim {
+          flex: 0 0 auto;
+          width: 40%;
+          padding: 1rem;
+          box-sizing: border-box;
+
+          @include mobile {
+            width: 100%;
+          }
+        }
       }
 
       .counters {
         display: grid;
         gap: 1rem;
         grid-template-columns: 1fr 1fr;
-        margin: 3rem 0;
+        margin-bottom: 2rem;
 
         @include mobile {
           //display: block;
@@ -46,7 +61,7 @@
       background-color: rgb(235, 235, 235);
 
       header {
-        flex-direction: row;
+        flex-direction: row-reverse;
       }
     }
   }
