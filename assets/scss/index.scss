@@ -149,6 +149,16 @@ body {
   }
 }
 
+a {
+  color: #00af25;
+  text-decoration: none;
+  
+  &:hover {
+    color: black;
+    text-decoration: underline;
+  }
+}
+
 .btn {
   display: inline-block;
   border: none;
