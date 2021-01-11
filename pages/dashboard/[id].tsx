@@ -5,6 +5,8 @@ import { useQuery, gql } from '@apollo/client';
 
 import { types } from '../../values';
 import Graph from '../../components/Graph';
+import Loader from '../../components/Loader';
+import Error from '../../components/Error';
 
 const GET_SESSION = gql`
 query GetSession($id: ID!) {
@@ -56,30 +58,36 @@ export default function sessionDashboard() {
 
   const { loading, error, data } = useQuery(GET_SESSION, { variables: { id: router.query.id }, pollInterval: 10000 });
 
-  if (loading) return 'Loading...';
-  if (error) return `Error! ${error.message}`;
+  //const usersValues = data && data.getSession ? (data.getSession as SessionData).users.map(u => ) : [];
+
+  //const max = usersValues.length ? usersValues : 0;
 
   return <div id="dashboard">
     <Head>
       <title>Dashboard | Pollution Numérique</title>
     </Head>
-    <header>
-      <h1>Session : {data.getSession.name}</h1>
-      <div>Lien pour rejoindre la session : <code>{`${location.host}/${data.getSession.id}`}</code></div>
-      <div className="legendary">
-        {Object.keys(types).map(i => <div key={i} className="item">
-          <div className="color" style={{ backgroundColor: types[i].color }}></div>
-          <div className="name">{types[i].name}</div>
-        </div>)}
-      </div>
-    </header>
-    <section className="users">
-      <div className="list">
-        {(data.getSession as SessionData).users.map(u => <div key={u._id} className="user">
-          <div className="username">{u.name}</div>
-          <Graph stats={u.stats} />
-        </div>)}
-      </div>
-    </section>
+
+    {loading ? <Loader>Chargement de la session...</Loader> : (
+      error ? <Error details={error.message}>Oups, il y a eu un problème</Error> : <>
+        <header>
+          <h1>Session : {data.getSession.name}</h1>
+          <div className="link">Lien de session : <code>{`${location.host}/${data.getSession.id}`}</code></div>
+          <div className="legendary">
+            {Object.keys(types).map(i => <div key={i} className="item">
+              <div className="color" style={{ backgroundColor: types[i].color }}></div>
+              <div className="name">{types[i].name}</div>
+            </div>)}
+          </div>
+        </header>
+        <section className="users">
+          <div className="list">
+            {(data.getSession as SessionData).users.map(u => <div key={u._id} className="user">
+              <div className="username">{u.name}</div>
+              <Graph stats={u.stats} />
+            </div>)}
+          </div>
+        </section>
+      </>
+    )}
   </div>;
 }

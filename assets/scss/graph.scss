@@ -2,11 +2,11 @@
   
   .segments {
     display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 1.2rem;
+    //flex-direction: row;
+    height: 1.2rem;
+    width: 100%;
     //background: black;
-    overflow: scroll;
+    overflow: hidden;
     border-radius: .3rem;
     box-shadow: $classicShadow;
 
