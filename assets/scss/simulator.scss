@@ -103,25 +103,6 @@
     .text {
       margin-bottom: 1rem;
     }
-
-    .form {
-      display: grid;
-      grid-template-columns: 3fr 1fr;
-      gap: 1rem;
-      margin: 1rem 0;
-
-      @include mobile {
-        grid-template-columns: 1fr;
-      }
-
-      input {
-        font-size: .8rem;
-        //font-size: 1rem;
-        padding: .5rem;
-        border: solid 1px grey;
-        border-radius: .2rem;
-      }
-    }
   }
 }
 

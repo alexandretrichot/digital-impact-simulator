@@ -9,7 +9,8 @@ import Graph from '../../components/Graph';
 const GET_SESSION = gql`
 query GetSession($id: ID!) {
   getSession(sessionId: $id) {
-    id,
+    id
+    name
     users {
       id
       name
@@ -63,7 +64,7 @@ export default function sessionDashboard() {
       <title>Dashboard | Pollution Numérique</title>
     </Head>
     <header>
-      <h1>Session : {data.getSession.id}</h1>
+      <h1>Session : {data.getSession.name}</h1>
       <div>Lien pour rejoindre la session : <code>{`${location.host}/${data.getSession.id}`}</code></div>
       <div className="legendary">
         {Object.keys(types).map(i => <div key={i} className="item">

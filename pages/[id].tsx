@@ -94,7 +94,7 @@ export default function SessionSimulator(props: { sessionId: string }) {
     savedUser = useQuery(GET_USER, { variables: { userId: localStorage.getItem('userId') } });
   }
 
-  savedUser.error && console.log(JSON.parse(JSON.stringify(savedUser.error)))
+  //savedUser.error && console.log(JSON.parse(JSON.stringify(savedUser.error)))
 
   return <>
     <Head>

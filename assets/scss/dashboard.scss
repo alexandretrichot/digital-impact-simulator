@@ -12,6 +12,10 @@
       margin: 0;
     }
 
+    code {
+      overflow-x: scroll;
+    }
+
     .legendary {
       display: flex;
       overflow: scroll hidden;
@@ -87,6 +91,33 @@
         pointer-events: none;
         width: 1rem;
       }
+    }
+  }
+}
+
+.dashboard-portal {
+  height: 100vh;
+  box-sizing: border-box;
+
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+
+  @include mobile {
+    padding: 1rem;
+  }
+
+  .portal {
+    max-width: 24rem;
+    margin: auto;
+
+    .title {
+      margin-bottom: 1rem;
+      font-weight: bold;
+    }
+
+    .session-name {
+
     }
   }
 }
