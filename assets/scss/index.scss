@@ -54,6 +54,82 @@ body {
   }
 }
 
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: .5rem 0;
+  font-weight: bold;
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid #000;
+  }
+
+  &::before {
+    margin-right: 0.25em;
+  }
+
+  &::after {
+    margin-left: 0.25em;
+  }
+}
+
+.error {
+  text-align: center;
+
+  img,
+  .anim {
+    display: inline-block;
+    width: 14rem;
+    max-width: 100%;
+  }
+
+  .text {
+    font-weight: bold;
+    color: #ef5a28;
+    margin: 1rem 0 0.5rem;
+  }
+
+  .details {
+    font-size: 0.6rem;
+  }
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+
+  svg {
+    width: 3rem;
+    animation: 1.5s spin ease infinite;
+    display: block;
+    margin-bottom: 0.5rem;
+
+    .ring {
+      fill: none;
+      stroke: hsla(341, 97%, 59%, 0.3);
+      stroke-width: 2;
+    }
+
+    .ball {
+      fill: #fc2f70;
+      stroke: none;
+    }
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
 .btn {
   display: inline-block;
   border: none;
@@ -91,7 +167,7 @@ body {
   }
 }
 
-footer {
+#app-footer {
   max-width: 1200px;
   margin: auto;
   padding: 2rem;

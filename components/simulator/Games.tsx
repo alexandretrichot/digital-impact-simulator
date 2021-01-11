@@ -15,8 +15,7 @@ export default class Games extends React.Component<Props> {
     return <Section
       title="Jeux en ligne"
       description={<>[Texte sur les jeux en lignes]</>}
-      /* animation={require('../../assets/animations/office.json')} */
-      animation={require('../../assets/animations/24219-controller.json')}
+      animation={require('../../assets/animations/controller.json')}
       counters={<Counter title="Minutes passées à jouer à des jeux vidéos par jours" description={''} value={this.props.gamesMinutes} onUpdate={value => this.props.onUpdateGame(value)} step={20} />}
       footer={<>
         <CarbonSum value={this.props.gamesMinutes * values.gramPerGameMinute} />

@@ -2,9 +2,6 @@ import connectToDatabase from '../../lib/db';
 import Session from '../../lib/models/Session';
 import User from '../../lib/models/User';
 
-import mongoose from 'mongoose';
-import { userInfo } from 'os';
-
 export const resolvers = {
   Query: {
     getSession: async (parent: any, args: { sessionId: string }) => {
@@ -50,6 +47,26 @@ export const resolvers = {
 
       return createdUser;
     },
+    addUserToSession: async (parent: any, args: { sessionId: string, userId: string }) => {
+      await connectToDatabase();
+
+      const user = await User.findById(args.userId);
+      if (!user) throw new Error("No user found for id :" + args.userId);
+
+      const session = await Session.findById(args.sessionId);
+
+      if (!session) throw new Error("No session found for id :" + args.sessionId);
+
+      if (!session.users.find(u => u.toString() === user._id.toString())) {
+        await session.update({
+          $push: {
+            users: user._id
+          }
+        });
+      }
+
+      return user;
+    },
     createSession: async (parent: any, args: { name: string }) => {
       await connectToDatabase();
 
@@ -60,7 +77,6 @@ export const resolvers = {
 
       return createdSession._id;
     },
-
     updateUser: async (parent: any, args: { userId: string, user: { name: string, stats: { searches: number, emailsSent: number, emailsReceived: number, emailsStored: number, instagramPics: number, snapchatPics: number, gamesMinutes: number, youtubeMinutes: number, netflixMinutes: number } } }) => {
       await connectToDatabase();
 
@@ -71,20 +87,6 @@ export const resolvers = {
         }
       });
       return args.userId;
-    },
-    joinSession: async (parent: any, args: { sessionId: string, userId: string }) => {
-      await connectToDatabase();
-
-      const user = await User.findById(args.userId);
-      if (!user) throw new Error("The user is not found");
-
-      const session = await Session.findByIdAndUpdate(args.sessionId, {
-        $push: {
-          users: user._id
-        }
-      }, { new: true });
-
-      return user._id;
-    },
+    }
   }
 };

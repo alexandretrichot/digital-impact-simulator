@@ -1,6 +1,6 @@
 import { useState, PropsWithChildren } from 'react';
 
-import Lottie from "lottie-react";
+import Head from 'next/head';
 
 import SearchesSection from './Searches';
 import EmailsSection from './Emails';
@@ -30,6 +30,9 @@ type Stats = {
 
 export default function Simulator(props: PropsWithChildren<Props>) {
   return <div className="simulator">
+    <Head>
+      <title>Pollution Numérique | Simulateur d'impact</title>
+    </Head>
     <Intro />
     <SearchesSection
       searches={props.stats.searches} onUpdateSearches={value => props.onUpdateStats({ ...props.stats, searches: value })} />

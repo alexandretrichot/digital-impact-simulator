@@ -8,20 +8,25 @@
   box-sizing: border-box;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 0 0 0 2px #444,
-    -1px 1px 0 2px #444, -2px 2px 0 2px #444, -3px 3px 0 2px #444,
-    -4px 4px 0 2px #444, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, 0 0 0 2px #444, -1px 1px 0 2px #444,
+    -2px 2px 0 2px #444, -3px 3px 0 2px #444, -4px 4px 0 2px #444,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
     rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
+  display: flex;
+  flex-direction: column;
 
   .title {
     font-size: 1.2rem;
     font-weight: bold;
+    margin-bottom: .5rem;
   }
 
   .description {
     //display: none;
-    font-size: .8rem;
+    font-size: 0.8rem;
+    flex-grow: 1;
   }
 
   .screen {
@@ -29,6 +34,7 @@
     border-radius: 0.3rem;
     margin: 1rem 0;
     padding: 0.5rem;
+    flex: 0 0 auto;
 
     .value {
       font-size: 2rem;
@@ -45,7 +51,6 @@
       width: 100%;
 
       .unit {
-        
       }
     }
   }

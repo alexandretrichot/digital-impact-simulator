@@ -1,5 +1,5 @@
 export default function footer() {
-  return <footer>
+  return <footer id="app-footer">
     <div className="sponsors">
       <p>Avec la participation de :</p>
       <div className="flex">

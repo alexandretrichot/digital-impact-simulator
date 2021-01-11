@@ -3,6 +3,7 @@ import { gql } from "apollo-server-micro";
 export const typeDefs = gql`
 type Session {
   id: ID!
+  name: String
   users: [User]!
 }
 
@@ -25,8 +26,8 @@ type UserStats {
 }
 
 type Query {
-  getSession(sessionId: ID!): Session,
-  getUser(userId: ID!): User,
+  getSession(sessionId: ID!): Session
+  getUser(userId: ID!): User
 }
 
 input UserInput {
@@ -49,7 +50,7 @@ input UserStatsInput {
 type Mutation {
   createSession(name: String!): ID!
   createUser(name: String!, sessionId: ID!): User! #user id
-  joinSession(sessionId: ID!, userId: ID!): ID! #user id
-  updateUser(userId: ID!, user: UserInput!): ID!,
+  addUserToSession(sessionId: ID!, userId: ID!): User!
+  updateUser(userId: ID!, user: UserInput!): ID!
 }
 `

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+
+import Head from 'next/head';
 
 import { gql, useMutation, useQuery } from '@apollo/client';
 
@@ -19,7 +20,6 @@ query GetSession($id: ID!) {
 
 
 export default function DashboardPortal() {
-  const router = useRouter();
   const [sessionId, setSessionId] = useState('');
 
   const [createSession, { loading, data }] = useMutation(CREATE_SESSION);
@@ -27,6 +27,9 @@ export default function DashboardPortal() {
   const { loading: qLoading, error, data: qData } = useQuery(GET_SESSION, { variables: { id: sessionId } });
 
   return <div className="dashboard-portal">
+    <Head>
+      <title>Dashboard | Pollution Numérique</title>
+    </Head>
     <div className="box">
       <h1>Dashboard</h1>
       <section>

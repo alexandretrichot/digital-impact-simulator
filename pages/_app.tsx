@@ -13,6 +13,8 @@ const client = new ApolloClient({
 
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+  if(typeof window === "undefined") return <></>;
+
   return <ApolloProvider client={client}>
     <Component {...pageProps} />
     <Footer />

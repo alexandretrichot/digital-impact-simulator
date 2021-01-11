@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 import { useQuery, gql } from '@apollo/client';
 
@@ -58,9 +59,12 @@ export default function sessionDashboard() {
   if (error) return `Error! ${error.message}`;
 
   return <div id="dashboard">
+    <Head>
+      <title>Dashboard | Pollution Numérique</title>
+    </Head>
     <header>
-      <h1>Session : { data.getSession.id }</h1>
-      <div>Lien pour rejoindre la session : <code>{ `${location.host}/${data.getSession.id}` }</code></div>
+      <h1>Session : {data.getSession.id}</h1>
+      <div>Lien pour rejoindre la session : <code>{`${location.host}/${data.getSession.id}`}</code></div>
       <div className="legendary">
         {Object.keys(types).map(i => <div key={i} className="item">
           <div className="color" style={{ backgroundColor: types[i].color }}></div>
