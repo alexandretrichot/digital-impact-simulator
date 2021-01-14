@@ -6,8 +6,10 @@ import Counter from '../Counter';
 import Section from './Section';
 
 type Props = {
-  gamesMinutes: number,
-  onUpdateGame: (value: number) => void,
+  onlineGameMinutes: number,
+  cloudGamingMinutes: number
+  onUpdateOnlineGame: (value: number) => void,
+  onUpdateCloudGaming: (value: number) => void,
 }
 
 export default class Games extends React.Component<Props> {
@@ -16,9 +18,12 @@ export default class Games extends React.Component<Props> {
       title="Jeux en ligne"
       description={<>[Texte sur les jeux en lignes]</>}
       animation={require('../../assets/animations/controller.json')}
-      counters={<Counter title="Minutes passées à jouer à des jeux vidéos par jours" description={''} value={this.props.gamesMinutes} onUpdate={value => this.props.onUpdateGame(value)} step={20} />}
+      counters={<>
+        <Counter title="Minutes de jeux vidéos sur console ou ordinateur par jours" description="" value={this.props.onlineGameMinutes} onUpdate={value => this.props.onUpdateOnlineGame(value)} step={20} />
+        <Counter title={'Minutes de jeux vidéos "sur le cloud" par jours'} description="" value={this.props.cloudGamingMinutes} onUpdate={value => this.props.onUpdateCloudGaming(value)} step={20} />
+      </>}
       footer={<>
-        <CarbonSum value={this.props.gamesMinutes * values.gramPerGameMinute} />
+        <CarbonSum value={this.props.onlineGameMinutes * values.onlineGame + this.props.cloudGamingMinutes * values.cloudGaming} />
       </>}
     >
       <p>En moyenne, une recherche google emet <b>7</b> grammes de CO<sub>2</sub>.</p>

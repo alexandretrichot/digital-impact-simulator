@@ -1,5 +1,4 @@
 import mongoose, { Schema, Document } from 'mongoose';
-import { User } from './User';
 
 mongoose.modelNames().filter(m => m === 'Session').forEach(m => mongoose.deleteModel(m));
 

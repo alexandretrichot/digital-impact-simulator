@@ -21,8 +21,10 @@ type UserStats {
   instagramPics: Int!
   snapchatPics: Int!
   gamesMinutes: Int!
+  cloudGamesMinutes: Int!
   youtubeMinutes: Int!
   netflixMinutes: Int!
+  spotifyMinutes: Int!
 }
 
 type Query {
@@ -43,8 +45,10 @@ input UserStatsInput {
   instagramPics: Int!
   snapchatPics: Int!
   gamesMinutes: Int!
+  cloudGamesMinutes: Int!
   youtubeMinutes: Int!
   netflixMinutes: Int!
+  spotifyMinutes: Int!
 }
 
 type Mutation {

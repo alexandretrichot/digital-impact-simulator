@@ -1,6 +1,6 @@
 import connectToDatabase from '../../lib/db';
 import Session from '../../lib/models/Session';
-import User from '../../lib/models/User';
+import User, { User as UserType } from '../../lib/models/User';
 
 export const resolvers = {
   Query: {
@@ -34,8 +34,10 @@ export const resolvers = {
           instagramPics: 0,
           snapchatPics: 0,
           gamesMinutes: 0,
+          cloudGamesMinutes: 0,
           youtubeMinutes: 0,
-          netflixMinutes: 0
+          netflixMinutes: 0,
+          spotifyMinutes: 0
         }
       });
 
@@ -77,7 +79,7 @@ export const resolvers = {
 
       return createdSession._id;
     },
-    updateUser: async (parent: any, args: { userId: string, user: { name: string, stats: { searches: number, emailsSent: number, emailsReceived: number, emailsStored: number, instagramPics: number, snapchatPics: number, gamesMinutes: number, youtubeMinutes: number, netflixMinutes: number } } }) => {
+    updateUser: async (parent: any, args: { userId: string, user: UserType }) => {
       await connectToDatabase();
 
       await User.findByIdAndUpdate(args.userId, {

@@ -1,26 +1,18 @@
 import values, { types } from '../values';
 
+import { UserStats } from '../lib/models/User';
+
 type Props = {
-  stats: {
-    searches: number,
-    emailsSent: number,
-    emailsReceived: number,
-    emailsStored: number,
-    instagramPics: number,
-    snapchatPics: number,
-    gamesMinutes: number,
-    youtubeMinutes: number,
-    netflixMinutes: number
-  }
+  stats: UserStats
 }
 
 export default function Graph(props: Props) {
   const vals = {
-    searches: props.stats.searches * values.gramPerSearch,
-    emails: props.stats.emailsReceived * values.gramPerEmail + props.stats.emailsSent + props.stats.emailsStored * values.gramPerEmailSleep,
-    social: props.stats.instagramPics * values.gramPerPhoto + props.stats.snapchatPics * values.gramPerPhoto,
-    games: props.stats.gamesMinutes * values.gramPerGameMinute,
-    streaming: props.stats.netflixMinutes * values.gramPerStreamMinute + props.stats.youtubeMinutes * values.gramPerStreamMinute,
+    searches: props.stats.searches * values.search,
+    emails: props.stats.emailsReceived * values.email + props.stats.emailsSent + props.stats.emailsStored * 0, // /!\
+    social: props.stats.instagramPics * values.instagram + props.stats.snapchatPics * values.snapchat,
+    games: props.stats.gamesMinutes * values.onlineGame + props.stats.cloudGamesMinutes * values.cloudGaming,
+    streaming: props.stats.netflixMinutes * values.netflix + props.stats.youtubeMinutes * values.youtube + props.stats.spotifyMinutes * values.spotify,
   }
 
   const total = Object.values(vals).reduce((a, b) => (a || 0) + b)

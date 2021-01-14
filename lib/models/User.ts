@@ -2,19 +2,23 @@ import mongoose, { Schema, Document } from 'mongoose';
 
 mongoose.modelNames().filter(m => m === 'User').forEach(m => mongoose.deleteModel(m));
 
+export interface UserStats {
+  searches: number,
+  emailsSent: number,
+  emailsReceived: number,
+  emailsStored: number,
+  instagramPics: number,
+  snapchatPics: number,
+  gamesMinutes: number,
+  cloudGamesMinutes: number,
+  youtubeMinutes: number,
+  netflixMinutes: number,
+  spotifyMinutes: number
+}
+
 export interface User extends Document {
   name: string,
-  stats: {
-    searches: number,
-    emailsSent: number,
-    emailsReceived: number,
-    emailsStored: number,
-    instagramPics: number,
-    snapchatPics: number,
-    gamesMinutes: number,
-    youtubeMinutes: number,
-    netflixMinutes: number,
-  }
+  stats: UserStats
 }
 
 const UserSchema: Schema = new Schema({
@@ -27,8 +31,10 @@ const UserSchema: Schema = new Schema({
     instagramPics: Number,
     snapchatPics: Number,
     gamesMinutes: Number,
+    cloudGamesMinutes: Number,
     youtubeMinutes: Number,
     netflixMinutes: Number,
+    spotifyMinutes: Number
   }
 });
 

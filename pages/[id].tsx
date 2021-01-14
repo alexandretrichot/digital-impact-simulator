@@ -39,8 +39,10 @@ mutation CreateUser($name: String!, $sessionId: ID!) {
       instagramPics
       snapchatPics
       gamesMinutes
+      cloudGamesMinutes
       youtubeMinutes
       netflixMinutes
+      spotifyMinutes
     }
   }
 }
@@ -59,8 +61,10 @@ mutation AddUserToSession($sessionId: ID!, $userId: ID!) {
       instagramPics
       snapchatPics
       gamesMinutes
+      cloudGamesMinutes
       youtubeMinutes
       netflixMinutes
+      spotifyMinutes
     }
   }
 }

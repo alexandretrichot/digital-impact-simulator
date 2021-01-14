@@ -19,7 +19,7 @@ export default class SearchesSection extends React.Component<Props> {
       animation={require('../../assets/animations/search.json')}
       counters={<Counter title="Recherches" description={'Ceci est votre nombre moyen de recherches sur internet par jour.'} step={1} value={this.props.searches} onUpdate={value => this.props.onUpdateSearches(value)} />}
       footer={<>
-        <CarbonSum value={this.props.searches * values.gramPerSearch} />
+        <CarbonSum value={this.props.searches * values.search} />
       </>}
     >
       <p>Chaque seconde, Google doit répondre à <b>38 000</b> requêtes. Soit <b>2,28 millions</b> par minute et plus de <b>137 millions par heures</b>.</p>

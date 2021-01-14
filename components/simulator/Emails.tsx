@@ -26,7 +26,7 @@ export default class Emails extends React.Component<Props> {
         <Counter title="Emails stockés sur son compte" description={'C\'est la somme de tous les emails stockés dans votre boîte de réception, vos emails envoyés, vos archives, les spams, votre corbeille, etc. Tout ces emails sont stockés quelque part et continuent de polluer même s\il ne servent plus à rien.'} value={this.props.emailsStored} onUpdate={value => this.props.onUpdateStored(value)} step={50} />
       </>}
       footer={<>
-        <CarbonSum value={this.props.emailsReceived * values.gramPerEmail + this.props.emailsSent * values.gramPerEmail + this.props.emailsStored * values.gramPerEmailSleep} />
+        <CarbonSum value={this.props.emailsReceived * values.email + this.props.emailsSent * values.email + this.props.emailsStored * 0} />{/* /!\ */} 
       </>}
     >
       <p>Chaque seconde, en moyenne <b>3 391 203</b> emails sont envoyés. Soit plus de <b>12 milliards</b> par heures.</p>

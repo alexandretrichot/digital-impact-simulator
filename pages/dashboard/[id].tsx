@@ -8,6 +8,8 @@ import Graph from '../../components/Graph';
 import Loader from '../../components/Loader';
 import Error from '../../components/Error';
 
+import { User as UserType } from '../../lib/models/User';
+
 const GET_SESSION = gql`
 query GetSession($id: ID!) {
   getSession(sessionId: $id) {
@@ -24,8 +26,10 @@ query GetSession($id: ID!) {
         instagramPics
         snapchatPics
         gamesMinutes
+        cloudGamesMinutes
         youtubeMinutes
         netflixMinutes
+        spotifyMinutes
       }
     }
   }
@@ -34,23 +38,8 @@ query GetSession($id: ID!) {
 
 
 type SessionData = {
-  users: [
-    {
-      _id: string,
-      name: string,
-      stats: {
-        searches: number,
-        emailsSent: number,
-        emailsReceived: number,
-        emailsStored: number,
-        instagramPics: number,
-        snapchatPics: number,
-        gamesMinutes: number,
-        youtubeMinutes: number,
-        netflixMinutes: number
-      }
-    },
-  ]
+  name: string,
+  users: UserType[]
 }
 
 export default function sessionDashboard() {

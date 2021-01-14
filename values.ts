@@ -1,23 +1,20 @@
-export default {
-  gramPerSearch: 7,
-  gramPerEmail: 27,
-  gramPerEmailSleep: 10 / 365,
-  gramPerPhoto: 30,
-  gramPerGameMinute: 0,
-  gramPerStreamMinute: 43000 / 60,
+export default { // all values are in bytes/minute or bytes/hit
+  spotify: 1638,
+  youtube: 102400,
+  netflix: 87381,
+  onlineGame: 10,
+  cloudGaming: 170667,
+  email: 0,
 
-  bytesPerSpotifyStreamMinute: 96 * 60 * 1024, // Pour une qualité en 'Normal' à 96kbps source : https://support.spotify.com/us/article/high-quality-streaming/
-  bytesPerYoutubeMinute: 6000 * 60 * 1024, // Pour une vidéo en 1080p 30 fps à 6000 kbps source: https://support.google.com/youtube/answer/2853702?hl=fr
-  bytesPerNetflixMinute: 5 * 60 * 1024, // Pour une vidéo en HD à 5mo/s source : https://help.netflix.com/fr/node/306
-  bytesPerSearch: 296452 + 544016,
-  bytesPerOnlineGameMinute: 10 * 1024, // Moyenne de consommation d'une partie de jeu en ligne sur Fortnite.
-  bytesPerCloudGamingMinute: 12.6 / 60 * 1024 * 1024 * 1024, // Pour une utilisation de Stadia en qualitée 1080p à 60 fps Pour une  source : https://support.google.com/stadia/answer/9607891?hl=en
-  
-  
+  search: 821,
+  instagram: 0,
+  snapchat: 0,
 
-  //mo
+  GESgramPerKmInCar: 220,
+  GESgramPerSmartphoneCharged: 8.3,
 
-  gramPerKm: 118.5
+  kWhPerByte: 2.24E-10,
+  GESgramPerKWh: 519,
 }
 
 export const types: any = {
@@ -39,6 +36,6 @@ export const types: any = {
   },
   streaming: {
     color: "#ff8f00",
-    name: "Vidéos à la demande"
+    name: "Vidéos et musique à la demande"
   },
 }

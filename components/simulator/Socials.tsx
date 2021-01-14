@@ -23,7 +23,7 @@ export default class Socials extends React.Component<Props> {
         <Counter title="Photos envoyées par jours sur Snapchat" description={''} value={this.props.snapchatPics} onUpdate={value => this.props.onUpdateSnapchat(value)} />
       </>}
       footer={<>
-        <CarbonSum value={this.props.instagramPics * values.gramPerPhoto + this.props.snapchatPics * values.gramPerPhoto} />
+        <CarbonSum value={this.props.instagramPics * values.instagram + this.props.snapchatPics * values.snapchat} />
       </>}
     >
       <p>Chaque seconde, en moyenne <b>3 391 203</b> emails sont envoyés. Soit plus de <b>12 milliards</b> par heures.</p>

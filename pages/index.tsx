@@ -10,8 +10,10 @@ export default function Home() {
     instagramPics: 0,
     snapchatPics: 0,
     gamesMinutes: 0,
+    cloudGamesMinutes: 0,
     youtubeMinutes: 0,
-    netflixMinutes: 0
+    netflixMinutes: 0,
+    spotifyMinutes: 0
   });
 
   return <Simulator stats={stats} onUpdateStats={setStats} />

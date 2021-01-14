@@ -11,21 +11,11 @@ import StreamingSection from './Streaming';
 import Result from './Result';
 import Intro from '../Intro';
 
-type Props = {
-  stats: Stats,
-  onUpdateStats: (stats: Stats) => void,
-}
+import { UserStats } from '../../lib/models/User';
 
-type Stats = {
-  searches: number,
-  emailsSent: number,
-  emailsReceived: number,
-  emailsStored: number,
-  instagramPics: number,
-  snapchatPics: number,
-  gamesMinutes: number,
-  youtubeMinutes: number,
-  netflixMinutes: number
+type Props = {
+  stats: UserStats,
+  onUpdateStats: (stats: UserStats) => void,
 }
 
 export default function Simulator(props: PropsWithChildren<Props>) {
@@ -44,11 +34,12 @@ export default function Simulator(props: PropsWithChildren<Props>) {
       instagramPics={props.stats.instagramPics} onUpdateInstagram={value => props.onUpdateStats({ ...props.stats, instagramPics: value })}
       snapchatPics={props.stats.snapchatPics} onUpdateSnapchat={value => props.onUpdateStats({ ...props.stats, snapchatPics: value })} />
     <GamesSection
-      gamesMinutes={props.stats.gamesMinutes} onUpdateGame={value => props.onUpdateStats({ ...props.stats, gamesMinutes: value })} />
+      onlineGameMinutes={props.stats.gamesMinutes} onUpdateOnlineGame={value => props.onUpdateStats({ ...props.stats, gamesMinutes: value })}
+      cloudGamingMinutes={props.stats.cloudGamesMinutes} onUpdateCloudGaming={value => props.onUpdateStats({ ...props.stats, cloudGamesMinutes: value })} />
     <StreamingSection
       youtubeMinutes={props.stats.youtubeMinutes} onUpdateYoutube={value => props.onUpdateStats({ ...props.stats, youtubeMinutes: value })}
-      netflixMinutes={props.stats.netflixMinutes} onUpdateNetflix={value => props.onUpdateStats({ ...props.stats, netflixMinutes: value })} />
-
+      netflixMinutes={props.stats.netflixMinutes} onUpdateNetflix={value => props.onUpdateStats({ ...props.stats, netflixMinutes: value })}
+      spotifyMinutes={props.stats.spotifyMinutes} onUpdateSpotify={value => props.onUpdateStats({ ...props.stats, spotifyMinutes: value })} />
     <Result />
   </div>
 }
