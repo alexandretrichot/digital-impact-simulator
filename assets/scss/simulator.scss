@@ -57,7 +57,7 @@
         border: dotted 2px black;
         border-radius: 0.5rem;
 
-        h3 {
+        .top {
           margin: 0;
           margin-bottom: 1rem;
         }
@@ -101,6 +101,30 @@
 
       @include mobile {
         padding: 1rem;
+      }
+
+      .similes {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+
+        @include mobile {
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .simile {
+          text-align: center;
+
+          img {
+            height: 5rem;
+          }
+
+          .title {
+            font-weight: bold;
+            margin: 1rem 0;
+          }
+        }
       }
     }
   }

@@ -29,7 +29,6 @@ export default function SimulatorSection(props: PropsWithChildren<Props>) {
         {props.children}
       </div>
       <footer>
-        <h3>En conséquence :</h3>
         {props.footer}
       </footer>
     </div>

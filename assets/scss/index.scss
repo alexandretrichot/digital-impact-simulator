@@ -233,8 +233,13 @@ a {
 
   .flex {
     display: flex;
-    list-style: none;
     height: 2rem;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      height: 100%;
+    }
 
     img {
       display: block;

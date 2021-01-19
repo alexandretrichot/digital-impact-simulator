@@ -66,6 +66,10 @@
   display: flex;
   overflow: scroll hidden;
   padding: 1rem 0;
+  
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   .item {
     display: flex;
