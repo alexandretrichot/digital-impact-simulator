@@ -19,21 +19,30 @@
       margin: 0;
       margin-bottom: 0.5rem;
     }
+  }
 
-    .link {
-      overflow-x: scroll;
-      font-size: 0.8rem;
+  .link {
+    overflow-x: scroll;
+    font-size: 0.8rem;
 
-      code {
-        background-color: #ccc;
-        border-radius: 0.2rem;
-        padding: 0 0.2rem;
-      }
+    code {
+      background-color: #ccc;
+      border-radius: 0.2rem;
+      padding: 0 0.2rem;
     }
   }
 
   .users {
     .list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+
+      @include mobile {
+        grid-template-columns: 1fr;
+        gap: 0rem;
+      }
+
       min-height: 100%;
       width: 100%;
       overflow: scroll hidden;

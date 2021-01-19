@@ -4,7 +4,7 @@ type Props = {
   title: ReactNode
 }
 
-export default function (props: PropsWithChildren<Props>) {
+export default function Nothing(props: PropsWithChildren<Props>) {
   return <div className="nothing">
     <div className="title">{props.title}</div>
     <div className="description">{props.children}</div>

@@ -9,6 +9,8 @@ import Loader from '../../components/Loader';
 import Error from '../../components/Error';
 
 import { User as UserType } from '../../lib/models/User';
+import Nothing from '../../components/Nothing';
+import { formatGES, formatKWh, getGesStats, getKWhStats } from '../../utils';
 
 const GET_SESSION = gql`
 query GetSession($id: ID!) {
@@ -45,11 +47,7 @@ type SessionData = {
 export default function sessionDashboard() {
   const router = useRouter();
 
-  const { loading, error, data } = useQuery(GET_SESSION, { variables: { id: router.query.id }, pollInterval: 10000 });
-
-  //const usersValues = data && data.getSession ? (data.getSession as SessionData).users.map(u => ) : [];
-
-  //const max = usersValues.length ? usersValues : 0;
+  const { loading, error, data } = useQuery(GET_SESSION, { variables: { id: router.query.id }, pollInterval: 1000 });
 
   return <div id="dashboard">
     <Head>
@@ -68,15 +66,36 @@ export default function sessionDashboard() {
             </div>)}
           </div>
         </header>
-        <section className="users">
-          <div className="list">
-            {(data.getSession as SessionData).users.map(u => <div key={u._id} className="user">
-              <div className="username">{u.name}</div>
-              <Graph stats={u.stats} />
-            </div>)}
-          </div>
-        </section>
+        <Users users={data.getSession.users.length > 1 ? data.getSession.users.slice().sort((a: UserType, b: UserType) => {
+          const aSum = Object.values(getGesStats(a.stats)).reduce((a, b) => a + b);
+          const bSum = Object.values(getGesStats(b.stats)).reduce((a, b) => a + b);
+
+          return bSum - aSum;
+        }) : data.getSession.users} sessionLink={`${location.host}/${data.getSession.id}`} />
       </>
     )}
   </div>;
+}
+
+function Users(props: { users: UserType[], sessionLink: string }) {
+  const kwhTotals = props.users.map(u => Object.values(getKWhStats(u.stats)).reduce((a, b) => a + b));
+  const gesTotals = props.users.map(u => Object.values(getGesStats(u.stats)).reduce((a, b) => a + b));
+
+  const maxGES = Math.max(...gesTotals);
+
+  return <section className="users">
+    <div className="list">
+      {props.users.map((u, index) => <div key={u._id} className="user">
+        <div className="username">{u.name}</div>
+        <br />
+        <div>{formatKWh(kwhTotals[index])} {formatGES(gesTotals[index])}</div>
+        <div style={{width: gesTotals[index] / maxGES * 100 + '%'}}><Graph stats={getGesStats(u.stats)} /></div>
+        <br/>
+      </div>)}
+    </div>
+    {props.users.length < 1 && <Nothing title="Il n'y a personne dans cette session pour le moment">
+      <br />
+      <div className="link">Pour rejoindre : <code>{props.sessionLink}</code></div>
+    </Nothing>}
+  </section>;
 }

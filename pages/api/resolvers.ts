@@ -60,7 +60,7 @@ export const resolvers = {
       if (!session) throw new Error("No session found for id :" + args.sessionId);
 
       if (!session.users.find(u => u.toString() === user._id.toString())) {
-        await session.update({
+        await Session.findByIdAndUpdate(session.id, {
           $push: {
             users: user._id
           }
