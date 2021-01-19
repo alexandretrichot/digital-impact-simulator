@@ -15,7 +15,7 @@ type Props = {
 export default function Socials(props: Props) {
   return <Section
     title="Les Réseaux sociaux"
-    description={<>Sur Instagram, <b>100.00 millions</b> de photos et de vidéos sont publiées par jours. En parallèle, <>4.20 milliards</> de likes sont comptabilisés quotidiennement.</>}
+    description={<>Sur Instagram, <b>100.00 millions</b> de photos et de vidéos sont publiées par jours. En parallèle, <b>4.20 milliards</b> de likes sont comptabilisés quotidiennement.</>}
     animation={require('../../assets/animations/social.json')}
     counters={<>
       <Counter title="Photos envoyées par jours sur Instagram" description={''} value={props.instagramPics} onUpdate={value => props.onUpdateInstagram(value)} />

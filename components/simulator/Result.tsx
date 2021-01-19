@@ -30,7 +30,7 @@ export default function Result({ stats }: Props) {
 
       <br />
 
-      <h3>Sur une année :</h3>
+      <h3>Sur une année cela représente :</h3>
       <Sum kwh={totalKwh * 365} ges={totalGes * 365} />
 
       <br />

@@ -3,6 +3,7 @@ import Counter from '../Counter';
 import Sum from '../Sum';
 import values from '../../values';
 import Section from './Section';
+import { formatGES, formatKWh } from '../../utils';
 
 type Props = {
   emailsSent: number,
@@ -16,7 +17,7 @@ type Props = {
 export default function Emails(props: Props) {
   return <Section
     title={'Vos "petits" emails'}
-    description={<>L'envoi d'un email consomme environ <b>{values.kwh.email} kWh</b> et emet environ <b>{values.ges.email} grammes de CO<sub>2</sub></b>.</>}
+    description={<>L'envoi d'un email consomme environ {formatKWh(values.kwh.email)} et emet environ {formatGES(values.ges.email)}.</>}
     animation={require('../../assets/animations/mail.json')}
     counters={<>
       <Counter title="Emails envoyés par jour" description={'C\'est le nombre d\'emails envoyés dans l\'espace d\'une journée.'} value={props.emailsSent} onUpdate={value => props.onUpdateSent(value)} />
@@ -28,6 +29,6 @@ export default function Emails(props: Props) {
     </>}
   >
     <p>Chaque seconde, en moyenne <b>3 391 203</b> emails sont envoyés. Soit plus de <b>12 milliards</b> par heures.</p>
-    <p>Cela a pour effet de dégager plus de <b>330 kilotonnes</b> de CO<sub>2</sub> par heure. (329 625 tonnes)</p>
+    <p>Cela a pour effet de dégager plus de {formatGES(3391203 * 60 * 60)} par heure.</p>
   </Section>
 }
