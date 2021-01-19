@@ -36,7 +36,7 @@ export default { // all values are in bytes/minute or bytes/hit
     snapchat: 90.67968,
   },
 
-  frigoPerYear: 201, // kwh/year  source: https://total.direct-energie.com/particuliers/parlons-energie/dossiers-energie/economie-d-energie/tout-savoir-sur-la-consommation-de-votre-frigo#:~:text=En%20pratique%2C%20un%20frigo%20combi,utilis%C3%A9%20dans%20les%20m%C3%AAmes%20conditions.
+  frigoPerYear: 201, // kwh/year  source: https://total.direct-energie.com/particuliers/parlons-energie/dossiers-energie/economie-d-energie/tout-savoir-sur-la-consommation-de-votre-frigo
   gesPerKmInCar: 95, // source https://ree.developpement-durable.gouv.fr/themes/defis-environnementaux/changement-climatique/emissions-de-gaz-a-effet-de-serre/article/les-emissions-de-gaz-a-effet-de-serre-des-transports
 }
 
