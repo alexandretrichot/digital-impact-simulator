@@ -2,7 +2,8 @@ import Lottie from 'lottie-react';
 
 export default function Intro() {
   return <header id="intro">
-
+    <img className="mne-logo" src={require('../assets/images/mne.png')} alt="Logo de Meuse Nature Environnement" />
+    
     <h1>Pollution Numérique</h1>
     <h3>Simulateur d'impact</h3>
     <div className="flex">

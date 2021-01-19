@@ -31,6 +31,11 @@ body {
   margin: 0;
 }
 
+.mne-logo {
+  display: block;
+  height: 2rem;
+}
+
 #intro {
   max-width: 1200px;
   margin: auto;
@@ -86,7 +91,7 @@ body {
   display: flex;
   align-items: center;
   text-align: center;
-  margin: .5rem 0;
+  margin: 0.5rem 0;
   font-weight: bold;
 
   &::before,
@@ -116,11 +121,11 @@ body {
   }
 
   input {
-    font-size: .8rem;
+    font-size: 0.8rem;
     //font-size: 1rem;
-    padding: .5rem;
+    padding: 0.5rem;
     border: solid 1px grey;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
   }
 }
 
@@ -180,14 +185,15 @@ body {
 a {
   color: #00af25;
   text-decoration: none;
-  
+
   &:hover {
     color: black;
     text-decoration: underline;
   }
 }
 
-.btn, a.btn {
+.btn,
+a.btn {
   display: inline-block;
   border: none;
   border-radius: 0.3rem;
