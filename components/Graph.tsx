@@ -1,29 +1,25 @@
 import values, { types } from '../values';
 
-import { UserStats } from '../lib/models/User';
-
 type Props = {
-  stats: UserStats
+  stats: {
+    searches: number,
+    emails: number,
+    socials: number,
+    games: number,
+    streaming: number,
+  }
 }
 
-export default function Graph(props: Props) {
-  const vals = {
-    searches: props.stats.searches * values.search,
-    emails: props.stats.emailsReceived * values.email + props.stats.emailsSent + props.stats.emailsStored * 0, // /!\
-    social: props.stats.instagramPics * values.instagram + props.stats.snapchatPics * values.snapchat,
-    games: props.stats.gamesMinutes * values.onlineGame + props.stats.cloudGamesMinutes * values.cloudGaming,
-    streaming: props.stats.netflixMinutes * values.netflix + props.stats.youtubeMinutes * values.youtube + props.stats.spotifyMinutes * values.spotify,
-  }
-
-  const total = Object.values(vals).reduce((a, b) => (a || 0) + b)
+export default function Graph({ stats }: Props) {
+  const total = Object.values(stats).reduce((a, b) => a + b)
 
   return <div className="graph">
     <div className="segments">
-      <div className="segment" style={{height: vals.searches / total * 100 + "%", backgroundColor: types.searches.color}}></div>
-      <div className="segment" style={{height: vals.emails / total * 100 + "%", backgroundColor: types.emails.color}}></div>
-      <div className="segment" style={{height: vals.social / total * 100 + "%", backgroundColor: types.social.color}}></div>
-      <div className="segment" style={{height: vals.games / total * 100 + "%", backgroundColor: types.games.color}}></div>
-      <div className="segment" style={{height: vals.streaming / total * 100 + "%", backgroundColor: types.streaming.color}}></div>
+      <div className="segment" style={{ width: stats.searches / total * 100 + "%", backgroundColor: types.searches.color }}></div>
+      <div className="segment" style={{ width: stats.emails / total * 100 + "%", backgroundColor: types.emails.color }}></div>
+      <div className="segment" style={{ width: stats.socials / total * 100 + "%", backgroundColor: types.social.color }}></div>
+      <div className="segment" style={{ width: stats.games / total * 100 + "%", backgroundColor: types.games.color }}></div>
+      <div className="segment" style={{ width: stats.streaming / total * 100 + "%", backgroundColor: types.streaming.color }}></div>
     </div>
   </div>
 }

@@ -17,45 +17,17 @@
     h1 {
       font-size: 1.5rem;
       margin: 0;
-      margin-bottom: .5rem;
+      margin-bottom: 0.5rem;
     }
 
     .link {
       overflow-x: scroll;
-      font-size: .8rem;
+      font-size: 0.8rem;
 
       code {
         background-color: #ccc;
-        border-radius: .2rem;
-        padding: 0 .2rem;
-      }
-    }
-
-    .legendary {
-      display: flex;
-      overflow: scroll hidden;
-      padding: 1rem 0;
-
-      .item {
-        display: flex;
-        align-items: center;
-        flex: 0 0 auto;
-
-        &:not(:first-child) {
-          margin-left: 1rem;
-        }
-
-        .color {
-          height: .8rem;
-          width: .8rem;
-          margin-right: .2rem;
-          border-radius: .4rem;
-        }
-
-        .name {
-          font-size: .8rem;
-          white-space: nowrap;
-        }
+        border-radius: 0.2rem;
+        padding: 0 0.2rem;
       }
     }
   }
@@ -77,6 +49,34 @@
           margin-right: 0.5rem;
         }
       }
+    }
+  }
+}
+
+.legendary {
+  display: flex;
+  overflow: scroll hidden;
+  padding: 1rem 0;
+
+  .item {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+
+    &:not(:first-child) {
+      margin-left: 1rem;
+    }
+
+    .color {
+      height: 0.8rem;
+      width: 0.8rem;
+      margin-right: 0.2rem;
+      border-radius: 0.4rem;
+    }
+
+    .name {
+      font-size: 0.8rem;
+      white-space: nowrap;
     }
   }
 }
@@ -103,7 +103,6 @@
     }
 
     .session-name {
-
     }
   }
 }

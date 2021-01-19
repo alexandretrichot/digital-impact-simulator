@@ -47,6 +47,6 @@ export default function Simulator(props: PropsWithChildren<Props>) {
       netflixMinutes={props.stats.netflixMinutes} onUpdateNetflix={value => props.onUpdateStats({ ...props.stats, netflixMinutes: value })}
       spotifyMinutes={props.stats.spotifyMinutes} onUpdateSpotify={value => props.onUpdateStats({ ...props.stats, spotifyMinutes: value })} />
     <Wave />
-    <Result />
+    <Result stats={props.stats} />
   </div>
 }

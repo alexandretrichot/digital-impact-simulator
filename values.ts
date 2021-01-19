@@ -52,10 +52,10 @@ export const types: any = {
   },
   games: {
     color: "#ff0051",
-    name: "Jeux en ligne"
+    name: "Jeux vidéo"
   },
   streaming: {
     color: "#ff8f00",
-    name: "Vidéos et musique à la demande"
+    name: "Streaming"
   },
 }
