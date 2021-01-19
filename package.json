@@ -1,6 +1,6 @@
 {
-  "name": "carbon-sim",
-  "version": "0.1.0",
+  "name": "digital-impact-simulator",
+  "version": "1.0.0-pre",
   "private": true,
   "scripts": {
     "dev": "next dev",
