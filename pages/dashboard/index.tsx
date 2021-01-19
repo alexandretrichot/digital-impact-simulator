@@ -39,7 +39,7 @@ export default function DashboardPortal() {
       <title>Dashboard | Pollution Numérique</title>
     </Head>
     <div className="portal">
-      <h1>Aperçu de session</h1>
+      <h1>Mode session</h1>
       <div className="title">Créer une session</div>
       {createSessionHook.loading ? <div>Chargement</div> : <div className="form">
         <input type="text" placeholder="Nom de session" value={sessionName} onChange={ev => setSessionName(ev.target.value)} />
