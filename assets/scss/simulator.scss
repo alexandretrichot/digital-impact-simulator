@@ -61,11 +61,32 @@
           margin: 0;
           margin-bottom: 1rem;
         }
+
+        .sum {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 2rem;
+
+          .value {
+            display: flex;
+            align-items: center;
+
+
+            .icon {
+              height: 1.5rem;
+              margin-right: .5rem;
+            }
+
+            .result span {
+              font-weight: bold;
+            }
+          }
+        }
       }
     }
 
     &:nth-child(even) {
-      background-color: rgb(235, 235, 235);
+      background-color: #f6f6f6;
 
       header {
         flex-direction: row-reverse;

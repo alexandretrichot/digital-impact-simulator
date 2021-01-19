@@ -6,7 +6,7 @@ export default function Intro() {
     <h1>Pollution Numérique</h1>
     <h3>Simulateur d'impact</h3>
     <div className="flex">
-    <Lottie animationData={require('../assets/animations/booking.json')} />
+      <Lottie className="anim" animationData={require('../assets/animations/booking.json')} />
       <div>
         <p>Vous êtes-vous déjà demandé si votre consommation d’internet avait un impact sur l’environnement ?</p>
         <p>Le cas échéant, avez-vous une idée de ce que cela représente ?</p>

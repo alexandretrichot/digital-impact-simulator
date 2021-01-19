@@ -48,7 +48,7 @@ export default function DashboardPortal() {
       <div className="separator">OU</div>
       <div className="title">Rejoindre une session existante</div>
       <div className="form">
-        <input type="text" placeholder="Id de la session" value={sessionId} onChange={ev => setSessionId(ev.target.value)} />
+        <input type="text" placeholder="Identifiant de la session" value={sessionId} onChange={ev => setSessionId(ev.target.value)} />
         <button className="btn" disabled={!query.data} onClick={() => query.data && router.push(`/dashboard/${query.data.getSession.id}`)}>{query.loading ? 'Recherche...' : 'Ouvir'}</button>
       </div>
     </div>
