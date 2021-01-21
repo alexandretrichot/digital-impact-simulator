@@ -14,7 +14,7 @@ Un mode "Session" est disponible à l'adresse : [digital-impact-simulator.vercel
 
 Liste rapide des sources utilisées pour les données du projet :
 
-- [Consomation d'un frigo](https://total.direct-energie.com/particuliers/parlons-energie/dossiers-energie/economie-d-energie/tout-savoir-sur-la-consommation-de-votre-frigo)
+- [Consommation d'un frigo](https://total.direct-energie.com/particuliers/parlons-energie/dossiers-energie/economie-d-energie/tout-savoir-sur-la-consommation-de-votre-frigo)
 - [Émission de GES d'une voiture](https://ree.developpement-durable.gouv.fr/themes/defis-environnementaux/changement-climatique/emissions-de-gaz-a-effet-de-serre/article/les-emissions-de-gaz-a-effet-de-serre-des-transports)
 - [Impact des vidéos de The Shift Project](https://theshiftproject.org/article/climat-insoutenable-usage-video/)
 - [Modèle "1byte" de The Shift Project](https://theshiftproject.org/carbonalyser-extension-navigateur/)

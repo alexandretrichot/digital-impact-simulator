@@ -48,7 +48,7 @@ export default function Result({ stats }: Props) {
           C'est l'équivalent en consommation energétique de {Math.round(totalKwh * 365 / values.frigoPerYear)} frigos par an.
         </Simile>
         <Simile title={`${(totalGes * 365 / values.gesPerKmInCar).toLocaleString()} Km`} icon={require('../../assets/icons/car.svg')}>
-          C'est l'équivalent en émissions carbone d'une voiture termique ayant parcouru {(totalGes * 365 / values.gesPerKmInCar).toLocaleString()} Km.
+          C'est l'équivalent en émissions carbone d'une voiture thermique ayant parcouru {(totalGes * 365 / values.gesPerKmInCar).toLocaleString()} Km.
         </Simile>
       </div>
     </div>
