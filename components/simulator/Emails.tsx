@@ -24,7 +24,7 @@ export default function Emails(props: Props) {
       <Counter title="E-mails reçus par jour" description="Indiquez le nombre d'e-mails entrant dans votre boite de réception y compris vos spams, e-mails de réseaux sociaux, etc." value={props.emailsReceived} onUpdate={value => props.onUpdateReceived(value)} />
     </>}
     footer={<>
-      <p className="top"><b>En conséquence</b>, voici l'impact en consommation en énergie et émissions de gaz à effet de serre :</p>
+      <p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
       <Sum kwh={(props.emailsReceived + props.emailsSent) * values.kwh.email} ges={(props.emailsReceived + props.emailsSent) * values.ges.email} />
     </>}
   >

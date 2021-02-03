@@ -29,7 +29,7 @@ export default function Streaming(props: Props) {
     </>}
     footer={
       <>
-        <p className="top"><b>En conséquence</b>, voici l'impact en consommation en énergie et émissions de gaz à effet de serre :</p>
+        <p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
         <Sum kwh={props.youtubeMinutes * values.kwh.youtube + props.netflixMinutes * values.kwh.netflix + props.spotifyMinutes * values.kwh.spotify} ges={props.youtubeMinutes * values.ges.youtube + props.netflixMinutes * values.ges.netflix + props.spotifyMinutes * values.ges.spotify} />
       </>
     }

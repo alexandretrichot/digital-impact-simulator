@@ -27,7 +27,7 @@ export default function Games(props: Props) {
       <Counter title={'Minutes de jeux vidéos "sur le cloud" par jour'} description="Indiquez ici le temps que vous y passez chaque jour" value={props.cloudGamingMinutes} onUpdate={value => props.onUpdateCloudGaming(value)} step={20} />
     </>}
     footer={<>
-      <p className="top"><b>En conséquence</b>, voici l'impact en consommation en énergie et émissions de gaz à effet de serre :</p>
+      <p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
       <Sum kwh={props.onlineGameMinutes * values.kwh.onlineGame + props.cloudGamingMinutes * values.kwh.cloudGaming} ges={props.onlineGameMinutes * values.ges.onlineGame + props.cloudGamingMinutes * values.ges.cloudGaming} />
     </>}
   >

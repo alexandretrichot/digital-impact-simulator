@@ -23,7 +23,7 @@ export default function Socials(props: Props) {
       <Counter title="Minutes passées par jour sur Snapchat" description={'Indiquez ici le temps que vous y passez chaque jour'} value={props.snapchatPics} onUpdate={value => props.onUpdateSnapchat(value)} />
     </>}
     footer={<>
-      <p className="top"><b>En conséquence</b>, voici l'impact en consommation en énergie et émissions de gaz à effet de serre :</p>
+      <p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
       <Sum kwh={props.instagramPics * values.kwh.instagram + props.snapchatPics * values.kwh.snapchat} ges={props.instagramPics * values.ges.instagram + props.snapchatPics * values.ges.snapchat} />
     </>}
   >

@@ -19,7 +19,7 @@ export default function SearchesSection(props: Props) {
     animation={require('../../assets/animations/search.json')}
     counters={<Counter title="Recherches" description={'Indiquez votre nombre moyen de recherches sur internet par jour.'} step={1} value={props.searches} onUpdate={value => props.onUpdateSearches(value)} />}
     footer={<>
-      <p className="top"><b>En conséquence</b>, voici l'impact en consommation en énergie et émissions de gaz à effet de serre :</p>
+      <p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
       <Sum kwh={props.searches * values.kwh.search} ges={props.searches * values.ges.search} />
     </>}
   >
