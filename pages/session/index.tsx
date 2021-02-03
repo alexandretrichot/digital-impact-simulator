@@ -28,7 +28,7 @@ export default function DashboardPortal() {
 
   const [createSession, createSessionHook] = useMutation(CREATE_SESSION, {
     onCompleted: data => {
-      router.push(`/dashboard/${data.createSession}`);
+      router.push(`/session/${data.createSession}`);
     }
   });
 
@@ -36,7 +36,7 @@ export default function DashboardPortal() {
 
   return <div className="dashboard-portal">
     <Head>
-      <title>Dashboard | Pollution Numérique</title>
+      <title>Mode session | Pollution Numérique</title>
     </Head>
     <div className="portal">
       <h1>Mode session</h1>
@@ -49,7 +49,7 @@ export default function DashboardPortal() {
       <div className="title">Rejoindre une session existante</div>
       <div className="form">
         <input type="text" placeholder="Identifiant de la session" value={sessionId} onChange={ev => setSessionId(ev.target.value)} />
-        <button className="btn" disabled={!query.data} onClick={() => query.data && router.push(`/dashboard/${query.data.getSession.id}`)}>{query.loading ? 'Recherche...' : 'Ouvir'}</button>
+        <button className="btn" disabled={!query.data} onClick={() => query.data && router.push(`/session/${query.data.getSession.id}`)}>{query.loading ? 'Recherche...' : 'Ouvir'}</button>
       </div>
     </div>
   </div>

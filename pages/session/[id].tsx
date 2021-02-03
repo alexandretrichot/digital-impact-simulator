@@ -38,12 +38,6 @@ query GetSession($id: ID!) {
 }
 `;
 
-
-type SessionData = {
-  name: string,
-  users: UserType[]
-}
-
 export default function sessionDashboard() {
   const router = useRouter();
 
