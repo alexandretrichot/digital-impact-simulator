@@ -16,7 +16,7 @@ export default function SimulatorSection(props: PropsWithChildren<Props>) {
       <header>
         <div>
           <h2>{props.title}</h2>
-          <p>{props.description}</p>
+          {props.description}
         </div>
         <Lottie className="anim" animationData={props.animation} />
       </header>
