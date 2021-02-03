@@ -45,7 +45,7 @@ export default function sessionDashboard() {
 
   return <div id="dashboard">
     <Head>
-      <title>Dashboard | Pollution Numérique</title>
+      <title>Session | Pollution Numérique</title>
     </Head>
 
     {loading ? <Loader>Chargement de la session...</Loader> : (
