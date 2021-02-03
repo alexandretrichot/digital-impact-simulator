@@ -38,6 +38,6 @@ export function formatGES(value: number): ReactNode {
 
   return <>
     <b>{isTonne ? (value / 1000000).toLocaleString() : (isKg ? (value / 1000).toLocaleString() : value.toLocaleString())}</b>
-    {isTonne ? ' tonne' + ((value / 1000000) >= 2 && 's') : (isKg ? ' Kg' : ' g')} de CO<sub>2</sub>
+    {isTonne ? ' tonne' + ((value / 1000000) >= 2 ? 's' : '') : (isKg ? ' Kg' : ' g')} de CO<sub>2</sub>
   </>;
 }
