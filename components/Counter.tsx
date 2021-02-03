@@ -20,7 +20,7 @@ export default class Counter extends React.Component<Props> {
 
   updateHandler(value: number) {
     const a = this.props.value + value;
-    if(a < 0) return;
+    if (a < 0) return;
     this.props.onUpdate(a);
   }
 
@@ -29,7 +29,7 @@ export default class Counter extends React.Component<Props> {
       <div className="title">{this.props.title}</div>
       <div className="description">{this.props.description}</div>
       <div className="screen">
-        <div className="value">{this.props.value}</div>
+        <input type="number" className="value" value={this.props.value} onChange={ev => this.updateHandler(Number(ev.target.value) - this.props.value)} />
       </div>
       <div className="buttons">
         <Button onClick={() => this.updateHandler(-this.props.step)}>-{this.props.step}<span className="unit">{this.props.unit}</span></Button>
