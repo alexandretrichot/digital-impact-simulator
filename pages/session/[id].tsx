@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import { useQuery, gql } from '@apollo/client';
 
-import { types } from '../../values';
+import values, { types } from '../../values';
 import Graph from '../../components/Graph';
 import Loader from '../../components/Loader';
 import Error from '../../components/Error';
@@ -82,7 +82,8 @@ function Users(props: { users: UserType[], sessionLink: string }) {
       {props.users.map((u, index) => <div key={u._id} className="user">
         <div className="username">{u.name}</div>
         <br />
-        <div>{formatKWh(kwhTotals[index])} {formatGES(gesTotals[index])}</div>
+        <div>{formatKWh(kwhTotals[index] * 365)} {formatGES(gesTotals[index] * 365)} </div>
+        <div><b>{Math.round(kwhTotals[index] * 365 / values.frigoPerYear)} frigos</b> par an et <b>{Math.round(gesTotals[index] * 365 / values.gesPerKmInCar).toLocaleString()} Km</b> en voiture</div>
         <div style={{width: gesTotals[index] / maxGES * 100 + '%'}}><Graph stats={getGesStats(u.stats)} /></div>
         <br/>
       </div>)}
