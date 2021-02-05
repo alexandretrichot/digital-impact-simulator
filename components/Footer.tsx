@@ -10,9 +10,9 @@ export default function footer() {
       <p>Avec la participation du Département de la Meuse, de la Région Grand Est et de la DREAL Grand Est</p>
       <div className="flex">
         <div>
-          <img src={require('../assets/images/meuse.png')} alt="Logo de la Meuse" />
+          {/* <img src={require('../assets/images/meuse.png')} alt="Logo de la Meuse" /> */}
           <img src={require('../assets/images/grand-est.jpg')} alt="Logo du Grand-Est" />
-          <img src={require('../assets/images/dreal.jpg')} alt="Logo de la DREAL" />
+          {/* <img src={require('../assets/images/dreal.jpg')} alt="Logo de la DREAL" /> */}
         </div>
       </div>
     </div>
