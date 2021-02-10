@@ -24,7 +24,7 @@ export default function Games(props: Props) {
     animation={require('../../assets/animations/controller.json')}
     counters={<>
       <Counter title="Minutes de jeux vidéos sur console ou ordinateur par jour" description="Indiquez ici le temps que vous y passez chaque jour" value={props.onlineGameMinutes} onUpdate={value => props.onUpdateOnlineGame(value)} step={20} />
-      <Counter title={'Minutes de jeux vidéos "sur le cloud" par jour'} description="Indiquez ici le temps que vous y passez chaque jour" value={props.cloudGamingMinutes} onUpdate={value => props.onUpdateCloudGaming(value)} step={20} />
+      <Counter title={'Minutes de jeux vidéos "sur le cloud" par jour'} description={'Le jeu sur le cloud, un service proposé par Stadia ou XCloud, permet de jouer depuis n\'importe quel appareil en déportant le calcul de l\'image sur une machine distante. Cela ne concerne pas les jeux en ligne classiques.'} value={props.cloudGamingMinutes} onUpdate={value => props.onUpdateCloudGaming(value)} step={20} />
     </>}
     footer={<>
       <p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
