@@ -18,7 +18,7 @@
   .title {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   .description {
@@ -45,6 +45,13 @@
       color: white;
 
       font-family: digital;
+
+      -moz-appearance: textfield;
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
     }
   }
 
