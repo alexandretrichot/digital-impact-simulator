@@ -10,8 +10,6 @@ type Props = {
 }
 
 export default function Sum(props: Props) {
-  const isKg = props.ges >= 1000;
-
   return <div className="sum">
     <div className="value">
       <img src={boltIcon} alt="Icon" className="icon" />
