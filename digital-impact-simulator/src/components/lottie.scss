@@ -1,0 +1,11 @@
+.anim {
+	.container {
+		position: relative;
+		padding-bottom: 100%;
+		
+		.lottie {
+			position: absolute;
+			height: auto !important;
+		}
+	}
+}

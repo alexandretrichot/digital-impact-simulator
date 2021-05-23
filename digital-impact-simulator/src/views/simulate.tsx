@@ -4,11 +4,13 @@ export type SimulatePageParams = {
 	id?: string;
 }
 
-function SimulatePage() {
+const SimulatePage: React.FC = () => {
 	const { id } = useParams<SimulatePageParams>();
 
 	return (
-		<h2>Simulate page with { id ? `id: ${id}` : 'no id' }.</h2>
+		<div className="wrapper">
+			Simulate Page
+		</div>
 	);
 }
 
