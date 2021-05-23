@@ -4,17 +4,16 @@ import React from 'react';
 import './lottie.scss';
 
 type Props = {
-	animData: Promise<any>;
+	anim: string
 };
 
 const Lottie: React.FC<Props> = props => {
 	const container = React.useRef<HTMLDivElement>(null);
 
-
 	React.useEffect(() => {
 		let anim: AnimationItem;
 
-		props.animData.then(data => {
+		import(`../assets/animations/${props.anim}.json`).then(data => {
 			anim = lottieWeb.loadAnimation({
 				container: container.current!,
 				animationData: data,
@@ -23,6 +22,8 @@ const Lottie: React.FC<Props> = props => {
 					className: 'lottie',
 				}
 			});
+
+			container.current!.classList.add('loaded');
 		});
 
 		return () => {
@@ -30,12 +31,10 @@ const Lottie: React.FC<Props> = props => {
 				anim.destroy();
 			}
 		}
-	}, [props.animData]);
+	}, [props.anim]);
 
 	return (
-		<div className="anim">
-			<div className="container" ref={container}></div>
-		</div>
+		<div className="lottie-container" ref={container}></div>
 	);
 };
 

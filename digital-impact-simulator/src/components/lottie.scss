@@ -1,11 +1,16 @@
-.anim {
-	.container {
-		position: relative;
-		padding-bottom: 100%;
-		
-		.lottie {
-			position: absolute;
-			height: auto !important;
-		}
-	}
+.lottie-container {
+  position: relative;
+  padding-bottom: 100%;
+
+  transform: scale(0);
+  transition: transform .4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  &.loaded {
+    transform: scale(1);
+  }
+
+  .lottie {
+    position: absolute;
+    height: auto !important;
+  }
 }

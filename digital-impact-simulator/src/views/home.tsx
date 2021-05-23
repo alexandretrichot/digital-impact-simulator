@@ -7,7 +7,7 @@ const HomePage: React.FC = () => {
 	return (
 		<div id="home" className="page wrapper">
 			<div className="flex">
-				<Lottie animData={import('../assets/animations/booking.json')} />
+				<div className="anim"><Lottie anim={'booking'} /></div>
 				<div>
 					<p>
 						Vous êtes-vous déjà demandé si votre consommation d’internet avait un
