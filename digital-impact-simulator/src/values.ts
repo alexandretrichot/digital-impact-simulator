@@ -39,7 +39,7 @@ export const types = {
 		color: "#0077ff",
 		name: "Emails"
 	},
-	social: {
+	socials: {
 		color: "#ab00ff",
 		name: "Réseaux sociaux"
 	},

@@ -10,6 +10,7 @@ import { KWh, GES } from '../utils';
 import Wave from './wave';
 import Section from './section';
 import Sum from './sum';
+import Result from './result';
 
 import { Stats } from '../../types';
 
@@ -262,6 +263,7 @@ const Simulator: React.FC<Props> = props => {
 				}
 			/>
 			<Wave />
+			<Result stats={stats} />
 		</div>
 	);
 };

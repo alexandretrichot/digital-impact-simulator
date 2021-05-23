@@ -12,3 +12,11 @@ export type Stats = {
 	netflixMinutes: StatType,
 	musicMinutes: StatType,
 }
+
+export type CategorizedStats = {
+	searches: number,
+	emails: number,
+	socials: number,
+	games: number,
+	streaming: number,
+}

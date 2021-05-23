@@ -1,0 +1,25 @@
+@import '../../assets/styles/vars';
+
+.graph {
+  background-color: #dcddde;
+  overflow: hidden;
+  border-radius: 0.3rem;
+  box-shadow: $classicShadow;
+
+  .center {
+    text-align: center;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
+
+  .segments {
+    display: flex;
+    height: 1.2rem;
+    width: 100%;
+
+    .segment {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+  }
+}
