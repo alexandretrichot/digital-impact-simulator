@@ -3,7 +3,7 @@ const values = {
 		search: 0.000183852,
 		email: 0.000235517,
 
-		spotify: 0.00129024,
+		music: 0.00129024,
 		youtube: 0.08064,
 		netflix: 0.0672,
 		onlineGame: 0.0001344,
@@ -15,7 +15,7 @@ const values = {
 		search: 0.095419383,
 		email: 0.122233402,
 
-		spotify: 0.66963456,
+		music: 0.66963456,
 		youtube: 41.85216,
 		netflix: 34.8768,
 		onlineGame: 0.0697536,

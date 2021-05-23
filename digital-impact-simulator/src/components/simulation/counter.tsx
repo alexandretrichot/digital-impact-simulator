@@ -18,7 +18,7 @@ const Counter: React.FC<Props> = props => {
 	function updateStat(value: string | number) {
 		if(value === '' || isNaN(Number(value))) return props.onChange(null);
 		
-		props.onChange(Math.min(Math.max(Number(value), 0), 100));
+		props.onChange(Math.min(Math.max(Number(value), 0), 1000));
 	}
 
 	return (
