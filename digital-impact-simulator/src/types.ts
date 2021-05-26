@@ -20,3 +20,24 @@ export type CategorizedStats = {
 	games: number,
 	streaming: number,
 }
+
+export type Room = {
+	_id?: string,
+	name: string,
+	slug: string,
+	passcode: number,
+	sessions: Session[],
+}
+
+export type Session = {
+	_id?: string,
+	stats: Stats,
+	createdAt: Date,
+	updatedAt: Date,
+	email?: string
+}
+
+export type SessionInput = {
+	stats: Stats,
+	email?: string,
+}
