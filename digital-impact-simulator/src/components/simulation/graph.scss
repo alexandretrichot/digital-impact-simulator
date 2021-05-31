@@ -20,6 +20,17 @@
     .segment {
       flex: 0 0 auto;
       width: 100%;
+
+      .text {
+        height: 100%;
+        width: 100%;
+        padding: .25rem;
+        display: flex;
+        align-items: center;
+        font-size: 0.6rem;
+        font-weight: bold;
+        white-space: nowrap;
+      }
     }
   }
 }

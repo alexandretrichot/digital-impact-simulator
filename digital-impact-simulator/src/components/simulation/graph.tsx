@@ -6,7 +6,6 @@ import { types } from "../../values";
 
 export type Props = {
 	stats: CategorizedStats,
-
 }
 
 const Graph: React.FC<Props> = ({ stats }) => {
@@ -15,14 +14,14 @@ const Graph: React.FC<Props> = ({ stats }) => {
 	return (
 		<div className="graph">
 			{total === 0 ? (
-				<div v-if="total === 0" className="center">Pas de données à afficher</div>
+				<div className="center">Pas de données à afficher</div>
 			) : (
-				<div v-else className="segments">
-					<span className="segment" style={{ width: (Number(stats.searches) / total) * 100 + '%', backgroundColor: types.searches.color, }}></span>
-					<span className="segment" style={{ width: (Number(stats.emails) / total) * 100 + '%', backgroundColor: types.emails.color, }}></span>
-					<span className="segment" style={{ width: (Number(stats.socials) / total) * 100 + '%', backgroundColor: types.socials.color, }}></span>
-					<span className="segment" style={{ width: (Number(stats.games) / total) * 100 + '%', backgroundColor: types.games.color, }}></span>
-					<span className="segment" style={{ width: (Number(stats.streaming) / total) * 100 + '%', backgroundColor: types.streaming.color, }}></span>
+				<div className="segments">
+					<span className="segment" style={{ width: (Number(stats.searches) / total) * 100 + '%', backgroundColor: types.searches.color, }}><span className="text">{types.searches.name}</span></span>
+					<span className="segment" style={{ width: (Number(stats.emails) / total) * 100 + '%', backgroundColor: types.emails.color, }}><span className="text">{types.emails.name}</span></span>
+					<span className="segment" style={{ width: (Number(stats.socials) / total) * 100 + '%', backgroundColor: types.socials.color, }}><span className="text">{types.socials.name}</span></span>
+					<span className="segment" style={{ width: (Number(stats.games) / total) * 100 + '%', backgroundColor: types.games.color, }}><span className="text">{types.games.name}</span></span>
+					<span className="segment" style={{ width: (Number(stats.streaming) / total) * 100 + '%', backgroundColor: types.streaming.color, }}><span className="text">{types.streaming.name}</span></span>
 				</div>
 			)}
 		</div>
