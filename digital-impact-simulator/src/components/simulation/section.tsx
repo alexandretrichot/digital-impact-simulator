@@ -40,9 +40,8 @@ const Section: React.FC<Props> = props => {
 				<div className="main">
 					{props.children}
 				</div>
-				<footer>
-					{props.footer}
-				</footer>
+
+				{props.footer}
 			</div>
 		</section>
 	);

@@ -9,6 +9,9 @@ import { KWh, GES } from '../utils';
 export type Props = {
 	kwh: number,
 	ges: number,
+
+	vsKwh?: number,
+	vsGes?: number,
 }
 
 const Sum: React.FC<Props> = props => {
@@ -16,11 +19,25 @@ const Sum: React.FC<Props> = props => {
 		<div className="sum">
 			<div className="value">
 				<img src={boltIcon} alt="Icon" className="icon" />
-				<div className="result"><KWh value={props.kwh} /> </div>
+				<span><KWh value={props.kwh} /></span>
+				{props.vsKwh !== undefined ? (
+					<div className="vs">
+						<span>contre</span>
+						{' '}
+						<span><KWh value={props.vsKwh} /></span>
+					</div>
+				) : null}
 			</div>
 			<div className="value">
 				<img src={weightIcon} alt="Icon" className="icon" />
-				<div className="result"><GES value={props.ges} /> </div>
+				<span><GES value={props.ges} /></span>
+				{props.vsGes !== undefined ? (
+					<div className="vs">
+						<span>contre</span>
+						{' '}
+						<span><GES value={props.vsGes} /></span>
+					</div>
+				) : null}
 			</div>
 		</div>
 	);

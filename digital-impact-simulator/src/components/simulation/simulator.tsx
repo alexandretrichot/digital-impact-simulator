@@ -1,65 +1,32 @@
 import React from 'react';
 
-import './simulator.scss';
-import fridgeIcon from '../../assets/icons/fridge.svg';
-import carIcon from '../../assets/icons/car.svg';
-
 import values from '../../values';
 
 import { KWh, GES } from '../utils';
 import Wave from './wave';
 import Section from './section';
-import Sum from './sum';
 import Result from './result';
 
 import { Stats } from '../../types';
+import Footer, { CompareToProp } from './footer';
 
 export type Props = {
-
+	compareTo: CompareToProp,
+	stats: Stats,
+	setStats: (stats: Stats) => void,
 }
 
 const Simulator: React.FC<Props> = props => {
-	const [stats, setStats] = React.useState<Stats>({
-		searches: 0,
-		emailsSent: 0,
-		emailsReceived: 0,
-		instagramPics: 0,
-		snapchatPics: 0,
-		onlineGamesMinutes: 0,
-		cloudGamesMinutes: 0,
-		youtubeMinutes: 0,
-		netflixMinutes: 0,
-		musicMinutes: 0,
-	});
-
-	function updateStats(newStats: Partial<Stats>) {
-		setStats({
-			...stats,
+	const updateStats = (newStats: Partial<Stats>) => {
+		props.setStats({
+			...props.stats,
 			...newStats
 		});
 	}
 
 	return (
 		<div id="simulator">
-			<div className="wrapper">
-				<div className="frame-info">
-					<p>
-						Voici un ordre de grandeur de ce que représentent les chiffres à venir :
-        	</p>
-					<div className="compare">
-						<img src={fridgeIcon} alt="Fridge icon" />
-						<p>
-							<KWh value={values.frigoPerYear} /> = <b>1</b> frigo ! (consommation d'électricité par un réfrigérateur pendant 1 an)
-          	</p>
-					</div>
-					<div className="compare">
-						<img src={carIcon} alt="Car icon" />
-						<p>
-							<b>100</b> Km = <GES value={values.gesPerKmInCar * 100} /> (émissions de gaz à effets de serre par un véhicule thermique qui roule 10 kilomètres)
-						</p>
-					</div>
-				</div>
-			</div>
+			<div></div>
 			<Wave />
 			<Section
 				title="Vos recherches sur internet"
@@ -72,7 +39,7 @@ const Simulator: React.FC<Props> = props => {
 							title: "Recherches",
 							description: "Indiquez votre nombre moyen de recherches sur internet par jour.",
 							step: 1,
-							value: stats.searches,
+							value: props.stats.searches,
 							onUpdate: searches => updateStats({ searches }),
 						}
 					]
@@ -87,10 +54,15 @@ const Simulator: React.FC<Props> = props => {
 				}
 
 				footer={
-					<>
-						<p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
-						<Sum kwh={Number(stats.searches) * values.kwh.search} ges={Number(stats.searches) * values.ges.search} />
-					</>
+					<Footer
+						compareTo={props.compareTo}
+						selfKwh={Number(props.stats.searches) * values.kwh.search}
+						selfGes={(Number(props.stats.searches) * values.ges.search)}
+						vsKwh={Number(props.compareTo?.stats.searches) * values.kwh.search}
+						vsGes={Number(props.compareTo?.stats.searches) * values.ges.search}
+					>
+						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+					</Footer>
 				}
 			/>
 			<Wave />
@@ -105,14 +77,14 @@ const Simulator: React.FC<Props> = props => {
 							title: "E-mails envoyés par jour",
 							description: "Indiquez le nombre d'e-mails que vous envoyez au cours d'une journée.",
 							step: 1,
-							value: stats.emailsSent,
+							value: props.stats.emailsSent,
 							onUpdate: emailsSent => updateStats({ emailsSent }),
 						},
 						{
 							title: "E-mails reçus par jour",
 							description: "Indiquez le nombre d'e-mails entrant dans votre boite de réception y compris vos spams, e-mails de réseaux sociaux, etc.",
 							step: 1,
-							value: stats.emailsReceived,
+							value: props.stats.emailsReceived,
 							onUpdate: emailsReceived => updateStats({ emailsReceived }),
 						}
 					]
@@ -126,10 +98,15 @@ const Simulator: React.FC<Props> = props => {
 				}
 
 				footer={
-					<>
-						<p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
-						<Sum kwh={(Number(stats.emailsReceived) + Number(stats.emailsSent)) * values.kwh.email} ges={(Number(stats.emailsReceived) + Number(stats.emailsSent)) * values.ges.email} />
-					</>
+					<Footer
+						compareTo={props.compareTo}
+						selfKwh={(Number(props.stats.emailsReceived) + Number(props.stats.emailsSent)) * values.kwh.email}
+						selfGes={(Number(props.stats.emailsReceived) + Number(props.stats.emailsSent)) * values.ges.email}
+						vsKwh={(Number(props.compareTo?.stats.emailsReceived) + Number(props.compareTo?.stats.emailsSent)) * values.kwh.email}
+						vsGes={(Number(props.compareTo?.stats.emailsReceived) + Number(props.compareTo?.stats.emailsSent)) * values.ges.email}
+					>
+						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+					</Footer>
 				}
 			/>
 			<Wave />
@@ -144,14 +121,14 @@ const Simulator: React.FC<Props> = props => {
 							title: "Minutes passées par jour sur Instagram",
 							description: "Indiquez ici le temps que vous y passez chaque jour",
 							step: 1,
-							value: stats.instagramPics,
+							value: props.stats.instagramPics,
 							onUpdate: instagramPics => updateStats({ instagramPics }),
 						},
 						{
 							title: "Minutes passées par jour sur Snapchat",
 							description: "Indiquez ici le temps que vous y passez chaque jour",
 							step: 1,
-							value: stats.snapchatPics,
+							value: props.stats.snapchatPics,
 							onUpdate: snapchatPics => updateStats({ snapchatPics }),
 						}
 					]
@@ -160,9 +137,15 @@ const Simulator: React.FC<Props> = props => {
 				children={<><p> Sur Instagram, <b>100.00 millions</b> de photos et de vidéos sont publiées par par jour dans le monde. En parallèle, <b>4.20 milliards</b> de likes sont comptabilisés quotidiennement. </p></>}
 
 				footer={
-					<><p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
-						<Sum kwh={Number(stats.instagramPics) * values.kwh.instagram + Number(stats.snapchatPics) * values.kwh.snapchat} ges={Number(stats.instagramPics) * values.ges.instagram + Number(stats.snapchatPics) * values.ges.snapchat} />
-					</>
+					<Footer
+						compareTo={props.compareTo}
+						selfKwh={Number(props.stats.instagramPics) * values.kwh.instagram + Number(props.stats.snapchatPics) * values.kwh.snapchat}
+						selfGes={Number(props.stats.instagramPics) * values.ges.instagram + Number(props.stats.snapchatPics) * values.ges.snapchat}
+						vsKwh={Number(props.compareTo?.stats.instagramPics) * values.kwh.instagram + Number(props.compareTo?.stats.snapchatPics) * values.kwh.snapchat}
+						vsGes={Number(props.compareTo?.stats.instagramPics) * values.ges.instagram + Number(props.compareTo?.stats.snapchatPics) * values.ges.snapchat}
+					>
+						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+					</Footer>
 				}
 			/>
 			<Wave />
@@ -183,14 +166,14 @@ const Simulator: React.FC<Props> = props => {
 							title: "Minutes de jeux vidéos sur console ou ordinateur par jour",
 							description: "Indiquez ici le temps que vous y passez chaque jour",
 							step: 20,
-							value: stats.onlineGamesMinutes,
+							value: props.stats.onlineGamesMinutes,
 							onUpdate: onlineGamesMinutes => updateStats({ onlineGamesMinutes }),
 						},
 						{
 							title: "Minutes de jeux vidéos 'sur le cloud' par jour",
 							description: "Le jeu sur le cloud, un service proposé par Stadia ou XCloud, permet de jouer depuis n'importe quel appareil en déportant le calcul de l'image sur une machine distante. Cela ne concerne pas les jeux en ligne classiques.",
 							step: 20,
-							value: stats.cloudGamesMinutes,
+							value: props.stats.cloudGamesMinutes,
 							onUpdate: cloudGamesMinutes => updateStats({ cloudGamesMinutes }),
 						}
 					]
@@ -204,10 +187,15 @@ const Simulator: React.FC<Props> = props => {
 				}
 
 				footer={
-					<>
-						<p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
-						<Sum kwh={Number(stats.onlineGamesMinutes) * values.kwh.onlineGame + Number(stats.cloudGamesMinutes) * values.kwh.cloudGaming} ges={Number(stats.onlineGamesMinutes) * values.ges.onlineGame + Number(stats.cloudGamesMinutes) * values.ges.cloudGaming} />
-					</>
+					<Footer
+						compareTo={props.compareTo}
+						selfKwh={Number(props.stats.onlineGamesMinutes) * values.kwh.onlineGame + Number(props.stats.cloudGamesMinutes) * values.kwh.cloudGaming}
+						selfGes={Number(props.stats.onlineGamesMinutes) * values.ges.onlineGame + Number(props.stats.cloudGamesMinutes) * values.ges.cloudGaming}
+						vsKwh={Number(props.compareTo?.stats.onlineGamesMinutes) * values.kwh.onlineGame + Number(props.compareTo?.stats.cloudGamesMinutes) * values.kwh.cloudGaming}
+						vsGes={Number(props.compareTo?.stats.onlineGamesMinutes) * values.ges.onlineGame + Number(props.compareTo?.stats.cloudGamesMinutes) * values.ges.cloudGaming}
+					>
+						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+					</Footer>
 				}
 			/>
 			<Wave />
@@ -227,21 +215,21 @@ const Simulator: React.FC<Props> = props => {
 							title: "Minutes passées sur Youtube par jour",
 							description: "Indiquez ici le temps que vous y passez chaque jour",
 							step: 10,
-							value: stats.youtubeMinutes,
+							value: props.stats.youtubeMinutes,
 							onUpdate: youtubeMinutes => updateStats({ youtubeMinutes }),
 						},
 						{
 							title: "Minutes passées sur Netflix par jour",
 							description: "Indiquez ici le temps que vous y passez chaque jour",
 							step: 10,
-							value: stats.netflixMinutes,
+							value: props.stats.netflixMinutes,
 							onUpdate: netflixMinutes => updateStats({ netflixMinutes }),
 						},
 						{
 							title: "Minutes de musique écoutées par jour",
 							description: "Sur des services comme Spotify, Deezer, Youtube Musique (et non Youtube), etc.",
 							step: 20,
-							value: stats.musicMinutes,
+							value: props.stats.musicMinutes,
 							onUpdate: musicMinutes => updateStats({ musicMinutes }),
 						}
 					]
@@ -256,16 +244,22 @@ const Simulator: React.FC<Props> = props => {
 				}
 
 				footer={
-					<>
-						<p className="top"><b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :</p>
-						<Sum kwh={Number(stats.youtubeMinutes) * values.kwh.youtube + Number(stats.netflixMinutes) * values.kwh.netflix + Number(stats.musicMinutes) * values.kwh.music} ges={Number(stats.youtubeMinutes) * values.ges.youtube + Number(stats.netflixMinutes) * values.ges.netflix + Number(stats.musicMinutes) * values.ges.music} />
-					</>
+					<Footer
+						compareTo={props.compareTo}
+						selfKwh={Number(props.stats.youtubeMinutes) * values.kwh.youtube + Number(props.stats.netflixMinutes) * values.kwh.netflix + Number(props.stats.musicMinutes) * values.kwh.music}
+						selfGes={Number(props.stats.youtubeMinutes) * values.ges.youtube + Number(props.stats.netflixMinutes) * values.ges.netflix + Number(props.stats.musicMinutes) * values.ges.music}
+						vsKwh={Number(props.compareTo?.stats.youtubeMinutes) * values.kwh.youtube + Number(props.compareTo?.stats.netflixMinutes) * values.kwh.netflix + Number(props.compareTo?.stats.musicMinutes) * values.kwh.music}
+						vsGes={Number(props.compareTo?.stats.youtubeMinutes) * values.ges.youtube + Number(props.compareTo?.stats.netflixMinutes) * values.ges.netflix + Number(props.compareTo?.stats.musicMinutes) * values.ges.music}
+					>
+						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+					</Footer>
 				}
 			/>
 			<Wave />
-			<Result stats={stats} />
+			<Result stats={props.stats} vsStats={props.compareTo?.stats} />
 		</div>
 	);
 };
 
 export default Simulator;
+

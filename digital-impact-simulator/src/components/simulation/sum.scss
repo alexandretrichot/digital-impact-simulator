@@ -1,7 +1,14 @@
+@import '../../assets/styles/vars';
+
 .sum {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 
   .value {
     display: flex;
@@ -12,8 +19,14 @@
       margin-right: 0.5rem;
     }
 
-    .result span {
-      font-weight: bold;
+    .vs {
+      font-size: 0.8rem;
+
+      margin-left: 0.5rem;
+      background-color: black;
+      border-radius: 0.2rem;
+      color: white;
+      padding: 0.1rem 0.2rem;
     }
   }
 }
