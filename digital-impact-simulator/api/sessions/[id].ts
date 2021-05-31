@@ -20,6 +20,7 @@ export default handler(async (req, res) => {
 
 async function get(req: VercelRequest) {
 	let sessionId;
+	
 	try {
 		sessionId = new ObjectId(req.query['id'] as string)
 	} catch (err) {
@@ -43,7 +44,7 @@ async function put(req: VercelRequest) {
 		throw new ArgsError(err.message);
 	}
 
-	const body = await validator(sessionSchema, req.body);
+	const body = await validator(sessionSchema, JSON.parse(req.body));
 
 	const db = await connectToDb();
 
