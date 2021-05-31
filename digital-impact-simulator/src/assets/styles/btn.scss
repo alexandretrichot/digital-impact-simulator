@@ -1,3 +1,5 @@
+@import "./vars";
+
 .btn,
 a.btn {
   display: inline-block;
@@ -12,17 +14,17 @@ a.btn {
   text-decoration: none;
   user-select: none;
 
-  background-color: hsl(133, 100%, 34%);
-  box-shadow: -4px 8px 5px rgba(50, 50, 93, 0.25), 0 4px 0 #006611;
+  background-color: $accentColor;
+  box-shadow: -4px 8px 5px rgba(50, 50, 93, 0.25), 0 4px 0 $darkAccentColor;
 
   &:hover {
     transform: translateY(-2px);
-    box-shadow: -5px 10px 6px rgba(50, 50, 93, 0.25), 0 6px 0 #006611;
+    box-shadow: -5px 10px 6px rgba(50, 50, 93, 0.25), 0 6px 0 $darkAccentColor;
   }
 
   &:active {
     transform: translateY(2px);
-    box-shadow: -2px 5px 3px rgba(50, 50, 93, 0.25), 0 2px 0 #006611;
+    box-shadow: -2px 5px 3px rgba(50, 50, 93, 0.25), 0 2px 0 $darkAccentColor;
   }
 
   &:disabled {
