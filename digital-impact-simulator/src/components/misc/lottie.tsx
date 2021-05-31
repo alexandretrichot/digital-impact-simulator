@@ -13,7 +13,7 @@ const Lottie: React.FC<Props> = props => {
 	React.useEffect(() => {
 		let anim: AnimationItem;
 
-		import(`../assets/animations/${props.anim}.json`).then(data => {
+		import(`../../assets/animations/${props.anim}.json`).then(data => {
 			anim = lottieWeb.loadAnimation({
 				container: container.current!,
 				animationData: data,

@@ -1,7 +1,7 @@
 import React from 'react';
 import './section.scss';
 
-import Lottie from '../lottie';
+import Lottie from '../misc/lottie';
 import Counter from './counter';
 import { StatType } from '../../types';
 

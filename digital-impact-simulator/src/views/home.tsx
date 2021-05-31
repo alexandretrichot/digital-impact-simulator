@@ -1,6 +1,6 @@
 import './home.scss';
 
-import Lottie from '../components/lottie';
+import Lottie from '../components/misc/lottie';
 import { Link } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
