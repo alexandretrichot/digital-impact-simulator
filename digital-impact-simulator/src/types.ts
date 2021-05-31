@@ -32,12 +32,5 @@ export type Room = {
 export type Session = {
 	_id?: string,
 	stats: Stats,
-	createdAt: Date,
-	updatedAt: Date,
 	email?: string
-}
-
-export type SessionInput = {
-	stats: Stats,
-	email?: string,
 }

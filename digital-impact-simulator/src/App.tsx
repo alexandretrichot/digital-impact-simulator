@@ -16,8 +16,8 @@ function App() {
       <AppHeader />
       <Switch>
         {/* ----- ROUTES ----- */}
-        <Route path="/simulate/:id?" children={<SimulatePage />} />
         <Route path="/" children={<HomePage />} />
+        <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
       </Switch>
       <AppFooter />
     </Router>
