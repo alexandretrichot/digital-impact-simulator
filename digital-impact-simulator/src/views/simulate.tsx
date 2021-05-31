@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router';
 
 import Simulator from '../components/simulation/simulator';
+import EmailCTA from '../components/misc/emailCTA';
 
 import { Session } from '../types';
 import { fetcher, useFetchSession } from '../helpers/fetch';
@@ -40,6 +41,9 @@ const SimulatePage: React.FC = () => {
 								) : null
 							}
 							<Simulator stats={session.stats} setStats={stats => setSession({ ...session, stats })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
+							<div className="wrapper">
+								<EmailCTA scheduled={!!session.email} onSetEmail={email => setSession({ ...session, email })} />
+							</div>
 						</>
 					) : (
 						error?.name === 'NotFoundError' ? (
