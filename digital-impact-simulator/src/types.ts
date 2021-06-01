@@ -21,16 +21,21 @@ export type CategorizedStats = {
 	streaming: number,
 }
 
-export type Room = {
-	_id?: string,
-	name: string,
-	slug: string,
-	passcode: number,
-	sessions: Session[],
-}
-
 export type Session = {
 	_id?: string,
 	stats: Stats,
 	email?: string
+}
+
+export type Group = {
+	_id?: string,
+	name: string,
+	slug: string,
+	members: Member[]
+};
+
+export type Member = {
+	id: string,
+	stats: Stats,
+	name: string,
 }

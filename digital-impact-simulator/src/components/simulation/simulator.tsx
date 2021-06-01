@@ -11,14 +11,14 @@ import { Stats } from '../../types';
 import Footer, { CompareToProp } from './footer';
 
 export type Props = {
-	compareTo: CompareToProp,
+	compareTo?: CompareToProp,
 	stats: Stats,
-	setStats: (stats: Stats) => void,
+	onStatsChange: (stats: Stats) => void,
 }
 
 const Simulator: React.FC<Props> = props => {
 	const updateStats = (newStats: Partial<Stats>) => {
-		props.setStats({
+		props.onStatsChange({
 			...props.stats,
 			...newStats
 		});

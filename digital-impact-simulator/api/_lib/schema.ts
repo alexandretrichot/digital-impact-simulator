@@ -34,14 +34,6 @@ export const createGroupSchema = Joi.object<GroupInput>({
 	slug: Joi.string().lowercase().alphanum().required()
 });
 
-export type MemberInput = {
-	name: string,
-}
-
-export const createMemberSchema = Joi.object<MemberInput>({
-	name: Joi.string().required()
-});
-
 export type MemberUpdate = {
 	name?: string,
 	stats: Stats,

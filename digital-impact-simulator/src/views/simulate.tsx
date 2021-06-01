@@ -40,7 +40,7 @@ const SimulatePage: React.FC = () => {
 									</header>
 								) : null
 							}
-							<Simulator stats={session.stats} setStats={stats => setSession({ ...session, stats })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
+							<Simulator stats={session.stats} onStatsChange={stats => setSession({ ...session, stats })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
 							<div className="wrapper">
 								<EmailCTA scheduled={!!session.email} onSetEmail={email => setSession({ ...session, email })} />
 							</div>

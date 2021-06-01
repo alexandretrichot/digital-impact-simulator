@@ -4,18 +4,21 @@
   img,
   .anim {
     display: inline-block;
-    width: 14rem;
+    width: 18rem;
     max-width: 100%;
   }
 
   .title {
+    background-color: white;
+    border-radius: .3rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #ff0000;
-    margin: 0rem 0 0.5rem;
+    margin-top: -2rem;
+    margin-bottom: 0.5rem;
   }
 
   .details {
-    font-size: 0.6rem;
     margin-bottom: 1rem;
   }
 }

@@ -37,6 +37,7 @@ async function post(req: VercelRequest) {
 		_id: createdGroup._id,
 		name: createdGroup.name,
 		slug: createdGroup.slug,
+		members: createdGroup.members,
 	} as Partial<Group>;
 }
 

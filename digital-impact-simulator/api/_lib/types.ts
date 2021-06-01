@@ -33,5 +33,5 @@ export type Group = {
 export type Member = {
 	id: string,
 	stats: Stats,
-	name: string,
+	name?: string,
 }
