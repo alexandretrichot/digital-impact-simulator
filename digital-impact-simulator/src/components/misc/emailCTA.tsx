@@ -39,7 +39,7 @@ const EmailCTA: React.FC<Props> = props => {
 									setEmailError('');
 									if (ev.code === 'Enter') validate();
 								}} />
-								<button className="btn" disabled={true} onClick={validate}>Et hop !</button>
+								<button className="btn" onClick={validate}>Et hop !</button>
 							</div>
 							{emailError ? (<div className="error">{emailError}</div>) : null}
 						</div>

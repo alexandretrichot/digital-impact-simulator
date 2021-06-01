@@ -15,14 +15,16 @@ import NotFoundPage from './views/notFound';
 function App() {
   return (
     <Router>
-      <AppHeader />
-      <Switch>
-        <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
-        <Route path="/group/:groupSlug?" children={<SimulateWithGroupPage />} />
-        <Route path="/" exact={true} children={<HomePage />} />
-        <Route path="/" children={NotFoundPage} />
-      </Switch>
-      <AppFooter />
+      <div className="layout">
+        <AppHeader />
+        <Switch>
+          <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
+          <Route path="/group/:groupSlug?" children={<SimulateWithGroupPage />} />
+          <Route path="/" exact={true} children={<HomePage />} />
+          <Route path="/" children={NotFoundPage} />
+        </Switch>
+        <AppFooter />
+      </div>
     </Router>
   );
 }

@@ -1,6 +1,45 @@
 @import "../assets/styles/vars.scss";
 
 #home {
+  .centered {
+    text-align: center;
+  }
+
+  .split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 4rem 0;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .card {
+    background-color: white;
+    box-shadow: $lightShadow;
+    border-radius: .5rem;
+    padding: 2rem;
+
+    text-align: center;
+
+    transition: transform .2s;
+
+    .text {
+      font-weight: bold;
+    }
+
+    .anim {
+      margin: 1rem 0;
+      height: 10rem;
+    }
+
+    &:hover {
+      transform: scale(1.01);
+    }
+  }
+
   .flex {
     display: flex;
     flex-direction: row-reverse;
@@ -10,22 +49,27 @@
       max-width: 26rem;
     }
 
-    @include mobile {
+    @include medium {
       flex-direction: column;
       align-items: flex-start;
     }
 
     .anim {
       flex: 0 0 auto;
+      min-width: 200px;
+      max-width: 700px;
       width: 45%;
-      //margin-top: -4rem;
+      margin: 0 auto;
       padding: 1rem;
       box-sizing: border-box;
 
-      @include mobile {
-        margin-top: 0;
-        width: 100%;
+      @include medium {
+        display: none;
       }
     }
+  }
+
+  .split {
+    
   }
 }
