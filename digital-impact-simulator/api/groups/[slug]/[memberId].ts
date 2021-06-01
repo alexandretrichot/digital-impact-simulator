@@ -27,15 +27,15 @@ async function put(groupSlug: string, memberId: string, req: VercelRequest) {
 
 	const db = await connectToDb();
 
-	const group = (await db.collection<Group>('groups').findOneAndUpdate({ slug: groupSlug, 'members.id': memberId }, {
+	const group = (await db.collection<Group>('groups').updateOne({ slug: groupSlug, 'members.id': memberId }, {
 		$set: {
 			"members.$.stats": body.stats,
 			"members.$.name": body.name,
 			updatedAt: new Date()
 		}
-	}, { returnDocument: 'after' })).value;
+	}));
 
-	if (!group) throw new NotFoundError();
+	if (!group.result.ok) throw new NotFoundError();
 
-	return group;
+	return JSON.stringify('ok');
 }

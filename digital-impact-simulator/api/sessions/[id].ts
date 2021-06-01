@@ -30,13 +30,20 @@ async function get(sessionId: ObjectId) {
 
 	if (!session) throw new NotFoundError();
 
-	return session;
+	return {
+		_id: session._id,
+		email: session.email,
+		stats: session.stats,
+		from: session.from,
+	} as Partial<Session>;
 }
 
 async function put(sessionId: ObjectId, req: VercelRequest) {
 	const body = await validator(sessionSchema, getBody(req));
 
 	const db = await connectToDb();
+
+	console.log(body);
 
 	const session = (await db.collection<Session>('sessions').findOneAndUpdate({ _id: sessionId }, {
 		$set: {
@@ -47,5 +54,10 @@ async function put(sessionId: ObjectId, req: VercelRequest) {
 
 	if (!session) throw new NotFoundError();
 
-	return session;
+	return {
+		_id: session._id,
+		email: session.email,
+		stats: session.stats,
+		from: session.from,
+	} as Partial<Session>;
 }

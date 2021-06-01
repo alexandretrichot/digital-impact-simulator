@@ -14,9 +14,16 @@ export default handler(async (req, res) => {
 async function post() {
 	const db = await connectToDb();
 
-	return (await db.collection<Session>('sessions').insertOne({
+	const session = (await db.collection<Session>('sessions').insertOne({
 		stats: getDefaultStats(),
 		createdAt: new Date(),
 		updatedAt: new Date(),
 	})).ops[0];
+
+	return {
+		_id: session._id,
+		email: session.email,
+		stats: session.stats,
+		from: session.from,
+	} as Partial<Session>;
 }

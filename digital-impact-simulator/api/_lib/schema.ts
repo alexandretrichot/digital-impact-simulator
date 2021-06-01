@@ -17,11 +17,13 @@ export const statsSchema = Joi.object<Stats>({
 export type SessionInput = {
 	stats: Stats,
 	email?: string,
+	from?: string,
 };
 
 export const sessionSchema = Joi.object<SessionInput>({
 	stats: statsSchema.required(),
 	email: Joi.string().email(),
+	from: Joi.string(),
 });
 
 export type GroupInput = {

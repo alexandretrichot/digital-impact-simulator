@@ -24,7 +24,8 @@ export type CategorizedStats = {
 export type Session = {
 	_id?: string,
 	stats: Stats,
-	email?: string
+	email?: string,
+	from?: string,
 }
 
 export type Group = {

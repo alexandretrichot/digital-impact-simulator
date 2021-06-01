@@ -19,6 +19,7 @@ export type Session = {
 	createdAt: Date,
 	updatedAt: Date,
 	email?: string,
+	from?: string,
 };
 
 export type Group = {

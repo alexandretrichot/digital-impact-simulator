@@ -40,7 +40,7 @@ const SimulatePage: React.FC = () => {
 									</header>
 								) : null
 							}
-							<Simulator stats={session.stats} onStatsChange={stats => setSession({ ...session, stats })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
+							<Simulator stats={session.stats} onStatsChange={stats => setSession({stats, from: compareTo ? compareTo : undefined })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
 							<div className="wrapper">
 								<EmailCTA scheduled={!!session.email} onSetEmail={email => setSession({ ...session, email })} />
 							</div>
@@ -89,7 +89,8 @@ const useSession = () => {
 		if (debouncedSession) {
 			fetcher<Session, Session>(`/api/sessions/${sessionId}`, 'PUT', {
 				stats: debouncedSession.stats,
-				email: debouncedSession.email
+				email: debouncedSession.email,
+				from: debouncedSession.from
 			})
 				.catch(console.error);
 		}
