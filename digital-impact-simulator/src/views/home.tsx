@@ -21,7 +21,7 @@ const HomePage: React.FC = () => {
 				<div className="card">
 					<div className="text">En groupe</div>
 					<div className="anim"><Lottie anim="friends" /></div>
-					<Link className="btn" to="/simulate">Aller dans un groupe</Link>
+					<Link className="btn" to="/group">Aller dans un groupe</Link>
 				</div>
 			</div>
 		</div>
