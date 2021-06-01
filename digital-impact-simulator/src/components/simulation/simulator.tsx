@@ -25,7 +25,7 @@ const Simulator: React.FC<Props> = props => {
 	}
 
 	return (
-		<div id="simulator">
+		<div id="simulator" style={{margin: '2rem 0'}}>
 			<div></div>
 			<Wave />
 			<Section

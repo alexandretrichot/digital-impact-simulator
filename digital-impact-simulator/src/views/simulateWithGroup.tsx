@@ -27,7 +27,7 @@ const SimulateWithGroupPage: React.FC = () => {
 export default SimulateWithGroupPage;
 
 const createGroupValidationSchema = Yup.object({
-	slug: Yup.string().min(4, 'Trop court').required('Le slug est requis'),
+	slug: Yup.string().min(4, 'Slug trop court').required('Le slug est requis'),
 	name: Yup.string(),
 });
 
@@ -56,27 +56,34 @@ const CreateGroupView: React.FC = () => {
 						handleChange,
 						isSubmitting
 					}) => (
-						<form onSubmit={handleSubmit}>
+						<form onSubmit={handleSubmit} style={{ maxWidth: '20rem', margin: '2rem auto' }}>
+							<div style={{}}></div>
+
 							<h2>Create a new group</h2>
-							<input
-								type="text"
-								name="slug"
-								placeholder="slug"
-								onChange={handleChange}
-								onBlur={handleBlur}
-								value={values.slug}
-							/>
-							{errors.slug && touched.slug && errors.slug}
-							<input
-								type="text"
-								name="name"
-								placeholder="Group name"
-								onChange={handleChange}
-								onBlur={handleBlur}
-								value={values.name}
-							/>
-							{errors.name && touched.name && errors.name}
-							<button type="submit" disabled={isSubmitting}>ok</button>
+							<div className="field">
+								<input
+									type="text"
+									name="name"
+									placeholder="Nom du groupe"
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.name}
+								/>
+								<div className="field-error">{errors.name && touched.name && errors.name}</div>
+							</div>
+							<div className="field">
+								<input
+									type="text"
+									name="slug"
+									placeholder="slug"
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.slug}
+								/>
+								<p style={{ backgroundColor: '#ccc', borderRadius: '.2rem', padding: '.1rem .2rem', overflowX: 'scroll' }}>numerique.meusenature.fr/group/{values.slug || 'slug'}</p>
+								<div className="field-error">{errors.slug && touched.slug && errors.slug}</div>
+							</div>
+							<button type="submit" className="btn large" disabled={isSubmitting}>Créer le groupe</button>
 						</form>
 					)
 				}
