@@ -7,55 +7,45 @@ import { Session } from '../_lib/types';
 import { ObjectId } from 'mongodb';
 import NotFoundError from '../_lib/errors/NotFoundError';
 import ArgsError from '../_lib/errors/ArgsError';
+import { getBody } from '../_lib/helpers/getBody';
 
 export default handler(async (req, res) => {
-	if(req.method === 'GET') {
-		return await get(req);
-	}else if (req.method === 'PUT') {
-		return await put(req);
-	} else {
-		res.statusCode = 404;
+	if (!ObjectId.isValid(req.query['id'] as string)) throw new ArgsError('Invalid sessionId');
+	const sessionId = new ObjectId(req.query['id'] as string);
+
+	switch (req.method) {
+		case 'GET': return await get(sessionId);
+		case 'PUT': return await put(sessionId, req);
+
+		default:
+			res.statusCode = 404;
+			break;
 	}
 });
 
-async function get(req: VercelRequest) {
-	let sessionId;
-	
-	try {
-		sessionId = new ObjectId(req.query['id'] as string)
-	} catch (err) {
-		throw new ArgsError(err.message);
-	}
-
+async function get(sessionId: ObjectId) {
 	const db = await connectToDb();
 
-	const session = await db.collection<Session>('sessions').findOne({ _id: sessionId});
+	const session = await db.collection<Session>('sessions').findOne({ _id: sessionId });
 
-	if(!session) throw new NotFoundError();
+	if (!session) throw new NotFoundError();
 
 	return session;
 }
 
-async function put(req: VercelRequest) {
-	let sessionId;
-	try {
-		sessionId = new ObjectId(req.query['id'] as string)
-	} catch (err) {
-		throw new ArgsError(err.message);
-	}
-
-	const body = await validator(sessionSchema, JSON.parse(req.body));
+async function put(sessionId: ObjectId, req: VercelRequest) {
+	const body = await validator(sessionSchema, getBody(req));
 
 	const db = await connectToDb();
 
-	const session = (await db.collection<Session>('sessions').findOneAndUpdate({ _id: sessionId },{
+	const session = (await db.collection<Session>('sessions').findOneAndUpdate({ _id: sessionId }, {
 		$set: {
 			...body,
 			updatedAt: new Date(),
 		}
 	}, { returnDocument: 'after' })).value;
 
-	if(!session) throw new NotFoundError();
+	if (!session) throw new NotFoundError();
 
 	return session;
 }

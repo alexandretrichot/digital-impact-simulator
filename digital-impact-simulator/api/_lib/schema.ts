@@ -1,23 +1,53 @@
 import Joi from 'joi';
 import { Stats } from './types';
 
+export const statsSchema = Joi.object<Stats>({
+	searches: Joi.number().min(0).max(10000).required(),
+	emailsReceived: Joi.number().min(0).max(10000).required(),
+	emailsSent: Joi.number().min(0).max(10000).required(),
+	instagramPics: Joi.number().min(0).max(10000).required(),
+	snapchatPics: Joi.number().min(0).max(10000).required(),
+	onlineGamesMinutes: Joi.number().min(0).max(10000).required(),
+	cloudGamesMinutes: Joi.number().min(0).max(10000).required(),
+	youtubeMinutes: Joi.number().min(0).max(10000).required(),
+	netflixMinutes: Joi.number().min(0).max(10000).required(),
+	musicMinutes: Joi.number().min(0).max(10000).required(),
+});
+
 export type SessionInput = {
 	stats: Stats,
 	email?: string,
 };
 
 export const sessionSchema = Joi.object<SessionInput>({
-	stats: Joi.object<Stats>({
-		searches: Joi.number().min(0).max(10000).required(),
-		emailsReceived: Joi.number().min(0).max(10000).required(),
-		emailsSent: Joi.number().min(0).max(10000).required(),
-		instagramPics: Joi.number().min(0).max(10000).required(),
-		snapchatPics: Joi.number().min(0).max(10000).required(),
-		onlineGamesMinutes: Joi.number().min(0).max(10000).required(),
-		cloudGamesMinutes: Joi.number().min(0).max(10000).required(),
-		youtubeMinutes: Joi.number().min(0).max(10000).required(),
-		netflixMinutes: Joi.number().min(0).max(10000).required(),
-		musicMinutes: Joi.number().min(0).max(10000).required(),
-	}).required(),
+	stats: statsSchema.required(),
 	email: Joi.string().email(),
+});
+
+export type GroupInput = {
+	name?: string,
+	slug: string,
+}
+
+export const createGroupSchema = Joi.object<GroupInput>({
+	name: Joi.string(),
+	slug: Joi.string().lowercase().alphanum().required()
+});
+
+export type MemberInput = {
+	name: string,
+}
+
+export const createMemberSchema = Joi.object<MemberInput>({
+	name: Joi.string().required()
+});
+
+export type MemberUpdate = {
+	name?: string,
+	stats: Stats,
+}
+
+export const memberUpdateSchema = Joi.object<MemberUpdate>({
+	name: Joi.string(),
+	stats: statsSchema.required(),
 });

@@ -18,14 +18,20 @@ export type Session = {
 	stats: Stats,
 	createdAt: Date,
 	updatedAt: Date,
-	email?: string
+	email?: string,
 };
 
-
-export type Room = {
+export type Group = {
 	_id?: ObjectId,
 	name: string,
 	slug: string,
-	passcode: number,
-	sessions: Session[],
+	members: Member[],
+	createdAt: Date,
+	updatedAt: Date,
 };
+
+export type Member = {
+	id: string,
+	stats: Stats,
+	name: string,
+}
