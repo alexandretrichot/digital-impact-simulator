@@ -17,7 +17,7 @@ const Lottie: React.FC<Props> = props => {
 			anim = lottieWeb.loadAnimation({
 				container: container.current!,
 				animationData: data,
-				renderer: 'canvas',
+				//renderer: 'canvas',
 				rendererSettings: {
 					className: 'lottie',
 				}
