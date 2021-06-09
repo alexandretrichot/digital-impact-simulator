@@ -1,14 +1,11 @@
 {
-  "name": "nodemailer",
-  "version": "0.1.0",
-  "description": "",
+  "name": "mailer",
   "main": "dist/index.js",
   "scripts": {
     "start": "node .",
     "watch": "tsc -w",
     "build": "tsc"
   },
-  "author": "alexandretrichot",
   "devDependencies": {
     "@types/mongodb": "^3.6.17",
     "@types/nodemailer": "^6.4.2",
