@@ -40,21 +40,17 @@ const SimulatePage: React.FC = () => {
 									</header>
 								) : null
 							}
-							<Simulator stats={session.stats} onStatsChange={stats => setSession({stats, from: compareTo ? compareTo : undefined })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
+							<Simulator stats={session.stats} onStatsChange={stats => setSession({ stats, from: compareTo ? compareTo : undefined })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
 							<div className="wrapper">
 								<EmailCTA scheduled={!!session.email} onSetEmail={email => setSession({ ...session, email })} />
 							</div>
 						</>
 					) : (
-						error?.name === 'NotFoundError' ? (
-							<div className="wrapper">
-								<Error title="Cette session n'existe pas ou a été supprimée." >
-									<Link to="/simulate" className="btn">Nouvelle session</Link>
-								</Error>
-							</div>
-						) : (
-							""
-						)
+						<div className="wrapper">
+							<Error title={error ? (error.name === 'NotFoundError' ? `Cette session n'existe pas ou a été supprimée.` : error.message) : 'Erreur inconnue'} >
+								<Link to="/simulate" className="btn">Nouvelle session</Link>
+							</Error>
+						</div>
 					)
 				)
 			}
@@ -67,8 +63,8 @@ export default SimulatePage;
 const useSession = () => {
 	let history = useHistory();
 	const { sessionId } = useParams<{ sessionId: string }>();
-	const setSessionId = (id: string) => history.replace(`/simulate/${id}`);
-	
+	const setSessionId = (id: string) => history.replace(`/simulate/${id}${history.location.search}`);
+
 	const [data, setData] = useState<Session | undefined>(undefined);
 	const [error, setError] = useState<Error | undefined>(undefined);
 
@@ -81,7 +77,10 @@ const useSession = () => {
 
 				setData(r);
 			})
-			.catch(err => setError(err));
+			.catch(err => {
+				console.error(err);
+				setError(err);
+			});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [sessionId]);
 

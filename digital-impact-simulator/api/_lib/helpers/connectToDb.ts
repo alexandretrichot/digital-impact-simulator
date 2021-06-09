@@ -7,10 +7,8 @@ export default async function connectToDb(): Promise<Db> {
 	if (!client || !client.isConnected()) {
 		const dbUrl = process.env['DB']!;
 
-		client = new MongoClient(dbUrl, { useUnifiedTopology: true });
+		client = new MongoClient(dbUrl, { useUnifiedTopology: true, connectTimeoutMS: 4000, socketTimeoutMS: 5000 });
 		await client.connect();
-		//console.log('Connected to', dbUrl);
-
 	}
 
 	return client.db(dbName);
