@@ -2,9 +2,6 @@ import nodemailer from 'nodemailer';
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
 import { getText, getHtml } from './content';
 
-//const baseUrl = 'https://numerique.meusenature.fr/';
-const baseUrl = 'http://localhost:3000/';
-
 export const send = async (to: string, sessionId: string) => {
 	const transporter = nodemailer.createTransport({
 		host: process.env['EMAIL_HOST'],
@@ -16,7 +13,7 @@ export const send = async (to: string, sessionId: string) => {
 		},
 	});
 
-	const link = `${baseUrl}simulate?compareTo=${sessionId}&self`;
+	const link = `${process.env['BASE_URL']}simulate?compareTo=${sessionId}&self`;
 
 	const ret = await transporter.sendMail({
 		from: '"Meuse Nature Environnement" <noreply@meusenature.fr>',
