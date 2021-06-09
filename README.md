@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# [Pollution Numérique](https://numerique.meusenature.fr/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![screenshot](screenshot.png)
 
-## Available Scripts
+Simulateur de consommation électrique et d'émission de GES sur l'utilisation de services en ligne.
 
-In the project directory, you can run:
+Ce simulateur a été développé à l'initiative de [Meuse Nature Environnement](https://meusenature.fr/)
 
-### `npm start`
+Le simulateur est accessible au public ici: [numerique.meusenature.fr](https://numerique.meusenature.fr/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Un mode "Session" est disponible à l'adresse : [numerique.meusenature.fr/session](https://numerique.meusenature.fr/session/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Sources
 
-### `npm test`
+Liste rapide des sources utilisées pour les données du projet :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Consommation d'un frigo](https://total.direct-energie.com/particuliers/parlons-energie/dossiers-energie/economie-d-energie/tout-savoir-sur-la-consommation-de-votre-frigo)
+- [Émission de GES d'une voiture](https://ree.developpement-durable.gouv.fr/themes/defis-environnementaux/changement-climatique/emissions-de-gaz-a-effet-de-serre/article/les-emissions-de-gaz-a-effet-de-serre-des-transports)
 
-### `npm run build`
+| Service             | Source                                                       | kWh pour 1 unité | GES (en g) pour 1 unité |
+| ------------------- | ------------------------------------------------------------ | ---------------- | ----------------------- |
+| Spotify             | Pour une qualité en 'Normal' à 96kbps source : https://support.spotify.com/us/article/high-quality-streaming/ | 0,00129024 kWh   | 0,66963456 g            |
+| YouTube             | Pour une vidéo en 1080p 60 fps à 6000 kbps source: https://support.google.com/youtube/answer/2853702?hl=fr | 0,08064 kWh      | 41,85216 g              |
+| Netflix             | Pour une vidéo en HD à 5Mb/s source : https://help.netflix.com/fr/node/306 | 0,0672 kWh       | 34,8768 g               |
+| Jeux en ligne       | Moyenne de consommation d'une partie de jeu en ligne sur Fortnite. | 0,0001344 kWh    | 0,0697536 g             |
+| Cloud Gaming        | Pour une utilisation de Stadia en qualitée 1080p à 60 fps Pour une source : https://support.google.com/stadia/answer/9607891?hl=en | 0,1344 kWh       | 69,7536 g               |
+| Instagram           | Mesure de la consommation internet sur un terminal iPhone dans l’espace d’une minute. | 0,17472 kWh      | 90,67968 g              |
+| Snapchat            | Mesure de la consommation internet sur un terminal iPhone dans l’espace d’une minute. | 0,17472 kWh      | 90,67968 g              |
+| Recherches internet | Test avec les DevTools de Chrome avec le cache désactivé sur Google | 0,000183852 kWh  | 0,095419383 g           |
+| Email               | Analyse d’une boite mail perso de 12,29 Go pour 11689 emails | 0,000235517 kWh  | 0,122233402 g           |
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Les chiffres indiqués si dessus ont été calculés avec le [model "1byte"](https://theshiftproject.org/wp-content/uploads/2018/10/Lean-ICT-Materials-1byte-Model-2018.xlsx) mis au point par The Shift Project
