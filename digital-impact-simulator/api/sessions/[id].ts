@@ -43,8 +43,6 @@ async function put(sessionId: ObjectId, req: VercelRequest) {
 
 	const db = await connectToDb();
 
-	console.log(body);
-
 	const session = (await db.collection<Session>('sessions').findOneAndUpdate({ _id: sessionId }, {
 		$set: {
 			...body,

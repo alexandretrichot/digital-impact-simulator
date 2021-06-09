@@ -17,12 +17,14 @@ export const statsSchema = Joi.object<Stats>({
 export type SessionInput = {
 	stats: Stats,
 	email?: string,
+	emailDate?: Date,
 	from?: string,
 };
 
 export const sessionSchema = Joi.object<SessionInput>({
 	stats: statsSchema.required(),
 	email: Joi.string().email(),
+	emailDate: Joi.date(),
 	from: Joi.string(),
 });
 

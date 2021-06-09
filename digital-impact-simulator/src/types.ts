@@ -25,6 +25,7 @@ export type Session = {
 	_id?: string,
 	stats: Stats,
 	email?: string,
+	emailDate?: Date,
 	from?: string,
 }
 
