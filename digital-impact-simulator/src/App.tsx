@@ -9,7 +9,7 @@ import AppFooter from './components/app/footer';
 
 import HomePage from './views/home';
 import SimulatePage from './views/simulate';
-import SimulateWithGroupPage from './views/simulateWithGroup';
+import GroupPage from './views/group';
 import NotFoundPage from './views/notFound';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <AppHeader />
         <Switch>
           <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
-          <Route path="/group/:groupSlug?" children={<SimulateWithGroupPage />} />
+          <Route path="/group/:groupSlug?" children={<GroupPage />} />
           <Route path="/" exact={true} children={<HomePage />} />
           <Route path="/" children={NotFoundPage} />
         </Switch>

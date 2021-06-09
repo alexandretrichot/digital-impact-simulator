@@ -10,7 +10,7 @@ import { useDebounce, useLocalStorage } from '../helpers/hooks';
 import Simulator from '../components/simulation/simulator';
 import { Link } from 'react-router-dom';
 
-const SimulateWithGroupPage: React.FC = () => {
+const GroupPage: React.FC = () => {
 	const { groupSlug } = useParams<{ groupSlug?: string }>();
 
 	return (
@@ -24,7 +24,7 @@ const SimulateWithGroupPage: React.FC = () => {
 	);
 };
 
-export default SimulateWithGroupPage;
+export default GroupPage;
 
 const createGroupValidationSchema = Yup.object({
 	slug: Yup.string().min(4, 'Slug trop court').required('Le slug est requis'),
@@ -119,6 +119,8 @@ const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) =
 					console.error(err);
 				});
 		}
+		
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [group, member]);
 
 	useEffect(() => {
@@ -131,6 +133,8 @@ const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) =
 					console.error(err);
 				});
 		}
+
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [debouncedMember]);
 
 	return (
