@@ -35,7 +35,7 @@ const SimulatePage: React.FC = () => {
 								compare.data ? (
 									<header className="wrapper">
 										<div>Comparaison avec {self ? 'soit-même' : 'un ami'}</div>
-										{/* Ajouter une introduction de page */}
+										{/* TODO: add a page introduction */}
 									</header>
 								) : null
 							}

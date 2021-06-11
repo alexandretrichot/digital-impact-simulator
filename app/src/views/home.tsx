@@ -8,7 +8,6 @@ const HomePage: React.FC = () => {
 		<div id="home" className="page wrapper">
 			<div className="intro">
 				<h3>Votre consommation d’internet a-t-elle un impact sur l’environnement ?</h3>
-				{/* <p>Le cas échéant, avez-vous une idée de ce que cela représente ? Ce que cela consomme en électricité (en Wh) et en émissions de gaz à effets de serre (équivalents de g de CO<sub>2</sub>) ?</p> */}
 				<p>Pour le découvrir, faites le test !</p>
 			</div>
 			<h2 className="centered">Je fais le test...</h2>

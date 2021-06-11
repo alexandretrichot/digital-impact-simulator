@@ -9,6 +9,7 @@ import Error from '../components/error';
 import { useDebounce, useLocalStorage } from '../helpers/hooks';
 import Simulator from '../components/simulation/simulator';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const GroupPage: React.FC = () => {
 	const { groupSlug } = useParams<{ groupSlug?: string }>();
@@ -119,7 +120,7 @@ const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) =
 					console.error(err);
 				});
 		}
-		
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [group, member]);
 
@@ -160,7 +161,11 @@ const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) =
 					) : (
 						member ? (
 							<>
-								<div className="wrapper">Make possible to change the username</div>
+								<Helmet>
+									<title>{group?.name} | Simulateur d'impact</title>
+								</Helmet>
+								{/* TODO: Make possible to change the username */}
+								{/* TODO: Add a group page introduction */}
 								<Simulator stats={member.stats} onStatsChange={stats => setMember({ ...member, stats })} />
 							</>
 						) : (

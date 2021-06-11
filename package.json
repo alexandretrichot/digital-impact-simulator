@@ -1,6 +1,12 @@
 {
 	"name": "digital-impact-simulator",
-  "version": "1.0.0",
-  "private": true,
-  "author": "alexandretrichot"
+	"version": "1.0.0",
+	"private": true,
+	"author": "alexandretrichot",
+	"dependencies": {
+		"react-helmet": "^6.1.0"
+	},
+	"devDependencies": {
+		"@types/react-helmet": "^6.1.1"
+	}
 }
