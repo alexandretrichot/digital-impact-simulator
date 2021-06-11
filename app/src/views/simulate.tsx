@@ -8,7 +8,6 @@ import { Session } from '../types';
 import { fetcher, useFetchSession } from '../helpers/fetch';
 import { useDebounce } from '../helpers/hooks';
 import Error from '../components/error';
-import { Link } from 'react-router-dom';
 import Loader from '../components/loader';
 
 const SimulatePage: React.FC = () => {
@@ -21,8 +20,6 @@ const SimulatePage: React.FC = () => {
 	const compare = useFetchSession(compareTo);
 
 	const { session, isLoading, error, setSession } = useSession();
-
-	console.log(session);
 
 	return (
 		<div id="simulate">
@@ -50,7 +47,7 @@ const SimulatePage: React.FC = () => {
 					) : (
 						<div className="wrapper">
 							<Error title={error ? (error.name === 'NotFoundError' ? `Cette session n'existe pas ou a été supprimée.` : error.message) : 'Erreur inconnue'} >
-								<Link to="/simulate" className="btn">Nouvelle session</Link>
+								<a href="/simulate" className="btn">Nouvelle session</a>
 							</Error>
 						</div>
 					)

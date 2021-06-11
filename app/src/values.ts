@@ -1,27 +1,38 @@
 const values = {
 	kwh: {
-		search: 0.000183852,
+		search: 0.000188265,
+
 		email: 0.000235517,
 
-		music: 0.00129024,
-		youtube: 0.08064,
-		netflix: 0.0672,
+		instagram: 0.002912,
+		snapchat: 0.002912,
+		tiktok: 0.00448,
+		facebook: 0.00289408,
+
 		onlineGame: 0.0001344,
-		cloudGaming: 0.1344,
-		instagram: 0.17472,
-		snapchat: 0.17472,
+		cloudGaming: 0.04704,
+
+		youtube: 0.10752,
+		netflix: 0.08064,
+		music: 0.00129024,
 	},
 	ges: {
-		search: 0.095419383,
+		search: 0.097709448,
+
 		email: 0.122233402,
 
-		music: 0.66963456,
-		youtube: 41.85216,
-		netflix: 34.8768,
+		instagram: 1.511328,
+		snapchat: 1.511328,
+		tiktok: 2.32512,
+		facebook: 1.50202752,
+
 		onlineGame: 0.0697536,
-		cloudGaming: 69.7536,
-		instagram: 90.67968,
-		snapchat: 90.67968,
+		cloudGaming: 24.41376,
+
+		youtube: 55.80288,
+		netflix: 41.85216,
+
+		music: 0.66963456,
 	},
 
 	frigoPerYear: 201, // kwh/year  source: https://total.direct-energie.com/particuliers/parlons-energie/dossiers-energie/economie-d-energie/tout-savoir-sur-la-consommation-de-votre-frigo

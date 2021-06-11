@@ -25,7 +25,7 @@ const Simulator: React.FC<Props> = props => {
 	}
 
 	return (
-		<div id="simulator" style={{margin: '2rem 0'}}>
+		<div id="simulator" style={{ margin: '2rem 0' }}>
 			<div></div>
 			<Wave />
 			<Section
@@ -118,18 +118,32 @@ const Simulator: React.FC<Props> = props => {
 				items={
 					[
 						{
-							title: "Minutes passées par jour sur Instagram",
+							title: "Instagram",
 							description: "Indiquez ici le temps que vous y passez chaque jour",
 							step: 1,
-							value: props.stats.instagramPics,
-							onUpdate: instagramPics => updateStats({ instagramPics }),
+							value: props.stats.instagramMinutes,
+							onUpdate: instagramMinutes => updateStats({ instagramMinutes }),
 						},
 						{
-							title: "Minutes passées par jour sur Snapchat",
+							title: "Snapchat",
 							description: "Indiquez ici le temps que vous y passez chaque jour",
 							step: 1,
-							value: props.stats.snapchatPics,
-							onUpdate: snapchatPics => updateStats({ snapchatPics }),
+							value: props.stats.snapchatMinutes,
+							onUpdate: snapchatMinutes => updateStats({ snapchatMinutes }),
+						},
+						{
+							title: "TikTok",
+							description: "Indiquez ici le temps que vous y passez chaque jour",
+							step: 1,
+							value: props.stats.tiktokMinutes,
+							onUpdate: tiktokMinutes => updateStats({ tiktokMinutes }),
+						},
+						{
+							title: "Facebook",
+							description: "Indiquez ici le temps que vous y passez chaque jour",
+							step: 1,
+							value: props.stats.facebookMinutes,
+							onUpdate: facebookMinutes => updateStats({ facebookMinutes }),
 						}
 					]
 				}
@@ -139,10 +153,33 @@ const Simulator: React.FC<Props> = props => {
 				footer={
 					<Footer
 						compareTo={props.compareTo}
-						selfKwh={Number(props.stats.instagramPics) * values.kwh.instagram + Number(props.stats.snapchatPics) * values.kwh.snapchat}
-						selfGes={Number(props.stats.instagramPics) * values.ges.instagram + Number(props.stats.snapchatPics) * values.ges.snapchat}
-						vsKwh={Number(props.compareTo?.stats.instagramPics) * values.kwh.instagram + Number(props.compareTo?.stats.snapchatPics) * values.kwh.snapchat}
-						vsGes={Number(props.compareTo?.stats.instagramPics) * values.ges.instagram + Number(props.compareTo?.stats.snapchatPics) * values.ges.snapchat}
+						selfKwh={
+							Number(props.stats.instagramMinutes) * values.kwh.instagram
+							+ Number(props.stats.snapchatMinutes) * values.kwh.snapchat
+							+ Number(props.stats.tiktokMinutes) * values.kwh.tiktok
+							+ Number(props.stats.facebookMinutes) * values.kwh.facebook
+						}
+
+						selfGes={
+							Number(props.stats.instagramMinutes) * values.ges.instagram
+							+ Number(props.stats.snapchatMinutes) * values.ges.snapchat
+							+ Number(props.stats.tiktokMinutes) * values.ges.tiktok
+							+ Number(props.stats.facebookMinutes) * values.ges.facebook
+						}
+
+						vsKwh={
+							Number(props.compareTo?.stats.instagramMinutes) * values.kwh.instagram
+							+ Number(props.compareTo?.stats.snapchatMinutes) * values.kwh.snapchat
+							+ Number(props.compareTo?.stats.tiktokMinutes) * values.kwh.tiktok
+							+ Number(props.compareTo?.stats.facebookMinutes) * values.kwh.facebook
+						}
+
+						vsGes={
+							Number(props.compareTo?.stats.instagramMinutes) * values.ges.instagram
+							+ Number(props.compareTo?.stats.snapchatMinutes) * values.ges.snapchat
+							+ Number(props.compareTo?.stats.tiktokMinutes) * values.ges.tiktok
+							+ Number(props.compareTo?.stats.facebookMinutes) * values.ges.facebook
+						}
 					>
 						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
 					</Footer>
