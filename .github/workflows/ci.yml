@@ -50,6 +50,3 @@ jobs:
           local-dir: ${{ env.working-directory }}/
           server-dir: ./digital-impact-simulator/mailer/
           dangerous-clean-slate: true
-          exclude: src/
-            - tsconfig.json
-            - node_modules
