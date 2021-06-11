@@ -1,0 +1,23 @@
+@import "../assets/styles/vars";
+
+#sources {
+	.table-wrapper {
+		margin: 1rem 0;
+		border-radius: .5rem;
+		overflow: scroll hidden;
+		background-color: white;
+		box-shadow: $lightShadow;
+	}
+
+	table {
+		border-collapse: collapse;
+
+		thead {
+			background-color: #eee;
+		}
+
+		th, td {
+			padding: .5rem;
+		}
+	}
+}
