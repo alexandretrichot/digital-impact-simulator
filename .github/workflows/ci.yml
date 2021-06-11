@@ -41,12 +41,14 @@ jobs:
       - name: Build
         working-directory: ${{ env.working-directory }}
         run: npm run build
-      - name: Sync files
+      - name: Upload files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ${{ env.working-directory }}/dist/
+          local-dir: ${{ env.working-directory }}/
           server-dir: ./digital-impact-simulator/mailer/
           dangerous-clean-slate: true
+          exclude: src/
+            - tsconfig.json
