@@ -1,0 +1,28 @@
+@import "../../assets/styles/vars";
+
+#app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .mne-logo {
+    display: block;
+    height: 4rem;
+    padding: 1rem 0;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  .title {
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  @include mobile {
+    display: block;
+
+
+  }
+}

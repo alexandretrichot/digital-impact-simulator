@@ -1,0 +1,23 @@
+.section footer {
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 30px 60px -30px;
+	background: white;
+	margin: 2rem 0;
+	padding: 1rem;
+	border: dotted 2px black;
+	border-radius: 0.5rem;
+
+	.top {
+		margin: 0;
+		margin-bottom: 1rem;
+	}
+
+	&.compare {
+		&.bad {
+			background-color: hsl(0, 100%, 88%);
+		}
+
+		&.good {
+			background-color: hsl(120, 100%, 88%);
+		}
+	}
+}

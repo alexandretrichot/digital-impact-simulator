@@ -1,0 +1,22 @@
+.error-pane {
+  margin: 2rem 0;
+  text-align: center;
+
+  img,
+  .anim {
+    display: inline-block;
+    width: 18rem;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff0000;
+    margin-bottom: 0.5rem;
+  }
+
+  .details {
+    margin-bottom: 1rem;
+  }
+}

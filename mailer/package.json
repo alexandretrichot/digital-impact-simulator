@@ -1,0 +1,23 @@
+{
+  "name": "mailer",
+  "main": "build/index.js",
+  "bin": "build/index.js",
+  "scripts": {
+    "start": "node .",
+    "watch": "tsc -w",
+    "compile": "tsc",
+    "build": "npm run compile && pkg -t node14-linux -o dist/mailer ."
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.6.17",
+    "@types/nodemailer": "^6.4.2",
+    "pkg": "^5.2.1",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongodb": "^3.6.9",
+    "nodemailer": "^6.6.1",
+    "saslprep": "^1.0.3"
+  }
+}

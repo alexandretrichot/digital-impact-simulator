@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'digital';
+  src: url('../fonts/digital-7.woff') format('woff'), url('../fonts/digital-7.woff2') format('woff2');
+}
+
+h1 {
+  font-size: 2rem;
+  text-shadow: $classicShadow;
+}
+
+h2 {
+  text-shadow: $classicShadow;
+}
+
+a {
+  color: #00af25;
+  text-decoration: none;
+
+  &:hover {
+    color: black;
+    text-decoration: underline;
+  }
+}

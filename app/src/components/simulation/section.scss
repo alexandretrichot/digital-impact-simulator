@@ -1,0 +1,52 @@
+@import '../../assets/styles/vars';
+
+.section {
+  padding: 1rem 0;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include mobile {
+      flex-direction: column !important;
+      align-items: flex-start;
+    }
+
+    * {
+      flex: 1 1 auto;
+    }
+
+    .anim {
+      flex: 0 0 auto;
+      width: 40%;
+      padding: 1rem;
+      box-sizing: border-box;
+
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  .counters {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 2rem;
+
+    @include mobile {
+      //display: block;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &:nth-child(4n - 1) {
+    background-color: #f5f2e5;
+
+    header {
+      flex-direction: row-reverse;
+    }
+  }
+}

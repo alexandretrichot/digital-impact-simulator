@@ -1,0 +1,25 @@
+#app-footer {
+  //margin-top: 2rem;
+
+  .flex {
+    display: flex;
+    height: 2.2rem;
+    justify-content: space-between;
+
+    div {
+      display: flex;
+      height: 100%;
+    }
+
+    img {
+      display: block;
+      flex-grow: 0;
+      flex-shrink: 0;
+      height: 100%;
+
+      &:not(:first-child) {
+        margin-left: 1rem;
+      }
+    }
+  }
+}
