@@ -11,6 +11,7 @@ import HomePage from './views/home';
 import SimulatePage from './views/simulate';
 import GroupPage from './views/group';
 import NotFoundPage from './views/notFound';
+import GGUPage from './views/cgu';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Switch>
             <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
             <Route path="/group/:groupSlug?" children={<GroupPage />} />
+            <Route path="/cgu" children={<GGUPage />} />
             <Route path="/" exact={true} children={<HomePage />} />
             <Route path="/" children={NotFoundPage} />
           </Switch>
