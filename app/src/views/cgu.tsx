@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const CGUPage: React.FC = () => {
 	return (
-		<div id="home" className="page wrapper">
+		<div id="cgu" className="page wrapper">
 			<h1>Conditions Générales d'Utilisation</h1>
 
 			<h3>Article 1 - Généralités</h3>
