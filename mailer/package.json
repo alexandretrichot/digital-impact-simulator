@@ -1,6 +1,6 @@
 {
   "name": "mailer",
-  "main": "dist/index.js",
+  "main": "build/index.js",
   "bin": "build/index.js",
   "scripts": {
     "start": "node .",
@@ -17,6 +17,7 @@
   "dependencies": {
     "dotenv": "^8.2.0",
     "mongodb": "^3.6.9",
-    "nodemailer": "^6.6.1"
+    "nodemailer": "^6.6.1",
+    "saslprep": "^1.0.3"
   }
 }
