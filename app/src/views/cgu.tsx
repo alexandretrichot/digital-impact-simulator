@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 const CGUPage: React.FC = () => {
 	return (
 		<div id="cgu" className="page wrapper">
+			<Helmet>
+				<title>Conditions Générales d'Utilisation | Simulateur d'impact</title>
+			</Helmet>
 			<h1>Conditions Générales d'Utilisation</h1>
 
 			<h3>Article 1 - Généralités</h3>
