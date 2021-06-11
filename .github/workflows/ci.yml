@@ -52,3 +52,4 @@ jobs:
           dangerous-clean-slate: true
           exclude: src/
             - tsconfig.json
+            - node_modules
