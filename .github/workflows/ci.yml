@@ -11,12 +11,13 @@ on:
 jobs:
   app-deploy:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./app
     steps:
       - uses: actions/checkout@v2
-      - name: Switch to app folder
-        run: cd app
       - uses: amondnet/vercel-action@v20
         with:
+          working-directory: ${{ env.working-directory }}
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vercel-args: '--prod'
@@ -26,15 +27,19 @@ jobs:
 
   mailer-deploy:
     runs-on: ubuntu-latest
+    env:
+      working-directory: ./mailer
     steps:
       - uses: actions/checkout@v2
-      - name: Switch to mailer folder
-        run: cd mailer
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
+      - name: Install dependencies
+        working-directory: ${{ env.working-directory }}
+        run: npm ci
       - name: Build
+        working-directory: ${{ env.working-directory }}
         run: npm run build
       - name: Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
@@ -42,11 +47,5 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-      - uses: amondnet/vercel-action@v20
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          vercel-args: '--prod'
-          vercel-org-id: ${{ secrets.ORG_ID}}
-          vercel-project-id: ${{ secrets.PROJECT_ID}}
-          github-comment: false
+          local-dir: ${{ env.working-directory }}/dist
+          server-dir: ./digital-impact-simulator/
