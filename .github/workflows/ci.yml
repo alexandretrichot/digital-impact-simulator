@@ -48,4 +48,5 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ${{ env.working-directory }}/dist/
-          server-dir: ./digital-impact-simulator/
+          server-dir: ./digital-impact-simulator/mailer/
+          dangerous-clean-slate: true
