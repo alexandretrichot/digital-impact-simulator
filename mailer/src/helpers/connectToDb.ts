@@ -1,4 +1,3 @@
-import 'saslprep';
 import { Db, MongoClient } from 'mongodb';
 
 const dbName = 'dis';

@@ -1,17 +1,16 @@
 {
   "name": "mailer",
-  "main": "build/index.js",
-  "bin": "build/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "start": "node .",
     "watch": "tsc -w",
-    "compile": "tsc",
-    "build": "npm run compile && pkg -t node14-linux -o dist/mailer ."
+    "build": "npm run clean && tsc",
+    "clean": "rimraf dist"
   },
   "devDependencies": {
     "@types/mongodb": "^3.6.17",
     "@types/nodemailer": "^6.4.2",
-    "pkg": "^5.2.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.3.2"
   },
   "dependencies": {
