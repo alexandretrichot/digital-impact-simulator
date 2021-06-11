@@ -1,3 +1,4 @@
+import 'saslprep';
 import { Db, MongoClient } from 'mongodb';
 
 const dbName = 'dis';
@@ -7,7 +8,7 @@ export default async function connectToDb(): Promise<Db> {
 	if (!client || !client.isConnected()) {
 		const dbUrl = process.env['DB']!;
 
-		client = new MongoClient(dbUrl, { useUnifiedTopology: true, connectTimeoutMS: 4000, socketTimeoutMS: 5000 });
+		client = new MongoClient(dbUrl, { useUnifiedTopology: true, useNewUrlParser: true, connectTimeoutMS: 4000, socketTimeoutMS: 5000 });
 		await client.connect();
 	}
 
