@@ -16,14 +16,20 @@ function App() {
   return (
     <Router>
       <div className="layout">
-        <AppHeader />
-        <Switch>
-          <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
-          <Route path="/group/:groupSlug?" children={<GroupPage />} />
-          <Route path="/" exact={true} children={<HomePage />} />
-          <Route path="/" children={NotFoundPage} />
-        </Switch>
-        <AppFooter />
+        <div className="app-header">
+          <AppHeader />
+        </div>
+        <div className="app-main">
+          <Switch>
+            <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
+            <Route path="/group/:groupSlug?" children={<GroupPage />} />
+            <Route path="/" exact={true} children={<HomePage />} />
+            <Route path="/" children={NotFoundPage} />
+          </Switch>
+        </div>
+        <div className="app-footer">
+          <AppFooter />
+        </div>
       </div>
     </Router>
   );
