@@ -13,7 +13,7 @@ import GroupPage from './views/group';
 import NotFoundPage from './views/notFound';
 import GGUPage from './views/cgu';
 import LegalPage from './views/legal';
-import SourcesPage from './views/sources';
+import CreditsPage from './views/credits';
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
             <Route path="/group/:groupSlug?" children={<GroupPage />} />
             <Route path="/cgu" children={<GGUPage />} />
             <Route path="/legal" children={<LegalPage />} />
-            <Route path="/sources" children={<SourcesPage />} />
+            <Route path="/credits" children={<CreditsPage />} />
             <Route path="/" exact={true} children={<HomePage />} />
             <Route path="/" children={NotFoundPage} />
           </Switch>

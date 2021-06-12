@@ -14,3 +14,11 @@ $lightShadow: 0px 10px 80px -20px rgba(0, 0, 0, 0.2);
     @content;
   }
 }
+
+@mixin hover {
+  @media (hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}

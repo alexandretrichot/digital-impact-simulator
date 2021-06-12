@@ -1,15 +1,20 @@
 import { Helmet } from 'react-helmet';
 
-import './sources.scss';
+import './credits.scss';
 
-const CGUPage: React.FC = () => {
+const CreditsPage: React.FC = () => {
 	return (
-		<div id="sources" className="page wrapper">
+		<div id="credits" className="page wrapper">
 			<Helmet>
-				<title>Sources | Simulateur d'impact</title>
+				<title>Crédits | Simulateur d'impact</title>
 			</Helmet>
-			<h1>Sources</h1>
+			<h1>Crédits</h1>
+			<ul>
+				<li>Animations de <a href="https://lottiefiles.com/" target="_blank">LottieFiles</a></li>
+				<li>Icons de <a href="https://flaticon.com/" target="_blank">Flaticon</a></li>
+			</ul>
 
+			<h2>Soucres</h2>
 			<div className="table-wrapper">
 				<table>
 					<thead>
@@ -94,4 +99,4 @@ const CGUPage: React.FC = () => {
 	);
 }
 
-export default CGUPage;
+export default CreditsPage;

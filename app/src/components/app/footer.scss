@@ -1,5 +1,46 @@
+@import '../../assets/styles/vars';
+
 #app-footer {
-  //margin-top: 2rem;
+  margin-top: 2rem;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+  color: #eee;
+  font-size: 0.8rem;
+
+  .main {
+    padding: 1rem 0;
+    background-color: #333;
+  }
+
+  a {
+    color: #fff;
+
+    @include hover {
+      color: $accentColor;
+      text-decoration: none;
+    }
+  }
+
+  .grid {
+    display: grid;
+    grid-template: 1fr / 2fr 1fr;
+    gap: 2rem;
+
+    @include mobile {
+      grid-template: 1fr / 1fr;
+      gap: 0;
+    }
+  }
+
+  .links {
+    .link {
+      display: block;
+      padding: 0.5rem 0;
+    }
+  }
+
+  .sponsors {
+
+  }
 
   .flex {
     display: flex;
@@ -20,6 +61,15 @@
       &:not(:first-child) {
         margin-left: 1rem;
       }
+    }
+  }
+
+  .copyright {
+    background-color: black;
+    padding: 1rem 0;
+
+    .centered {
+      text-align: center;
     }
   }
 }
