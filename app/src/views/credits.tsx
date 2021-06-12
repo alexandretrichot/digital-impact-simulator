@@ -10,8 +10,8 @@ const CreditsPage: React.FC = () => {
 			</Helmet>
 			<h1>Crédits</h1>
 			<ul>
-				<li>Animations de <a href="https://lottiefiles.com/" target="_blank">LottieFiles</a></li>
-				<li>Icons de <a href="https://flaticon.com/" target="_blank">Flaticon</a></li>
+				<li>Animations de <a href="https://lottiefiles.com/" target="_blank" rel="noreferrer">LottieFiles</a></li>
+				<li>Icons de <a href="https://flaticon.com/" target="_blank" rel="noreferrer">Flaticon</a></li>
 			</ul>
 
 			<h2>Soucres</h2>

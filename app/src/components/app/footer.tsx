@@ -14,8 +14,8 @@ const AppFooter: React.FC = () => {
 					<div className="grid">
 						<div className="about">
 							<p>Imaginé et réalisé par</p>
-							<p><a href="https://meusenature.fr/" target="_blank"><img src={mneLogo} alt="Logo de Meuse Nature Environnement" height="30" width="141" /></a></p>
-							<p>Conçu et développé par <a href="https://alexandretrichot.fr/" target="_blank">Alexandre TRICHOT</a></p>
+							<p><a href="https://meusenature.fr/" target="_blank" rel="noreferrer"><img src={mneLogo} alt="Logo de Meuse Nature Environnement" height="30" width="141" /></a></p>
+							<p>Conçu et développé par <a href="https://alexandretrichot.fr/" target="_blank" rel="noreferrer">Alexandre TRICHOT</a></p>
 
 							<br />
 
@@ -46,22 +46,6 @@ const AppFooter: React.FC = () => {
 					</div>
 				</div>
 			</div>
-
-			{/* <div className="sponsors">
-				<p>
-					Animations de <a href="https://lottiefiles.com/">LottieFiles</a> et
-					icons de <a href="https://flaticon.com/">Flaticon</a>.
-				</p>
-				<p>
-					Sources des données disponibles sur <a href="https://github.com/alexandretrichot/digital-impact-simulator#sources">GitHub</a>.
-				</p>
-
-				<p>Avec la participation de la Région Grand Est</p>
-				<div className="flex">
-					<img src={mneLogo} alt="Logo de Meuse Nature Environnement" />
-					
-				</div>
-			</div> */}
 		</footer>
 	);
 }
