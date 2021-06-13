@@ -11,7 +11,7 @@ const AppHeader: React.FC = () => {
 				<img src={mneLogo} alt="Logo de Meuse Nature Environnement" />
 			</Link>
 
-			<h1 className="title">Simulateur d'impact Numérique</h1>
+			<h1 className="title">Simulateur d'Impact Numérique</h1>
 		</header>
 	);
 }
