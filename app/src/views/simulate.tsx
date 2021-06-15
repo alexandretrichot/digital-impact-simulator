@@ -10,6 +10,7 @@ import { useDebounce } from '../helpers/hooks';
 import Error from '../components/error';
 import Loader from '../components/loader';
 import Info from '../components/misc/info';
+import Share from '../components/misc/share';
 
 const SimulatePage: React.FC = () => {
 	const { search } = useLocation();
@@ -46,6 +47,7 @@ const SimulatePage: React.FC = () => {
 
 							<div className="wrapper">
 								<EmailCTA scheduled={!!session.email} onSetEmail={email => setSession({ ...session, email, emailDate: new Date(new Date().getTime() + (30 * 24 * 60 * 60 * 1000)) })} />
+								<Share link={`${window.location.host}/simulate?compareTo=${session._id}`} />
 							</div>
 						</>
 					) : (
