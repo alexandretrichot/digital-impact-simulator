@@ -9,7 +9,7 @@ const LegalPage: React.FC = () => {
 			<h1>Informations légales</h1>
 			<h3>1. Présentation du site.</h3>
 			<p>En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site <a href="//numerique.meusenature.fr/">numerique.meusenature.fr</a> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi :</p>
-			<p><strong>Propriétaire</strong> : Meuse Nature Environnement – Association Loi 1901 – 9 Allée des Vosges<br />
+			<p><strong>Propriétaire</strong> : Meuse Nature Environnement – Association Loi 1901 - siret 379 875 990 00044 – 9 Allée des Vosges<br />
 				<strong>Créateur</strong> : <a target="blank" href="https://alexandretrichot.fr">Alexandre TRICHOT</a><br />
 				<strong>Responsable publication</strong> : Jean-Marie Hanotel – contact@meusenature.fr<br />
 				Le responsable publication est une personne physique ou une personne morale.<br />
