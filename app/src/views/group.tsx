@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import './group.scss';
+
 import { useHistory, useParams } from 'react-router';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -15,7 +17,7 @@ const GroupPage: React.FC = () => {
 	const { groupSlug } = useParams<{ groupSlug?: string }>();
 
 	return (
-		<div>
+		<div id="group" className="page">
 			{groupSlug ? (
 				<SimulateWithGroupView groupSlug={groupSlug} />
 			) : (
@@ -126,8 +128,9 @@ const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) =
 
 	useEffect(() => {
 		if (debouncedMember) {
+			console.log(debouncedMember.name);
 			fetcher<Member, Partial<Member>>(`/api/groups/${groupSlug}/${debouncedMember.id}`, 'PUT', {
-				name: debouncedMember.name,
+				name: debouncedMember.name || undefined,
 				stats: debouncedMember.stats,
 			})
 				.catch(err => {
@@ -164,8 +167,16 @@ const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) =
 								<Helmet>
 									<title>{group?.name} | Simulateur d'impact</title>
 								</Helmet>
-								{/* TODO: Make possible to change the username */}
-								{/* TODO: Add a group page introduction */}
+								<div className="wrapper">
+									<header>
+										<h1>Groupe : {group?.name}</h1>
+										<p>Vous êtes dans une simulation de groupe. Cela signifie que les résultats de votre simulation seront visibles en temps réel sur <a href={`/group/${group?.slug}/dashboard`} target="_blank" rel="noreferrer">cette page</a>.</p>
+
+										<div className="user">
+											<p>Votre nom dans ce groupe : <input value={member.name} placeholder="Sans nom (cliquez pour éditer)" onChange={ev => setMember({ ...member, name: ev.currentTarget.value })} /></p>
+										</div>
+									</header>
+								</div>
 								<Simulator stats={member.stats} onStatsChange={stats => setMember({ ...member, stats })} />
 							</>
 						) : (

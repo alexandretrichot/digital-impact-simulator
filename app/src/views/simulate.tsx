@@ -9,6 +9,7 @@ import { fetcher, useFetchSession } from '../helpers/fetch';
 import { useDebounce } from '../helpers/hooks';
 import Error from '../components/error';
 import Loader from '../components/loader';
+import Info from '../components/misc/info';
 
 const SimulatePage: React.FC = () => {
 	const { search } = useLocation();
@@ -31,15 +32,18 @@ const SimulatePage: React.FC = () => {
 				) : (
 					session ? (
 						<>
-							{
-								compare.data ? (
-									<header className="wrapper">
-										<div>Comparaison avec {self ? 'soit-même' : 'un ami'}</div>
-										{/* TODO: add a page introduction */}
-									</header>
-								) : null
-							}
+							<header className="wrapper">
+								<h1>Simulation de votre impact</h1>
+								<p>Ce simulateur a par but de vous donner un ordre d'idée de votre consomation d'internet et de son impact tant sur la consomation électrique que sur le rejet de gaz à effet de serre dans l'atmosphère.</p>
+								<br />
+
+								{compare.data && (
+									<Info>La session actelle sera comparé avec <b>{self ? 'vos précédents résultats' : 'les résultats de votre ami'}</b>.</Info>
+								)}
+							</header>
+
 							<Simulator stats={session.stats} onStatsChange={stats => setSession({ stats, from: compareTo ? compareTo : undefined })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
+
 							<div className="wrapper">
 								<EmailCTA scheduled={!!session.email} onSetEmail={email => setSession({ ...session, email, emailDate: new Date(new Date().getTime() + (30 * 24 * 60 * 60 * 1000)) })} />
 							</div>

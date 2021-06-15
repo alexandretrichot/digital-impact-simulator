@@ -1,0 +1,13 @@
+.info {
+	display: flex;
+	align-items: center;
+	
+	padding: 1rem;
+	background: rgb(156, 219, 255);
+	border-radius: .5rem;
+	
+	.icon {
+		height: 1.5rem;
+		margin-right: 1rem;
+	}
+}
