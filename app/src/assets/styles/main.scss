@@ -37,6 +37,10 @@ body {
   margin: auto;
   padding: 0 2rem;
 
+  &.large {
+		max-width: 1500px;
+	}
+
   @include mobile {
     padding: 0 1rem;
   }

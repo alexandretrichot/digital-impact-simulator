@@ -14,6 +14,7 @@ import NotFoundPage from './views/notFound';
 import GGUPage from './views/cgu';
 import LegalPage from './views/legal';
 import CreditsPage from './views/credits';
+import DashboardPage from './views/dashboard';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <div className="app-main">
           <Switch>
             <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
+            <Route path="/group/:groupSlug/dashboard" children={<DashboardPage />} />
             <Route path="/group/:groupSlug?" children={<GroupPage />} />
             <Route path="/cgu" children={<GGUPage />} />
             <Route path="/legal" children={<LegalPage />} />

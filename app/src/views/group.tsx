@@ -42,7 +42,7 @@ const CreateGroupView: React.FC = () => {
 					slug: values.slug,
 					name: values.name ? values.name : undefined
 				})
-					.then(r => history.push(`/group/${r.slug}`))
+					.then(r => history.push(`/group/${r.slug}/dashboard`))
 					.catch(err => alert(err.message))
 					.finally(() => helpers.setSubmitting(false));
 			}}
@@ -94,8 +94,8 @@ const CreateGroupView: React.FC = () => {
 }
 
 const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) => {
-	const [group, setGroup] = useState<Group | undefined>();
-	const [error, setError] = useState<Error | undefined>();
+	const [group, setGroup] = useState<Group>();
+	const [error, setError] = useState<Error>();
 
 	const [member, setMember] = useLocalStorage<Member | undefined>(`group-${groupSlug}`, undefined);
 	const debouncedMember = useDebounce(member, 1000);
