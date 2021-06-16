@@ -3,6 +3,8 @@ import connectToDb, { disconnectFromDb } from './helpers/connectToDb';
 import { send } from './send';
 import { ObjectId } from 'mongodb';
 
+log('starting mailer');
+log('configure env vars');
 config();
 
 type Session = {
@@ -12,20 +14,23 @@ type Session = {
 }
 
 const main = async () => {
+	log('connecting to db...');
 	const db = await connectToDb();
 
+	log('getting sessions...');
 	const sessions = await db.collection<Session>('sessions').find({
 		email: { $exists: true },
 		emailDate: {
 			$exists: true,
-			$lte: new Date(new Date().getTime() + 30 * 24 * 60 * 60 * 1000 - 1 * 30 * 1000),
+			$lte: new Date(new Date().getTime()),
 		}
 	}).toArray();
 
-	console.log('Collected :', sessions.length, 'sessions');
+	log('found', sessions.length, 'sessions');
 
 	for await (const session of sessions) {
 		console.log('Treat session :', session._id.toHexString());
+		log('sending mail to', session.email, 'for the session', session._id.toHexString());
 
 		try {
 			const infos = await send(session.email, session._id.toHexString());
@@ -37,14 +42,28 @@ const main = async () => {
 					email: true
 				}
 			});
+
+			log('session', session._id.toHexString(), 'treated');
 		} catch (err) {
-			console.error('oups', err);
+			err(err);
 		}
 	}
 
-	console.log('All sessions treated');
+	log('all sessions was treated');
 
 	disconnectFromDb();
+	log('disconnected from db');
+	log('finished');
 }
 
-main().catch(console.error);
+main().catch(error => err(error));
+
+function log(...args: any[]) {
+	const date = new Date();
+	console.log(date.toISOString(), ...args);
+}
+
+function err(...args: any[]) {
+	const date = new Date();
+	console.error(date.toISOString(), '[ERROR]', ...args);
+}
