@@ -1,5 +1,7 @@
 # [Pollution Numérique](https://numerique.meusenature.fr/)
 
+[![Actions Status](https://github.com/alexandretrichot/digital-impact-simulator/workflows/CI/badge.svg)](https://github.com/alexandretrichot/digital-impact-simulator/actions)
+
 ![screenshot](screenshot.png)
 
 Simulateur de consommation électrique et d'émission de GES sur l'utilisation de services en ligne.
