@@ -48,7 +48,7 @@ export const types = {
 	},
 	emails: {
 		color: "#0077ff",
-		name: "Emails"
+		name: "E-mails"
 	},
 	socials: {
 		color: "#ab00ff",

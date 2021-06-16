@@ -14,14 +14,14 @@ const CreditsPage: React.FC = () => {
 				<li>Icons de <a href="https://flaticon.com/" target="_blank" rel="noreferrer">Flaticon</a></li>
 			</ul>
 
-			<h2>Soucres</h2>
+			<h2>Sources</h2>
 			<div className="table-wrapper">
 				<table>
 					<thead>
 						<tr>
 							<th>Service</th>
 							<th>Source</th>
-							<th>Conso électrique pour 1 unité</th>
+							<th>Conso. électrique pour 1 unité</th>
 							<th>Rejet de GES pour 1 unité</th>
 						</tr>
 					</thead>
@@ -40,25 +40,25 @@ const CreditsPage: React.FC = () => {
 						</tr>
 						<tr>
 							<td>Instagram</td>
-							<td>Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes.</td>
+							<td>Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes.</td>
 							<td>0,002912 kWh</td>
 							<td>1,511328 g</td>
 						</tr>
 						<tr>
 							<td>Snapchat</td>
-							<td>Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes.</td>
+							<td>Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes.</td>
 							<td>0,002912 kWh</td>
 							<td>1,511328 g</td>
 						</tr>
 						<tr>
 							<td>TikTok</td>
-							<td>Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes.</td>
+							<td>Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes.</td>
 							<td>0,00448 kWh</td>
 							<td>2,32512 g</td>
 						</tr>
 						<tr>
 							<td>Facebook</td>
-							<td>Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes.</td>
+							<td>Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes.</td>
 							<td>0,00289408 kWh</td>
 							<td>1,50202752 g</td>
 						</tr>
@@ -75,7 +75,7 @@ const CreditsPage: React.FC = () => {
 							<td>24,41376 g</td>
 						</tr>
 						<tr>
-							<td>YoutTube</td>
+							<td>YouTube</td>
 							<td>Pour une vidéo en 1080p 60 fps à 6000 kbps source: <a href="https://support.google.com/youtube/answer/2853702?hl=fr">support.google.com/youtube/answer/2853702?hl=fr</a></td>
 							<td>0,10752 kWh</td>
 							<td>55,80288 g</td>
@@ -87,7 +87,7 @@ const CreditsPage: React.FC = () => {
 							<td>41,85216 g</td>
 						</tr>
 						<tr>
-							<td>Musique</td>
+							<td>Musique (Spotify)</td>
 							<td>Pour une qualité en 'Normal' à 96kbps source : <a href="https://support.spotify.com/us/article/high-quality-streaming">support.spotify.com/us/article/high-quality-streaming</a></td>
 							<td>0,00129024 kWh</td>
 							<td>0,66963456 g</td>

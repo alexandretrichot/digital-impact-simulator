@@ -34,8 +34,8 @@ const SimulatePage: React.FC = () => {
 					session ? (
 						<>
 							<header className="wrapper">
-								<h1>Simulation de votre impact</h1>
-								<p>Ce simulateur a par but de vous donner un ordre d'idée de votre consomation d'internet et de son impact tant sur la consomation électrique que sur le rejet de gaz à effet de serre dans l'atmosphère.</p>
+								<h2>Il est possible de connaître votre impact, c'est parti ?</h2>
+								<p>Ce simulateur vous donnera une idée de l'impact global de votre usage d'internet sur la consommation électrique et sur les rejets de gaz à effet de serre dans l'atmosphère.</p>
 								<br />
 
 								{compare.data && (

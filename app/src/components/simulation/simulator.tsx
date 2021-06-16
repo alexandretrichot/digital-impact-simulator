@@ -29,7 +29,7 @@ const Simulator: React.FC<Props> = props => {
 			<div></div>
 			<Wave />
 			<Section
-				title="Vos recherches sur internet"
+				title="Les recherches sur internet"
 				anim="search"
 				description={<>En moyenne, une recherche sur un moteur de recherche comme Google, Bing ou Yahoo! consomme environ <KWh value={values.kwh.search} /> et émet environ <GES value={values.ges.search} />.</>}
 
@@ -67,7 +67,7 @@ const Simulator: React.FC<Props> = props => {
 			/>
 			<Wave />
 			<Section
-				title={'Vos "petits" e-mails'}
+				title={'Les e-mails'}
 				anim="mail"
 				description={<>L'envoi d'un e-mail consomme environ <KWh value={values.kwh.email} /> et émet environ <GES value={values.ges.email} />.</>}
 
@@ -187,12 +187,12 @@ const Simulator: React.FC<Props> = props => {
 			/>
 			<Wave />
 			<Section
-				title={'Jeux en ligne'}
+				title={'Les jeux en ligne'}
 				anim="controller"
 				description={
 					<>
 						<p>Chaque minute passée sur un jeu en ligne consomme environ <KWh value={values.kwh.onlineGame} /> et émet environ <GES value={values.ges.onlineGame} />.</p>
-						<p>Pour du cloud gaming sur Stadia (Google) ou XCloud (Microsoft) on consomme environ <KWh value={values.kwh.cloudGaming} /> et émet environ <GES value={values.ges.cloudGaming} /> par minute de jeu.</p>
+						<p>Pour du cloud gaming sur Stadia (Google) ou XCloud (Microsoft), on consomme environ <KWh value={values.kwh.cloudGaming} /> et émet environ <GES value={values.ges.cloudGaming} /> par minute de jeu.</p>
 						<p>Cela revient à <KWh value={values.kwh.cloudGaming * 60} /> pour <GES value={values.ges.cloudGaming * 60} /> une heure de jeu !</p>
 					</>
 				}
@@ -200,8 +200,8 @@ const Simulator: React.FC<Props> = props => {
 				items={
 					[
 						{
-							title: "Minutes de jeux vidéos sur console ou ordinateur par jour",
-							description: "Indiquez ici le temps que vous y passez chaque jour",
+							title: "Minutes de jeux en ligne par jour ",
+							description: "Cela inclus les jeux sur PC, consoles de salon ou portables, téléphones, tablettes et tout autres appareils connectés à internet, permettant de jouer à des jeux multijoueurs.",
 							step: 20,
 							value: props.stats.onlineGamesMinutes,
 							onUpdate: onlineGamesMinutes => updateStats({ onlineGamesMinutes }),
@@ -218,7 +218,7 @@ const Simulator: React.FC<Props> = props => {
 
 				children={
 					<>
-						<p>En sachant que <b>3 millards</b> de personnes jouent aux jeux vidéo dans le monde et en admettant un temps de jeu par jour moyen de 30 minutes, faire un calcul rapide revient à dire que <KWh value={values.kwh.onlineGame * 30 * 3 * 1000 * 1000 * 1000} /> sont consommés pour un rejet de <GES value={values.ges.onlineGame * 30 * 3 * 1000 * 1000 * 1000} /> par jour.</p>
+						<p>En sachant que <b>3 milliards</b> de personnes jouent aux jeux vidéo dans le monde et en admettant un temps de jeu par jour moyen de 30 minutes, on peut estimer que cela entraine une consommation de <KWh value={values.kwh.onlineGame * 30 * 3 * 1000 * 1000 * 1000} /> et un rejet de <GES value={values.ges.onlineGame * 30 * 3 * 1000 * 1000 * 1000} long /> par jour.</p>
 						{/* source : https://www.presse-citron.net/plus-de-3-milliards-de-personnes-jouent-aux-jeux-video-dans-le-monde/#:~:text=Plus%20de%203%20milliards%20de%20personnes%20jouent%20aux%20jeux%20vid%C3%A9o%20dans%20le%20monde,-Tests */}
 					</>
 				}
@@ -237,7 +237,7 @@ const Simulator: React.FC<Props> = props => {
 			/>
 			<Wave />
 			<Section
-				title={'Vos vidéos et votre musique'}
+				title={'Les vidéos et la musique'}
 				anim="streaming"
 				description={
 					<>

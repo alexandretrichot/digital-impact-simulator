@@ -3,7 +3,7 @@ import './footer.scss';
 
 import { Link } from 'react-router-dom';
 
-import grandEstLogo from '../../assets/images/grand-est.png';
+import drealLogo from '../../assets/images/dreal.jpg';
 import mneLogo from '../../assets/images/mne-white.png';
 
 import odd04Icon from '../../assets/images/odd04.jpg';
@@ -31,19 +31,18 @@ const AppFooter: React.FC = () => {
 							</div>
 							<div className="sponsors">
 								<img
-									src={grandEstLogo}
-									alt="Logo du Grand-Est"
-									height="40"
-									width="95"
+									src={drealLogo}
+									alt="Logo de la DREAL du Grand-Est"
+									height="60"
+									width="142"
 								/>
 							</div>
 						</div>
 						<div className="links">
-							<h3>Liens utils</h3>
+							<h3>Liens utiles</h3>
 							<Link className="link" to="/">Accueil</Link>
 							<Link className="link" to="/credits">Crédits</Link>
 							<Link className="link" to="legal">Mentions légales</Link>
-							<Link className="link" to="cgu">CGU</Link>
 						</div>
 					</div>
 				</div>

@@ -21,10 +21,10 @@ Liste rapide des sources utilisées pour les données du projet :
 | ------------------- | ------------------------------------------------------------ | ---------------- | ----------------------- |
 | Recherches internet | Test avec les DevTools de Chrome avec le cache désactivé sur Google | 0,000188265 kWh  | 0,097709448 g           |
 | Email               | Analyse d’une boite mail perso de 12,29 Go pour 11689 emails | 0,000235517 kWh  | 0,122233402 g           |
-| Instagram           | Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes. | 0,002912 kWh     | 1,511328 g              |
-| Snapchat            | Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes. | 0,002912 kWh     | 1,511328 g              |
-| TikTok              | Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes. | 0,00448 kWh      | 2,32512 g               |
-| Facebook            | Mesure de la consommation internet sur un terminal iPhone dans l’espace de 5 minutes. | 0,00289408 kWh   | 1,50202752 g            |
+| Instagram           | Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes. | 0,002912 kWh     | 1,511328 g              |
+| Snapchat            | Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes. | 0,002912 kWh     | 1,511328 g              |
+| TikTok              | Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes. | 0,00448 kWh      | 2,32512 g               |
+| Facebook            | Mesure de la consommation internet sur un terminal iPhone en l'espace de 5 minutes. | 0,00289408 kWh   | 1,50202752 g            |
 | Jeux en ligne       | Moyenne de consommation d'une partie de jeu en ligne sur Fortnite. | 0,0001344 kWh    | 0,0697536 g             |
 | Cloud Gaming        | Pour une utilisation de Stadia en qualitée 1080p à 60 fps Pour une source : https://support.google.com/stadia/answer/9607891?hl=en | 0,04704 kWh      | 24,41376 g              |
 | YouTube             | Pour une vidéo en 1080p 60 fps à 6000 kbps source: https://support.google.com/youtube/answer/2853702?hl=fr | 0,10752 kWh      | 55,80288 g              |

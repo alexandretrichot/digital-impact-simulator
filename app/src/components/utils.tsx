@@ -9,12 +9,12 @@ export const KWh: React.FC<{ value: number }> = ({ value }) => {
 	);
 };
 
-export const GES: React.FC<{ value: number }> = ({ value }) => {
+export const GES: React.FC<{ value: number, long?: boolean }> = ({ value, long }) => {
 	const isKg = value >= 1000;
 	const isTonne = value >= 1000 * 1000;
 
 	return (
-		<><b>{isTonne ? f(value / 1000000) : isKg ? f(value / 1000) : f(value)}</b> {isTonne ? "tonne" + (value / 1000000 >= 2 ? "s" : "") : isKg ? "Kg" : "g"} de CO<sub>2</sub></>
+		<><b>{isTonne ? f(value / 1000000) : isKg ? f(value / 1000) : f(value)}</b> {isTonne ? "tonne" + (value / 1000000 >= 2 ? "s" : "") : isKg ? "kg" : "g"} {long && 'équivalent '}de CO<sub>2</sub></>
 	);
 };
 
