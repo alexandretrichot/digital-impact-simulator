@@ -37,12 +37,12 @@ const Result: React.FC<Props> = props => {
 
 				<p>
 					Répartition de votre consommation électrique liée à votre utilisation de services en ligne.
-      </p>
+				</p>
 				<Graph stats={kwh} />
 
 				<p>
-					Répartition de vos émissions de gaz à effets de serre (équivalent CO<sub>2</sub>) due à votre utilisation de services en ligne.
-      </p>
+					Répartition de vos émissions de gaz à effets de serre (équivalent CO<sub>2</sub>) dues à votre utilisation de services en ligne.
+				</p>
 				<Graph stats={ges} />
 
 				<Legendary />

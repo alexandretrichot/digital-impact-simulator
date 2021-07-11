@@ -61,7 +61,7 @@ const Simulator: React.FC<Props> = props => {
 						vsKwh={Number(props.compareTo?.stats.searches) * values.kwh.search}
 						vsGes={Number(props.compareTo?.stats.searches) * values.ges.search}
 					>
-						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+						<b>En conséquence</b>, voici votre impact en consommation d'énergie et émissions de gaz à effet de serre :
 					</Footer>
 				}
 			/>
@@ -105,7 +105,7 @@ const Simulator: React.FC<Props> = props => {
 						vsKwh={(Number(props.compareTo?.stats.emailsReceived) + Number(props.compareTo?.stats.emailsSent)) * values.kwh.email}
 						vsGes={(Number(props.compareTo?.stats.emailsReceived) + Number(props.compareTo?.stats.emailsSent)) * values.ges.email}
 					>
-						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+						<b>En conséquence</b>, voici votre impact en consommation d'énergie et émissions de gaz à effet de serre :
 					</Footer>
 				}
 			/>
@@ -119,28 +119,28 @@ const Simulator: React.FC<Props> = props => {
 					[
 						{
 							title: "Instagram",
-							description: "Indiquez ici le temps que vous y passez chaque jour",
+							description: "Indiquez ici les minutes que vous y passez chaque jour",
 							step: 1,
 							value: props.stats.instagramMinutes,
 							onUpdate: instagramMinutes => updateStats({ instagramMinutes }),
 						},
 						{
 							title: "Snapchat",
-							description: "Indiquez ici le temps que vous y passez chaque jour",
+							description: "Indiquez ici les minutes que vous y passez chaque jour",
 							step: 1,
 							value: props.stats.snapchatMinutes,
 							onUpdate: snapchatMinutes => updateStats({ snapchatMinutes }),
 						},
 						{
 							title: "TikTok",
-							description: "Indiquez ici le temps que vous y passez chaque jour",
+							description: "Indiquez ici les minutes que vous y passez chaque jour",
 							step: 1,
 							value: props.stats.tiktokMinutes,
 							onUpdate: tiktokMinutes => updateStats({ tiktokMinutes }),
 						},
 						{
 							title: "Facebook",
-							description: "Indiquez ici le temps que vous y passez chaque jour",
+							description: "Indiquez ici les minutes que vous y passez chaque jour",
 							step: 1,
 							value: props.stats.facebookMinutes,
 							onUpdate: facebookMinutes => updateStats({ facebookMinutes }),
@@ -148,7 +148,7 @@ const Simulator: React.FC<Props> = props => {
 					]
 				}
 
-				children={<><p> Sur Instagram, <b>100.00 millions</b> de photos et de vidéos sont publiées par par jour dans le monde. En parallèle, <b>4.20 milliards</b> de likes sont comptabilisés quotidiennement. </p></>}
+				children={<><p> Sur Instagram, <b>100 millions</b> de photos et de vidéos sont publiées par par jour dans le monde. En parallèle, <b>4,2 milliards</b> de likes sont comptabilisés quotidiennement.</p></>}
 
 				footer={
 					<Footer
@@ -181,7 +181,7 @@ const Simulator: React.FC<Props> = props => {
 							+ Number(props.compareTo?.stats.facebookMinutes) * values.ges.facebook
 						}
 					>
-						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+						<b>En conséquence</b>, voici votre impact en consommation d'énergie et émissions de gaz à effet de serre :
 					</Footer>
 				}
 			/>
@@ -193,7 +193,7 @@ const Simulator: React.FC<Props> = props => {
 					<>
 						<p>Chaque minute passée sur un jeu en ligne consomme environ <KWh value={values.kwh.onlineGame} /> et émet environ <GES value={values.ges.onlineGame} />.</p>
 						<p>Pour du cloud gaming sur Stadia (Google) ou XCloud (Microsoft), on consomme environ <KWh value={values.kwh.cloudGaming} /> et émet environ <GES value={values.ges.cloudGaming} /> par minute de jeu.</p>
-						<p>Cela revient à <KWh value={values.kwh.cloudGaming * 60} /> pour <GES value={values.ges.cloudGaming * 60} /> une heure de jeu !</p>
+						<p>Cela revient à <KWh value={values.kwh.cloudGaming * 60} /> pour <GES value={values.ges.cloudGaming * 60} /> l'heure de jeu !</p>
 					</>
 				}
 
@@ -201,7 +201,7 @@ const Simulator: React.FC<Props> = props => {
 					[
 						{
 							title: "Minutes de jeux en ligne par jour ",
-							description: "Cela inclus les jeux sur PC, consoles de salon ou portables, téléphones, tablettes et tout autres appareils connectés à internet, permettant de jouer à des jeux multijoueurs.",
+							description: "Cela inclus les jeux sur PC, consoles de salon ou portables, téléphones, tablettes et tout autre appareil connecté à internet, permettant de jouer à des jeux multijoueurs.",
 							step: 20,
 							value: props.stats.onlineGamesMinutes,
 							onUpdate: onlineGamesMinutes => updateStats({ onlineGamesMinutes }),
@@ -218,7 +218,7 @@ const Simulator: React.FC<Props> = props => {
 
 				children={
 					<>
-						<p>En sachant que <b>3 milliards</b> de personnes jouent aux jeux vidéo dans le monde et en admettant un temps de jeu par jour moyen de 30 minutes, on peut estimer que cela entraine une consommation de <KWh value={values.kwh.onlineGame * 30 * 3 * 1000 * 1000 * 1000} /> et un rejet de <GES value={values.ges.onlineGame * 30 * 3 * 1000 * 1000 * 1000} long /> par jour.</p>
+						<p>Sachant que <b>3 milliards</b> de personnes jouent aux jeux vidéo dans le monde et en admettant un temps de jeu par jour moyen de 30 minutes, on peut estimer que cela entraine une consommation de <KWh value={values.kwh.onlineGame * 30 * 3 * 1000 * 1000 * 1000} /> et un rejet de <GES value={values.ges.onlineGame * 30 * 3 * 1000 * 1000 * 1000} long /> par jour.</p>
 						{/* source : https://www.presse-citron.net/plus-de-3-milliards-de-personnes-jouent-aux-jeux-video-dans-le-monde/#:~:text=Plus%20de%203%20milliards%20de%20personnes%20jouent%20aux%20jeux%20vid%C3%A9o%20dans%20le%20monde,-Tests */}
 					</>
 				}
@@ -231,7 +231,7 @@ const Simulator: React.FC<Props> = props => {
 						vsKwh={Number(props.compareTo?.stats.onlineGamesMinutes) * values.kwh.onlineGame + Number(props.compareTo?.stats.cloudGamesMinutes) * values.kwh.cloudGaming}
 						vsGes={Number(props.compareTo?.stats.onlineGamesMinutes) * values.ges.onlineGame + Number(props.compareTo?.stats.cloudGamesMinutes) * values.ges.cloudGaming}
 					>
-						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+						<b>En conséquence</b>, voici votre impact en consommation d'énergie et émissions de gaz à effet de serre :
 					</Footer>
 				}
 			/>
@@ -276,7 +276,7 @@ const Simulator: React.FC<Props> = props => {
 					<>
 						<p>Chaque année, dans le monde, YouTube et les plateformes de vidéos en ligne génèrent <b>65 millions</b> de tonnes de CO<sub>2</sub>.</p>
 						<p>Les services de VOD comme Netflix ou Amazon prime en génèrent, quant à eux, <b>102 millions</b>.</p>
-						<p>Combinés, ils dégagent plus de <b>170 millions</b> de tonnes de CO<sub>2</sub>sur une année.</p>
+						<p>Combinés, ils dégagent plus de <b>170 millions</b> de tonnes de CO<sub>2</sub> sur une année.</p>
 					</>
 				}
 
@@ -288,7 +288,7 @@ const Simulator: React.FC<Props> = props => {
 						vsKwh={Number(props.compareTo?.stats.youtubeMinutes) * values.kwh.youtube + Number(props.compareTo?.stats.netflixMinutes) * values.kwh.netflix + Number(props.compareTo?.stats.musicMinutes) * values.kwh.music}
 						vsGes={Number(props.compareTo?.stats.youtubeMinutes) * values.ges.youtube + Number(props.compareTo?.stats.netflixMinutes) * values.ges.netflix + Number(props.compareTo?.stats.musicMinutes) * values.ges.music}
 					>
-						<b>En conséquence</b>, voici votre impact en consommation en énergie et émissions de gaz à effet de serre :
+						<b>En conséquence</b>, voici votre impact en consommation d'énergie et émissions de gaz à effet de serre :
 					</Footer>
 				}
 			/>
@@ -299,4 +299,3 @@ const Simulator: React.FC<Props> = props => {
 };
 
 export default Simulator;
-

@@ -31,7 +31,7 @@ const EmailCTA: React.FC<Props> = props => {
 					<>
 						<header>
 							<h3>Envie de réessayer plus tard ?</h3>
-							<p>Nous vous enverons un email afin de réitérer l'exprience et voir votre évolution !</p>
+							<p>Nous vous enverrons un email afin de réitérer l'expérience et voir votre évolution !</p>
 						</header>
 						<div className="col">
 							<div className="form">
