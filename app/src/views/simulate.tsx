@@ -51,7 +51,7 @@ const SimulatePage: React.FC = () => {
 									<p>De façon invisible mais bien concrète, notre utilisation d'internet est à l'origine de consommations d'électricité et de rejets de gaz à effet de serre conséquents, contribuant à la surconsommation, au gaspillage de ressources, au dérèglement climatique et à des inégalités et injustices majeures...</p>
 									<p>Et la plupart de nos usages sont liés à des activités de loirirs et non des activités stratégiques, indispensables ou permettant a minima de contribuer à l'amélioration ou a préservation des conditions de vie sur Terre.</p>
 									<br />
-									<p>Vous voulez en savoir plus ? Vous avez envie de réduire votre impact ? Nous vous proposons de consulter <a href="#">cette brochure de 16 pages</a> sur les impacts environnementaux du numérique réalisée en 2021 par Meuse Nature Environnement.</p>
+									<p>Vous voulez en savoir plus ? Vous avez envie de réduire votre impact ? Nous vous proposons de consulter cette brochure de 16 pages sur les impacts environnementaux du numérique réalisée en 2021 par Meuse Nature Environnement.</p>
 								</div>
 
 								<EmailCTA scheduled={!!session.email} onSetEmail={email => setSession({ ...session, email, emailDate: new Date(new Date().getTime() + (30 * 24 * 60 * 60 * 1000)) })} />
