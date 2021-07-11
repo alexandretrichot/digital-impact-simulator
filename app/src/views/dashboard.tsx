@@ -122,7 +122,7 @@ const DashboardPanel: React.FC<{
 								</div>
 								<div className="details">
 									<div><KWh value={kwhTotals[index] * 365} />, <GES value={gesTotals[index] * 365} /></div>
-									<div><b>{Math.round(kwhTotals[index] * 365 / values.frigoPerYear)} frigos</b>, <b>{Math.round(gesTotals[index] * 365 / values.gesPerKmInCar).toLocaleString()} Km</b> par an</div>
+									<div><b>{Math.round(kwhTotals[index] * 365 / values.frigoPerYear)} réfrigérateurs</b>, <b>{Math.round(gesTotals[index] * 365 / values.gesPerKmInCar).toLocaleString()} Km</b> par an</div>
 								</div>
 							</div>
 						))}

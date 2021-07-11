@@ -23,6 +23,10 @@ const HomePage: React.FC = () => {
 					<Link className="btn" to="/group">Créer un groupe</Link>
 				</div>
 			</div>
+			<div className="card">
+				<p>Depuis plusieurs années, <a href="https://meusenature.fr/">Meuse Nature Environnement</a> se questionne sur les impacts de la "dématérialisation" généralisée des activités et s'alarme sur la consommation exponentielle d'objets connectés et d'internet en général. Pour mieux appréhender l'impact que peut avoir notre usage généralisé d'internet, nous vous proposons ce simulateur.</p>
+				<p>A partir de votre expérience personnelle d'internet, il vous donnera une idée de l'impact de votre usage d'internet sur la consommation électrique et sur les rejets de gaz à effet de serre dans l'atmosphère, de façon globale et également par type d'utilisation. Un bon début pour déjà savoir où on en est et par où commencer pour réduire son impact efficacement !</p>
+			</div>
 		</div>
 	);
 }

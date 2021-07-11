@@ -55,7 +55,7 @@ const Result: React.FC<Props> = props => {
 				<p>À titre de comparaison c'est :</p>
 				<br />
 				<div className="similes">
-					<Simile title={`${Math.round((totalKwh * 365) / values.frigoPerYear)} frigos`} icon={fridgeIcon}>C'est l'équivalent de la consommation énergétique de {Math.round((totalKwh * 365) / values.frigoPerYear)} frigos par an.</Simile>
+					<Simile title={`${Math.round((totalKwh * 365) / values.frigoPerYear)} réfrigérateurs`} icon={fridgeIcon}>C'est l'équivalent de la consommation énergétique de {Math.round((totalKwh * 365) / values.frigoPerYear)} réfrigérateurs par an.</Simile>
 					<Simile title={`${((totalGes * 365) / values.gesPerKmInCar).toLocaleString()} Km`} icon={carIcon}>C'est l'équivalent en émissions carbone d'une voiture thermique ayant parcouru {((totalGes * 365) / values.gesPerKmInCar).toLocaleString()} Km.</Simile>
 				</div>
 			</div>
