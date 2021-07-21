@@ -30,8 +30,7 @@ const GroupPage: React.FC = () => {
 export default GroupPage;
 
 const createGroupValidationSchema = Yup.object({
-	slug: Yup.string().min(4, 'Slug trop court').required('Le slug est requis'),
-	name: Yup.string(),
+	name: Yup.string().min(4, 'Nom trop court').required('Le nom est requis'),
 });
 
 const CreateGroupView: React.FC = () => {
@@ -39,10 +38,10 @@ const CreateGroupView: React.FC = () => {
 
 	return (
 		<div className="wrapper">
-			<Formik initialValues={{ slug: '', name: '' }} validationSchema={createGroupValidationSchema} onSubmit={(values, helpers) => {
+			<Formik initialValues={{ name: '' }} validationSchema={createGroupValidationSchema} onSubmit={(values, helpers) => {
 				fetcher<Group>('/api/groups', 'POST', {
-					slug: values.slug,
-					name: values.name ? values.name : undefined
+					slug: createSlugFromGroupName(values.name),
+					name: values.name,
 				})
 					.then(r => history.push(`/group/${r.slug}/dashboard`))
 					.catch(err => alert(err.message))
@@ -58,41 +57,39 @@ const CreateGroupView: React.FC = () => {
 						handleBlur,
 						handleChange,
 						isSubmitting
-					}) => (
-						<form onSubmit={handleSubmit} style={{ maxWidth: '20rem', margin: '2rem auto' }}>
-							<div style={{}}></div>
+					}) => {
+						const slug = createSlugFromGroupName(values.name);
 
-							<h2>Create a new group</h2>
-							<div className="field">
-								<input
-									type="text"
-									name="name"
-									placeholder="Nom du groupe"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.name}
-								/>
-								<div className="field-error">{errors.name && touched.name && errors.name}</div>
-							</div>
-							<div className="field">
-								<input
-									type="text"
-									name="slug"
-									placeholder="slug"
-									onChange={handleChange}
-									onBlur={handleBlur}
-									value={values.slug}
-								/>
-								<p style={{ backgroundColor: '#ccc', borderRadius: '.2rem', padding: '.1rem .2rem', overflowX: 'scroll' }}>numerique.meusenature.fr/group/{values.slug || 'slug'}</p>
-								<div className="field-error">{errors.slug && touched.slug && errors.slug}</div>
-							</div>
-							<button type="submit" className="btn large" disabled={isSubmitting}>Créer le groupe</button>
-						</form>
-					)
+						return (
+							<form onSubmit={handleSubmit} style={{ maxWidth: '20rem', margin: '2rem auto' }}>
+								<div style={{}}></div>
+
+								<h2>Create a new group</h2>
+								<div className="field">
+									<input
+										type="text"
+										name="name"
+										placeholder="Nom du groupe"
+										onChange={handleChange}
+										onBlur={handleBlur}
+										value={values.name}
+										autoComplete={'off'}
+									/>
+									<div className="field-error">{errors.name && touched.name && errors.name}</div>
+								</div>
+								<p style={{ backgroundColor: '#eee', borderRadius: '.2rem', padding: '.1rem .2rem', overflowX: 'scroll' }}>numerique.meusenature.fr/group/{slug ? <span>{slug}</span> : <span style={{ opacity: 0.3 }}>{'<nom>'}</span>}</p>
+								<button type="submit" className="btn large" disabled={isSubmitting}>Créer le groupe</button>
+							</form>
+						)
+					}
 				}
 			</Formik>
 		</div>
 	);
+}
+
+const createSlugFromGroupName = (groupName: string): string => {
+	return groupName.toLowerCase().replace(/[^a-z0-9+]/g, "");
 }
 
 const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) => {
