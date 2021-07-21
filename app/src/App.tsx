@@ -25,8 +25,8 @@ function App() {
         <div className="app-main">
           <Switch>
             <Route path="/simulate/:sessionId?" children={<SimulatePage />} />
-            <Route path="/group/:groupSlug/dashboard" children={<DashboardPage />} />
-            <Route path="/group/:groupSlug?" children={<GroupPage />} />
+            <Route path="/session/:groupSlug/dashboard" children={<DashboardPage />} />
+            <Route path="/session/:groupSlug?" children={<GroupPage />} />
             <Route path="/legal" children={<LegalPage />} />
             <Route path="/credits" children={<CreditsPage />} />
             <Route path="/" exact={true} children={<HomePage />} />

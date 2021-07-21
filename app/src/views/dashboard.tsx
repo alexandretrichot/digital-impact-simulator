@@ -65,7 +65,7 @@ const DashboardPage: React.FC = () => {
 							{
 								error.name === 'NotFoundError' ? (
 									<Error title="Groupe non trouvé" details="Il semble que ce group n'existe pas..." anim="404">
-										<Link to="/group" className="btn">Retour à l'accueil</Link>
+										<Link to="/session" className="btn">Retour à l'accueil</Link>
 									</Error>
 								) : (
 									<Error title={error.message} />
@@ -101,7 +101,7 @@ const DashboardPanel: React.FC<{
 
 	const maxGES = Math.max(...gesTotals);
 
-	const joinLink = `${window.location.host}/group/${props.groupSlug}`;
+	const joinLink = `${window.location.host}/session/${props.groupSlug}`;
 
 	return (
 		<>

@@ -43,7 +43,7 @@ const CreateGroupView: React.FC = () => {
 					slug: createSlugFromGroupName(values.name),
 					name: values.name,
 				})
-					.then(r => history.push(`/group/${r.slug}/dashboard`))
+					.then(r => history.push(`/session/${r.slug}/dashboard`))
 					.catch(err => alert(err.message))
 					.finally(() => helpers.setSubmitting(false));
 			}}
@@ -77,7 +77,7 @@ const CreateGroupView: React.FC = () => {
 									/>
 									<div className="field-error">{errors.name && touched.name && errors.name}</div>
 								</div>
-								<p style={{ backgroundColor: '#eee', borderRadius: '.2rem', padding: '.1rem .2rem', overflowX: 'scroll' }}>numerique.meusenature.fr/group/{slug ? <span>{slug}</span> : <span style={{ opacity: 0.3 }}>{'<nom>'}</span>}</p>
+								<p style={{ backgroundColor: '#eee', borderRadius: '.2rem', padding: '.1rem .2rem', overflowX: 'scroll' }}>numerique.meusenature.fr/session/{slug ? <span>{slug}</span> : <span style={{ opacity: 0.3 }}>{'<nom>'}</span>}</p>
 								<button type="submit" className="btn large" disabled={isSubmitting}>Créer le groupe</button>
 							</form>
 						)
@@ -151,7 +151,7 @@ const SimulateWithGroupView: React.FC<{ groupSlug: string }> = ({ groupSlug }) =
 							{
 								error.name === 'NotFoundError' ? (
 									<Error title="Groupe non trouvé" details="Il semble que ce group n'existe pas..." anim="404">
-										<Link to="/group" className="btn">Retour à l'accueil</Link>
+										<Link to="/session" className="btn">Retour à l'accueil</Link>
 									</Error>
 								) : (
 									<Error title={error.message} />
