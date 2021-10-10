@@ -2,6 +2,7 @@ import { config } from 'dotenv';
 import connectToDb, { disconnectFromDb } from './helpers/connectToDb';
 import { send } from './send';
 import { ObjectId } from 'mongodb';
+import { err, log } from './helpers/log';
 
 log('starting mailer');
 log('configure env vars');
@@ -44,8 +45,8 @@ const main = async () => {
 			});
 
 			log('session', session._id.toHexString(), 'treated');
-		} catch (err) {
-			err(err);
+		} catch (error) {
+			err(error);
 		}
 	}
 
@@ -57,13 +58,3 @@ const main = async () => {
 }
 
 main().catch(error => err(error));
-
-function log(...args: any[]) {
-	const date = new Date();
-	console.log(date.toISOString(), ...args);
-}
-
-function err(...args: any[]) {
-	const date = new Date();
-	console.error(date.toISOString(), '[ERROR]', ...args);
-}
