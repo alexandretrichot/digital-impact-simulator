@@ -1,0 +1,23 @@
+@import '../../assets/styles/vars';
+
+#simulate {
+	.age-container {
+		display: flex;
+		align-items: center;
+
+		.pre-text {
+			margin-right: .5rem;
+		}
+
+		select {
+			border: solid 1px black;
+			border-radius: 6px;
+			font-size: 0.8rem;
+			padding: .2rem;
+		}
+
+		@include mobile {
+			
+		}
+	}
+}

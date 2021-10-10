@@ -39,9 +39,21 @@ const SimulatePage: React.FC = () => {
 								<br />
 
 								{compare.data && <Info>La session actelle sera comparée avec <b>{self ? 'vos précédents résultats' : 'les résultats de votre ami'}</b>.</Info>}
+
+								<div className={`age-container`}>
+									<div className={`pre-text`}>Je suis agé de</div>
+									<select value={session.age} onChange={ev => setSession({ ...session, age: ev.currentTarget.value })}>
+										<option value={undefined}>sélectionnez</option>
+										<option value={'<15'}>moins de 15 ans</option>
+										<option value={'15-25'}>15 à 25 ans</option>
+										<option value={'25-45'}>25 à 45 ans</option>
+										<option value={'45-65'}>45 à 65 ans</option>
+										<option value={'>65'}>plus de 65 ans</option>
+									</select>
+								</div>
 							</header>
 
-							<Simulator stats={session.stats} onStatsChange={stats => setSession({ stats, from: compareTo ? compareTo : undefined })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
+							<Simulator stats={session.stats} onStatsChange={stats => setSession({ age: session.age, stats, from: compareTo ? compareTo : undefined })} compareTo={compare.data ? { stats: compare.data.stats, self } : undefined} />
 
 							<div className="wrapper">
 								<div>
@@ -79,7 +91,7 @@ const useSession = () => {
 	const [data, setData] = useState<Session | undefined>(undefined);
 	const [error, setError] = useState<Error | undefined>(undefined);
 
-	const debouncedSession = useDebounce(data, 1000);
+	const debouncedSession = useDebounce(data, 2000);
 
 	useEffect(() => { // hydrate
 		fetcher<Session>(`/api/sessions/${sessionId ? sessionId : ''}`, sessionId ? 'GET' : 'POST')
@@ -98,6 +110,7 @@ const useSession = () => {
 	useEffect(() => { // mutate
 		if (debouncedSession) {
 			fetcher<Session, Session>(`/api/sessions/${sessionId}`, 'PUT', {
+				age: debouncedSession.age,
 				stats: debouncedSession.stats,
 				email: debouncedSession.email,
 				emailDate: debouncedSession.emailDate,

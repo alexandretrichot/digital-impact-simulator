@@ -17,6 +17,7 @@ export const statsSchema = Joi.object<Stats>({
 });
 
 export type SessionInput = {
+	age?: string;
 	stats: Stats,
 	email?: string,
 	emailDate?: Date,
@@ -24,6 +25,7 @@ export type SessionInput = {
 };
 
 export const sessionSchema = Joi.object<SessionInput>({
+	age: Joi.string(),
 	stats: statsSchema.required(),
 	email: Joi.string().email(),
 	emailDate: Joi.date(),

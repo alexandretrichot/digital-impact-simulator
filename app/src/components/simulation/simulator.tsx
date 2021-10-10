@@ -1,4 +1,5 @@
 import React from 'react';
+import './simulator.scss';
 
 import values from '../../values';
 
