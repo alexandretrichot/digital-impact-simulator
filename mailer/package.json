@@ -4,7 +4,7 @@
   "scripts": {
     "start": "node .",
     "watch": "tsc -w",
-    "build": "npm run clean && tsc",
+    "build": "Yarn clean && tsc",
     "clean": "rimraf dist"
   },
   "devDependencies": {
