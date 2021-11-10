@@ -1,0 +1,18 @@
+name: Mailer
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  
+  workflow_dispatch:
+
+jobs:
+  mailer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm ci --prefix mailer/
+      - run: node mailer
+      
