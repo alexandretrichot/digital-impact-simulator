@@ -12,7 +12,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm ci --prefix mailer/
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        working-directory: ${{ env.working-directory }}
+        run: yarn install --frozen-lockfile
+      - name: Build
+        working-directory: ${{ env.working-directory }}
+        run: yarn build
       - run: node mailer
+        env:
+          DB: ${{ secrets.DB }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
       
