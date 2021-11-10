@@ -24,29 +24,3 @@ jobs:
           vercel-org-id: ${{ secrets.ORG_ID}}
           vercel-project-id: ${{ secrets.PROJECT_ID}}
           github-comment: false
-
-  mailer-deploy:
-    runs-on: ubuntu-latest
-    env:
-      working-directory: ./mailer
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14.x'
-      - name: Install dependencies
-        working-directory: ${{ env.working-directory }}
-        run: yarn install --frozen-lockfile
-      - name: Build
-        working-directory: ${{ env.working-directory }}
-        run: yarn build
-      - name: Upload files
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ${{ env.working-directory }}/
-          server-dir: ./digital-impact-simulator/mailer/
-          dangerous-clean-slate: true
