@@ -8,34 +8,39 @@ import NotFoundError from '../../_lib/errors/NotFoundError';
 import { getBody } from '../../_lib/helpers/getBody';
 
 export default handler(async (req, res) => {
-	const groupSlug = req.query['slug'] as string;
+  const groupSlug = req.query['slug'] as string;
 
-	const memberId = req.query['memberId'] as string;
+  const memberId = req.query['memberId'] as string;
 
-	switch (req.method) {
-		case 'PUT': return await put(groupSlug, memberId, req);
-
-		default:
-			res.statusCode = 404;
-			break;
-	}
+  switch (req.method) {
+    case 'PUT':
+      return await put(groupSlug, memberId, req);
+    default:
+      res.statusCode = 404;
+      break;
+  }
 });
 
+const put = async (groupSlug: string, memberId: string, req: VercelRequest): Promise<string> => {
+  const body = await validator(memberUpdateSchema, getBody(req));
 
-async function put(groupSlug: string, memberId: string, req: VercelRequest) {
-	const body = await validator(memberUpdateSchema, getBody(req));
+  const db = await connectToDb();
 
-	const db = await connectToDb();
+  return db
+    .collection<Group>('groups')
+    .updateOne(
+      { slug: groupSlug, 'members.id': memberId },
+      {
+        $set: {
+          'members.$.stats': body.stats,
+          'members.$.name': body.name,
+          updatedAt: new Date(),
+        },
+      }
+    )
+    .then((r) => {
+      if (r.modifiedCount === 0) throw new NotFoundError();
 
-	const group = (await db.collection<Group>('groups').updateOne({ slug: groupSlug, 'members.id': memberId }, {
-		$set: {
-			"members.$.stats": body.stats,
-			"members.$.name": body.name,
-			updatedAt: new Date()
-		}
-	}));
-
-	if (!group.result.ok) throw new NotFoundError();
-
-	return JSON.stringify('ok');
-}
+      return JSON.stringify('ok');
+    });
+};

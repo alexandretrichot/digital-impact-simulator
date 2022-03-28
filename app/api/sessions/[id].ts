@@ -23,7 +23,7 @@ export default handler(async (req, res) => {
 	}
 });
 
-async function get(sessionId: ObjectId) {
+const get = async (sessionId: ObjectId): Promise<Partial<Session>> => {
 	const db = await connectToDb();
 
 	const session = await db.collection<Session>('sessions').findOne({ _id: sessionId });
@@ -35,10 +35,10 @@ async function get(sessionId: ObjectId) {
 		email: session.email,
 		stats: session.stats,
 		from: session.from,
-	} as Partial<Session>;
+	};
 }
 
-async function put(sessionId: ObjectId, req: VercelRequest) {
+const put = async (sessionId: ObjectId, req: VercelRequest): Promise<Partial<Session>> => {
 	const body = await validator(sessionSchema, getBody(req));
 
 	const db = await connectToDb();
@@ -57,5 +57,5 @@ async function put(sessionId: ObjectId, req: VercelRequest) {
 		email: session.email,
 		stats: session.stats,
 		from: session.from,
-	} as Partial<Session>;
+	};
 }
