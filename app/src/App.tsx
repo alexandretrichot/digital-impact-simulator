@@ -15,7 +15,7 @@ import LegalPage from './views/legal';
 import CreditsPage from './views/credits';
 import DashboardPage from './views/dashboard';
 
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <div className="layout">

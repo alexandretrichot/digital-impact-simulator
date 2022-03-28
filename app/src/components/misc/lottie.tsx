@@ -16,7 +16,7 @@ const Lottie: React.FC<Props> = props => {
 		import(`../../assets/animations/${props.anim}.json`).then(data => {
 			anim = lottieWeb.loadAnimation({
 				container: container.current!,
-				animationData: data,
+				animationData: data.default,
 				//renderer: 'canvas',
 				rendererSettings: {
 					className: 'lottie',
