@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet';
 
-const LegalPage: React.FC = () => {
+export const LegalPage: React.FC = () => {
 	return (
 		<div id="home" className="page wrapper">
 			<Helmet>
@@ -61,5 +61,3 @@ const LegalPage: React.FC = () => {
 		</div>
 	);
 }
-
-export default LegalPage;

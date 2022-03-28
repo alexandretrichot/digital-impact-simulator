@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 
 import './credits.scss';
 
-const CreditsPage: React.FC = () => {
+export const CreditsPage: React.FC = () => {
 	return (
 		<div id="credits" className="page wrapper">
 			<Helmet>
@@ -98,5 +98,3 @@ const CreditsPage: React.FC = () => {
 		</div>
 	);
 }
-
-export default CreditsPage;

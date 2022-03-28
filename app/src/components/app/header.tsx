@@ -4,7 +4,7 @@ import './header.scss';
 import mneLogo from '../../assets/images/mne.png';
 import { Link } from 'react-router-dom';
 
-const AppHeader: React.FC = () => {
+export const AppHeader: React.FC = () => {
 	return (
 		<header id="app-header" className="wrapper">
 			<Link to="/" className="mne-logo">
@@ -15,6 +15,3 @@ const AppHeader: React.FC = () => {
 		</header>
 	);
 }
-
-export default AppHeader;
-

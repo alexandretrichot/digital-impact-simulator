@@ -11,7 +11,7 @@ import odd12Icon from '../../assets/images/odd12.jpg';
 import odd13Icon from '../../assets/images/odd13.jpg';
 import odd17Icon from '../../assets/images/odd17.jpg';
 
-const AppFooter: React.FC = () => {
+export const AppFooter: React.FC = () => {
 	return (
 		<footer id="app-footer">
 			<div className="main">

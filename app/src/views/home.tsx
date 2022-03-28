@@ -3,7 +3,7 @@ import './home.scss';
 import Lottie from '../components/misc/lottie';
 import { Link } from 'react-router-dom';
 
-const HomePage: React.FC = () => {
+export const HomePage: React.FC = () => {
 	return (
 		<div id="home" className="page wrapper">
 			<div className="intro">
@@ -25,5 +25,3 @@ const HomePage: React.FC = () => {
 		</div>
 	);
 }
-
-export default HomePage;

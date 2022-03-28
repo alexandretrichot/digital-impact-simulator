@@ -5,8 +5,8 @@ import { Stats } from '../../types';
 import { getGesStats, getKWhStats } from '../../utils';
 import values from '../../values';
 
-import fridgeIcon from '../../assets/icons/fridge.svg';
-import carIcon from '../../assets/icons/car.svg';
+import fridgeIcon from '../../assets/icons/fridge.svg?url';
+import carIcon from '../../assets/icons/car.svg?url';
 
 import Sum from './sum';
 import Graph from './graph';
